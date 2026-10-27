@@ -13,7 +13,7 @@ const SOLUTIONS: Record<string, Record<string, string[]>> = {
   'g8-independent': {valves:['large-open','small-close'],cable:['clip-b','clip-a','connect-square','test'],switches:['right-on','test']},
   'g8-transfer': {valves:['small-open','large-close'],cable:['clip-a','clip-b','connect-round','test'],switches:['left-on','test']},
   'g9-guided': {valves:['small-open','test','small-close','test','small-open','test'],cable:['connect-square','clip-a','clip-b','test'],switches:['fan-on','test']},
-  'g9-independent': {valves:['large-open','small-close'],cable:['connect-round','clip-b','clip-a','test'],switches:['right-on','test']},
+  'g9-independent': {valves:['large-open','small-close'],cable:['connect-round','clip-b','clip-a','test'],switches:['tag-left','right-on','test']},
   'g9-transfer': {valves:['small-close','large-open'],cable:['clip-a','clip-b','connect-round','test'],switches:['fan-on','test']}
 };
 function mission(id:string):Mission {const m=MISSIONS.find(m=>m.id===id);assert.ok(m,`missing ${id}`);return m;}
@@ -62,11 +62,11 @@ test('G8 transfer requested receiver differs from remembered cooling-line action
 test('G9 zero-conditional pressure rule repeats open, closed, open',()=>{
   const m=mission('g9-guided'),s=createState(m);assert.equal(world(s,'valves').pressure,1);
   for(const [a,pressure] of [['small-open',3],['test',3],['small-close',1],['test',1],['small-open',3],['test',3]] as const){assert.equal(act(s,m,'valves',a),true);assert.equal(world(s,'valves').pressure,pressure);}
-  assert.equal(s.modules[0].complete,true);assert.match(m.modules[0].manual,/Fixed rule/);
+  assert.equal(s.modules[0].complete,true);assert.match(m.modules[0].manual,/Fixed rule/);assert.match(m.modules[0].manual,/Calibration targets: three, one, three/);assert.doesNotMatch(m.modules[0].manual,/Open it and TEST|Close it and TEST/);
 });
 test('G9 past-passive record identifies replaced relay; explicit current check governs work',()=>{
   const m=mission('g9-independent');assert.match(m.modules[2].manual,/left relay was replaced/);assert.match(m.modules[2].manual,/left relay still fails; the right relay works/);
-  const s=createState(m);assert.equal(act(s,m,'switches','left-on'),false);assert.equal(world(s,'switches').left,false);const t=createState(m);assert.equal(act(t,m,'switches','right-on'),true);assert.equal(world(t,'switches').left,false);assert.equal(world(t,'switches').right,true);
+  const s=createState(m);assert.equal(act(s,m,'switches','left-on'),false);assert.equal(world(s,'switches').left,false);const t=createState(m);assert.equal(act(t,m,'switches','right-on'),false);const tagged=createState(m);assert.equal(act(tagged,m,'switches','tag-left'),true);assert.equal(world(tagged,'switches').maintenanceTag,'left');assert.equal(act(tagged,m,'switches','right-on'),true);assert.equal(world(tagged,'switches').left,false);assert.equal(world(tagged,'switches').right,true);const wrongReceiver=createState(m);assert.equal(act(wrongReceiver,m,'switches','tag-right'),false);
 });
 test('G9 this-startup prediction has a tangible stopped and prevented branch',()=>{
   const m=mission('g9-transfer'),s=createState(m);assert.equal(world(s,'switches').pressure,3);assert.equal(act(s,m,'switches','test'),false);assert.equal(world(s,'switches').pressure,5);assert.equal(world(s,'switches').signal,'stopped');

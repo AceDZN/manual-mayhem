@@ -1,7 +1,7 @@
 {
   "game": "Manual Mayhem",
   "reviewedAt": "2026-10-27",
-  "status": "implemented",
+  "status": "verified",
   "challengeIds": [
     "g7-guided",
     "g7-independent",
@@ -35,10 +35,10 @@
       "tests": [
         "G7 same initial valves; G7 prohibition changes working lever; G7 negative RESET"
       ],
-      "status": "implemented",
+      "status": "verified",
       "verification": {
-        "semanticTests": "23/23 passed 2026-10-27",
-        "browser": "pending"
+        "semanticTests": "25/25 passed 2026-10-27",
+        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     },
     {
@@ -62,10 +62,10 @@
       "tests": [
         "G7 same initial valves; G7 prohibition changes working lever"
       ],
-      "status": "implemented",
+      "status": "verified",
       "verification": {
-        "semanticTests": "23/23 passed 2026-10-27",
-        "browser": "pending"
+        "semanticTests": "25/25 passed 2026-10-27",
+        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     },
     {
@@ -89,10 +89,10 @@
       "tests": [
         "G8 passive by-agent; G8 transfer requested receiver"
       ],
-      "status": "implemented",
+      "status": "verified",
       "verification": {
-        "semanticTests": "23/23 passed 2026-10-27",
-        "browser": "pending"
+        "semanticTests": "25/25 passed 2026-10-27",
+        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     },
     {
@@ -116,10 +116,10 @@
       "tests": [
         "G8 before/after; both clip orders"
       ],
-      "status": "implemented",
+      "status": "verified",
       "verification": {
-        "semanticTests": "23/23 passed 2026-10-27",
-        "browser": "pending"
+        "semanticTests": "25/25 passed 2026-10-27",
+        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     },
     {
@@ -142,10 +142,10 @@
       "tests": [
         "all mission readiness; relay choice"
       ],
-      "status": "implemented",
+      "status": "verified",
       "verification": {
-        "semanticTests": "23/23 passed 2026-10-27",
-        "browser": "pending"
+        "semanticTests": "25/25 passed 2026-10-27",
+        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     },
     {
@@ -158,7 +158,7 @@
         "g9-transfer"
       ],
       "skill": "Identify past maintenance receiver alongside explicitly separate current check",
-      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
+      "evidenceRule": "Attach the REPLACED tag to the record receiver, then act from separately stated current working status; unaided only on first attempt without support.",
       "assistanceConditions": [
         "Guided missions automatically assisted",
         "Hint/translation marks assistance",
@@ -168,10 +168,10 @@
       "tests": [
         "G9 past-passive record"
       ],
-      "status": "implemented",
+      "status": "verified",
       "verification": {
-        "semanticTests": "23/23 passed 2026-10-27",
-        "browser": "pending"
+        "semanticTests": "25/25 passed 2026-10-27",
+        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     },
     {
@@ -184,7 +184,7 @@
         "g9-transfer"
       ],
       "skill": "Repeat fixed zero-conditional rule; predict and prevent this startup outcome",
-      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
+      "evidenceRule": "Infer physical open/close settings for calibration goals 3,1,3 from repeatable rules; predict this-startup stop and change fan plan in paired rules.",
       "assistanceConditions": [
         "Guided missions automatically assisted",
         "Hint/translation marks assistance",
@@ -194,10 +194,10 @@
       "tests": [
         "G9 zero-conditional; G9 this-startup prediction"
       ],
-      "status": "implemented",
+      "status": "verified",
       "verification": {
-        "semanticTests": "23/23 passed 2026-10-27",
-        "browser": "pending"
+        "semanticTests": "25/25 passed 2026-10-27",
+        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     },
     {
@@ -219,10 +219,10 @@
       "tests": [
         "relay choice"
       ],
-      "status": "implemented",
+      "status": "verified",
       "verification": {
-        "semanticTests": "23/23 passed 2026-10-27",
-        "browser": "pending"
+        "semanticTests": "25/25 passed 2026-10-27",
+        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     }
   ],
@@ -235,5 +235,5 @@
     "Literary analysis and extended narrative/opinion writing",
     "Retained mastery or learning gains"
   ],
-  "verificationNote": "All nine fixtures reviewed and 23 independent semantic tests passed. Browser paths pending; no entry is marked verified."
+  "verificationNote": "Nine authored missions passed independent semantic checks and integrated real-control browser wins. Guided assistance, independent and transfer evidence are distinct. Additional physical-control/final polish regression is recorded separately in PLAYTEST.md."
 }

@@ -3,7 +3,8 @@ MIT License
 Copyright (c) 2026 AceDZN
 
 The music compositions, original synthesized instrument sounds, ambience and
-sound effects in this directory were created for Manual Mayhem. No third-party
+sound effects in this directory, including manual-mayhem-preview.mp3,
+were created for Manual Mayhem. No third-party
 recordings or samples are included. This license applies to these original
 audio files and their composition/synthesis source in scripts/audio-compose.py.
 

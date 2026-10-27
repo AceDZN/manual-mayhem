@@ -26,13 +26,13 @@ Eleven separate local cues: `knob` (low detent), `switch` (two-part thunk), `cab
 
 ## Preview and numerical verification
 
-[25-second mixed WAV preview](docs/audio/manual-mayhem-mix-preview.wav). The preview introduces groove at 3s, glass at 8s and lift at 16s, with all eleven effects placed in context. Preview fades are for this standalone demonstration; the game uses a complete loop.
+[25-second mixed WAV preview](docs/audio/manual-mayhem-mix-preview.wav) · [bundled MP3 preview](public/audio/manual-mayhem-preview.mp3), served at `/audio/manual-mayhem-preview.mp3`. Both contain the same original MIT-licensed composition and effects. The preview introduces groove at 3s, glass at 8s and lift at 16s, with all eleven effects placed in context. Preview fades are for this standalone demonstration; the game uses a complete loop.
 
 - Stereo PCM16, 22050 Hz, exactly 25.000 seconds; verified decodable by `ffprobe`.
 - Peak **−11.63 dBFS**, RMS **−27.64 dBFS**, zero clipped samples.
-- All game assets total approximately 5.5 MB. MP3 loop buffers plus eleven short WAV effects; decoded audio memory is approximately 55 MB at the source sample rate, and can increase when browser AudioContext resamples.
+- The sixteen playback assets total approximately 5.5 MiB, plus a 392 KiB MP3 preview. Four music loop buffers, one ambience buffer and eleven short WAV effects; decoded audio memory is approximately 55 MB at the source sample rate, and can increase when browser AudioContext resamples.
 - Source waveform boundary sample changes: harmony 0.0006833, groove 0.0001786, glass 0.0002706, lift 0.0011911; ambient end is matched to its beginning. These measurements bound discontinuity and do not establish subjective musical quality.
-- Full asset measurements: [`docs/audio/audio-metrics.json`](docs/audio/audio-metrics.json).
+- Full asset measurements: [`docs/audio/audio-metrics.json`](docs/audio/audio-metrics.json). The separately served MP3 preview decodes to 25.001 seconds, peak −12.27 dBFS, RMS −28.09 dBFS, zero clipped samples; [`preview-mp3-validation.json`](docs/audio/preview-mp3-validation.json) records its codec measurements and SHA-256.
 
 Rebuild with the bundled Python runtime (NumPy) and local `ffmpeg`: `python3 scripts/audio-compose.py`. Numerical metrics are generated from the source PCM before encoding. `ffprobe -v error -show_entries format=duration:stream=codec_name,sample_rate,channels -of json docs/audio/manual-mayhem-mix-preview.wav` checks the saved deliverable.
 
@@ -44,6 +44,10 @@ Headless Chromium did **not** change native tab visibility when another tab was 
 
 Independent `scripts/audio-validate.py` decoded every saved asset with ffmpeg: sixteen successes, zero clipped samples; all four decoded score loops retain exactly 71.111111 seconds, ambience 17.777778 seconds. Encoded boundary deltas are recorded in [`docs/audio/encoding-validation.json`](docs/audio/encoding-validation.json).
 
-An integrated game-UI test was attempted with `node scripts/audio-game-qa.mjs`; it timed out waiting for the initial full-page load before Start. Its final snapshot was the valid intro with no audio context. [`docs/audio/integrated-audio-qa-failure.json`](docs/audio/integrated-audio-qa-failure.json) preserves that evidence. The lead is diagnosing game rendering performance; game-button integration is **not yet verified** by this audio run. Main settings were reviewed and corrected by the lead to pause action pressure while ducking audio, allowing sound check after Start. The separate harness does not establish that the game's buttons work.
+The later independent **integrated game-UI run passed all nine missions** using real controls. [`docs/qa/browser-results.json`](docs/qa/browser-results.json) records gesture-driven AudioContext start, sixteen loaded assets, five active sources, settings persistence, pause suspension, Escape resume and restart retaining five sources, with no console errors. [`docs/qa/browser-playtest.mjs`](docs/qa/browser-playtest.mjs) contains the exact assertions: the music slider is set to zero through its keyboard control and remains zero after reload; pause suspends the context; Escape resumes; restart preserves the source count. The sound-check button was clicked in this run, while the separate harness established actual cue playback.
+
+The inspected state captures support layer endpoints: [`skill-client/state-0.json`](docs/qa/skill-client/state-0.json) shows the initial running mix with zero added module stems and nonzero RMS; all three transfer-win captures ([G7](docs/qa/g7-transfer-won.json), [G8](docs/qa/g8-transfer-won.json), [G9](docs/qa/g9-transfer-won.json)) show three module stems and five active sources. [`keyboard-cable.json`](docs/qa/keyboard-cable.json) captures an intermediate one-stem state. These integrated snapshots do not separately establish every intermediate stem transition; the standalone audio harness checks the layer API.
+
+Earlier diagnostic history: `node scripts/audio-game-qa.mjs` initially timed out waiting for the full-page load before Start. Its final snapshot was the valid intro with no audio context; [`integrated-audio-qa-failure.json`](docs/audio/integrated-audio-qa-failure.json) preserves that earlier evidence. The later successful independent UI run supersedes that initial loading blocker. Main settings now pause action pressure while ducking audio, allowing sound check after Start.
 
 No human listening or subjective audition is claimed; numerical analysis and automated playback alone are not listening.

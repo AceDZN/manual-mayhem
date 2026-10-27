@@ -1,0 +1,13 @@
+{
+  "file": "public/audio/manual-mayhem-preview.mp3",
+  "source": "docs/audio/manual-mayhem-mix-preview.wav",
+  "license": "public/audio/LICENSE.txt (MIT, original composition and synthesized effects)",
+  "bytes": 401702,
+  "sha256": "804e84afafefb50e3c8cb54f1368032d5c0d37a562c2c21e1a7de48cd832e181",
+  "decodedDuration": 25.001315192743764,
+  "sampleRate": 22050,
+  "channels": 2,
+  "peakDBFS": -12.27,
+  "rmsDBFS": -28.09,
+  "clippedSamples": 0
+}

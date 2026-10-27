@@ -1,0 +1,125 @@
+{
+  "results": [
+    {
+      "check": "gesture starts real AudioContext + loops",
+      "audio": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 0,
+        "stemLevels": [
+          0.9,
+          0,
+          0,
+          0,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.8,
+          "music": 0.75,
+          "sfx": 0.8,
+          "voice": 1
+        },
+        "activeShots": 0,
+        "cueCount": 0,
+        "lastCue": null,
+        "rms": 0.007315,
+        "transportSeconds": 0.36,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "check": "complete mission via controls",
+      "mission": "g7-guided",
+      "status": "won",
+      "events": 8,
+      "assisted": true
+    },
+    {
+      "check": "complete mission via controls",
+      "mission": "g7-independent",
+      "status": "won",
+      "events": 8,
+      "assisted": false
+    },
+    {
+      "check": "complete mission via controls",
+      "mission": "g7-transfer",
+      "status": "won",
+      "events": 9,
+      "assisted": false
+    },
+    {
+      "check": "complete mission via controls",
+      "mission": "g8-guided",
+      "status": "won",
+      "events": 8,
+      "assisted": true
+    },
+    {
+      "check": "complete mission via controls",
+      "mission": "g8-independent",
+      "status": "won",
+      "events": 9,
+      "assisted": false
+    },
+    {
+      "check": "complete mission via controls",
+      "mission": "g8-transfer",
+      "status": "won",
+      "events": 9,
+      "assisted": false
+    },
+    {
+      "check": "complete mission via controls",
+      "mission": "g9-guided",
+      "status": "won",
+      "events": 12,
+      "assisted": true
+    },
+    {
+      "check": "complete mission via controls",
+      "mission": "g9-independent",
+      "status": "won",
+      "events": 9,
+      "assisted": false
+    },
+    {
+      "check": "complete mission via controls",
+      "mission": "g9-transfer",
+      "status": "won",
+      "events": 10,
+      "assisted": false
+    },
+    {
+      "check": "wrong order / visible strike / recovery / correct order",
+      "status": "pass"
+    },
+    {
+      "check": "hint assistance + restart retry persistence",
+      "status": "pass"
+    },
+    {
+      "check": "settings saved / pause suspends / Escape resumes / restart no doubled loops",
+      "loops": 5,
+      "status": "pass"
+    },
+    {
+      "check": "keyboard Tab/Enter core actions + M + layered Escape",
+      "status": "pass"
+    },
+    {
+      "check": "390px touch module and manual; 844px landscape resize",
+      "status": "pass"
+    },
+    {
+      "check": "static partner manual contains nine serial procedures and no live machine",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

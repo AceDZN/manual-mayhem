@@ -1,0 +1,118 @@
+{
+  "mode": "manual",
+  "mission": {
+    "id": "g9-transfer",
+    "grade": 9,
+    "stage": "transfer",
+    "title": "תחזית להתנעה הבאה",
+    "variant": "A"
+  },
+  "coordinateSystem": "device front: x right, y up; left/right fixed facing module; z toward player",
+  "selected": null,
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-23",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "small": true,
+        "large": false,
+        "pressure": 1
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-23",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "connected": "none",
+        "clipA": false,
+        "clipB": false,
+        "signal": "idle"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-23",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": false,
+        "fan": false,
+        "pressure": 3,
+        "signal": "idle"
+      }
+    }
+  ],
+  "manual": [
+    {
+      "serial": "V-23",
+      "text": "Before this startup, close the small valve before you open the large valve."
+    },
+    {
+      "serial": "C-23",
+      "text": "The square socket was replaced. Current check: both sockets work. For this startup, connect below the round screen after both clips are closed, then TEST."
+    },
+    {
+      "serial": "S-23",
+      "text": "For this startup: If the pressure reaches five, the engine will stop. Current pressure: three. The next test adds two without the fan, or zero with it. Start the fan before TEST. Do not turn on either relay."
+    }
+  ],
+  "relay": true,
+  "prediction": true,
+  "strikes": 0,
+  "time": null,
+  "evidence": {
+    "assisted": false,
+    "retries": 0,
+    "events": [
+      {
+        "action": "prediction:0",
+        "module": "prediction",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "relay:1",
+        "module": "relay",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      }
+    ]
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 0,
+    "stemLevels": [
+      0.9,
+      0,
+      0,
+      0,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": true,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "activeShots": 0,
+    "cueCount": 171,
+    "lastCue": "latch",
+    "rms": 0.003426,
+    "transportSeconds": 121.53,
+    "voiceAvailable": false
+  },
+  "feedback": "ההודעה שומרת את הפעולה, הסדר והמגבלה."
+}

@@ -1,0 +1,104 @@
+{
+  "mode": "manual",
+  "mission": {
+    "id": "g7-transfer",
+    "grade": 7,
+    "stage": "transfer",
+    "title": "במת הלילה",
+    "variant": "A"
+  },
+  "coordinateSystem": "device front: x right, y up; left/right fixed facing module; z toward player",
+  "selected": null,
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-03",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "small": false,
+        "large": true,
+        "pressure": 2
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-03",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "connected": "none",
+        "clipA": false,
+        "clipB": false,
+        "signal": "idle"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-03",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": false,
+        "fan": false,
+        "pressure": 4,
+        "receiver": "none",
+        "signal": "idle"
+      }
+    }
+  ],
+  "manual": [
+    {
+      "serial": "V-03",
+      "text": "Open the small valve. Then close the large valve. You must not press RESET."
+    },
+    {
+      "serial": "C-03",
+      "text": "First, close both clips. Next, connect the cable below the round screen. Finally, press TEST."
+    },
+    {
+      "serial": "S-03",
+      "text": "Turn on the right lever. Turn on the left lever after that. Do not press RESET. Finally, press TEST."
+    }
+  ],
+  "relay": true,
+  "prediction": true,
+  "strikes": 0,
+  "time": null,
+  "evidence": {
+    "assisted": false,
+    "retries": 0,
+    "events": []
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 0,
+    "stemLevels": [
+      0.9,
+      0,
+      0,
+      0,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": true,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "activeShots": 0,
+    "cueCount": 41,
+    "lastCue": "page",
+    "rms": 0.002858,
+    "transportSeconds": 27.16,
+    "voiceAvailable": false
+  },
+  "feedback": ""
+}

@@ -1,0 +1,112 @@
+{
+  "mode": "manual",
+  "mission": {
+    "id": "g8-transfer",
+    "grade": 8,
+    "stage": "transfer",
+    "title": "מכונת הגשם",
+    "variant": "A"
+  },
+  "coordinateSystem": "device front: x right, y up; left/right fixed facing module; z toward player",
+  "selected": null,
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-13",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "small": false,
+        "large": true,
+        "pressure": 2
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-13",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "connected": "none",
+        "clipA": false,
+        "clipB": false,
+        "signal": "idle"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-13",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": false,
+        "fan": false,
+        "pressure": 4,
+        "receiver": "none",
+        "signal": "idle"
+      }
+    }
+  ],
+  "manual": [
+    {
+      "serial": "V-13",
+      "text": "Before you close the large valve, open the small valve."
+    },
+    {
+      "serial": "C-13",
+      "text": "The cable is connected below the round screen after both clips are closed. Then TEST."
+    },
+    {
+      "serial": "S-13",
+      "text": "The music line is opened by the left lever. The cooling line is opened by the right lever. Open only the music line, then TEST."
+    }
+  ],
+  "relay": true,
+  "prediction": true,
+  "strikes": 0,
+  "time": null,
+  "evidence": {
+    "assisted": false,
+    "retries": 0,
+    "events": [
+      {
+        "action": "relay:2",
+        "module": "relay",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      }
+    ]
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 0,
+    "stemLevels": [
+      0.9,
+      0,
+      0,
+      0,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": true,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "activeShots": 0,
+    "cueCount": 104,
+    "lastCue": "latch",
+    "rms": 0.002655,
+    "transportSeconds": 73.65,
+    "voiceAvailable": false
+  },
+  "feedback": "ההודעה שומרת את הפעולה, הסדר והמגבלה."
+}
