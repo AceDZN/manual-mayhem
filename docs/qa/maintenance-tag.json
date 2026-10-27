@@ -1,0 +1,114 @@
+{
+  "mode": "playing",
+  "mission": {
+    "id": "g9-independent",
+    "grade": 9,
+    "stage": "independent",
+    "title": "יומן התיקונים",
+    "variant": "A"
+  },
+  "coordinateSystem": "device front: x right, y up; left/right fixed facing module; z toward player",
+  "selected": "switches",
+  "view": {
+    "rotation": 0,
+    "camera": [
+      3.280000467598297,
+      2.650000710785389,
+      9.300000911951066
+    ]
+  },
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-22",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "small": true,
+        "large": false,
+        "pressure": 1
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-22",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "connected": "none",
+        "clipA": false,
+        "clipB": false,
+        "signal": "idle"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-22",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": false,
+        "fan": false,
+        "pressure": 4,
+        "receiver": "none",
+        "signal": "idle",
+        "maintenanceTag": "left"
+      }
+    }
+  ],
+  "relay": true,
+  "prediction": true,
+  "strikes": 1,
+  "time": 240,
+  "evidence": {
+    "assisted": false,
+    "retries": 1,
+    "events": [
+      {
+        "action": "tag-right",
+        "module": "switches",
+        "correct": false,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "tag-left",
+        "module": "switches",
+        "correct": true,
+        "assisted": false,
+        "retry": 1
+      }
+    ]
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 0,
+    "stemLevels": [
+      0.9,
+      0,
+      0,
+      0,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": false,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "activeShots": 1,
+    "cueCount": 45,
+    "lastCue": "switch",
+    "rms": 0.015478,
+    "transportSeconds": 63.57,
+    "voiceAvailable": false
+  },
+  "feedback": "הפעולה התקבלה. המשיכו לפי המדריך."
+}

@@ -80,7 +80,7 @@ test('G9 paired startup reverses fan plan and generic world rule without mission
   const oldPlan=createState(m);assert.equal(act(oldPlan,m,'switches','fan-on'),false);
 });
 test('relay choice preserves procedure/order/prohibition and wrong relay is assisted evidence',()=>{
-  const m=mission('g9-transfer'),s=createState(m);assert.match(m.relay!.options[m.relay!.correct],/before TEST; leave both relays off/);assert.equal(choose(s,m,'relay',0),false);assert.equal(s.relay,false);assert.equal(s.assisted,true);assert.equal(choose(s,m,'relay',1),true);assert.equal(s.events.at(-1)?.assisted,true);
+  const m=mission('g9-transfer'),s=createState(m);assert.match(m.relay!.options[m.relay!.correct],/before TEST; leave both relays off/);assert.match(m.relay!.options[m.relay!.correct],/If (the )?pressure reaches five, the engine will stop/);assert.equal(choose(s,m,'relay',0),false);assert.equal(s.relay,false);assert.equal(s.assisted,true);assert.equal(choose(s,m,'relay',1),true);assert.equal(s.events.at(-1)?.assisted,true);
 });
 test('three mistakes shut down; no action silently repairs after shutdown',()=>{
   const m=mission('g7-independent'),s=createState(m);for(const id of ['valves','cable','switches'])assert.equal(act(s,m,id,'reset'),false);assert.equal(s.status,'shutdown');assert.equal(s.strikes,3);assert.equal(act(s,m,'valves','large-open'),false);resetModule(s,m,'valves');assert.equal(s.status,'shutdown');assert.equal(s.strikes,3);

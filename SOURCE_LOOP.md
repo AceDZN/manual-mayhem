@@ -9,3 +9,7 @@ Content plan: one dominant working device, short mission strip, compact paper ma
 Interaction thesis: tactile quarter-turn wheels, cable snapping between sockets, gauges and musical stems settling as modules stabilize.
 
 Reference: https://store.steampowered.com/app/341800/Keep_Talking_and_Nobody_Explodes/ . This game does not reproduce commercial code, artwork, sounds, logos or bomb designs.
+
+## Verified 60-second causal sequence
+
+`docs/qa/source-sequence/sequence.json` records seven real browser screenshots and matching serialized states at 0.10, 10.71, 20.12, 30.64, 40.13, 50.11 and 60.04 seconds. The tester read the separate manual, deliberately opened the wrong valve first (one strike/vent), recovered, stabilized valves, physically dragged the cable to the square socket, closed both clips and tested, stabilized the relay, then pressed the final engine-start control. The final real state is `won` with three stable modules and the preserved strike. No state was injected. The 60-second sequence demonstrates source-loop fidelity; independent unaided transfer is evidenced separately in PLAYTEST.md.

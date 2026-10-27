@@ -1,0 +1,75 @@
+{
+  "results": [
+    {
+      "check": "background drag rotates overview",
+      "rotation": 0.33,
+      "status": "pass"
+    },
+    {
+      "check": "actual wheel rim drag closes small valve without changing module view",
+      "status": "pass"
+    },
+    {
+      "check": "actual large wheel raycast click opens valve",
+      "status": "pass"
+    },
+    {
+      "check": "cable release away from socket cancels without action/strike",
+      "status": "pass"
+    },
+    {
+      "check": "physical cable drag/drop + two clips + TEST",
+      "status": "pass"
+    },
+    {
+      "check": "advanceTime pressure freezing/manual/help/inspection/pause and overview advance",
+      "status": "pass"
+    },
+    {
+      "check": "B variant wrong TEST→5/stopped, reset, fan-off prevents at4, complete startup",
+      "status": "pass"
+    },
+    {
+      "check": "past-passive wrong receiver tag rejected and left receiver attached",
+      "status": "pass"
+    },
+    {
+      "check": "tab blur",
+      "audio": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 0,
+        "stemLevels": [
+          0.9,
+          0,
+          0,
+          0,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.8,
+          "music": 0.75,
+          "sfx": 0.8,
+          "voice": 1
+        },
+        "activeShots": 0,
+        "cueCount": 45,
+        "lastCue": "switch",
+        "rms": 0.009797,
+        "transportSeconds": 64.82,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "check": "failure",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nfalse !== true\n"
+    }
+  ],
+  "errors": [],
+  "environmentNote": "Last assertion attempted actual new-tab blur in headless Chromium; no blur/visibility event occurred. Game physical, B-variant and timer tests passed before that environment-specific check. Headed and synthetic follow-up runs recorded separately."
+}

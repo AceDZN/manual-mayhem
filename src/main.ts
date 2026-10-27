@@ -18,6 +18,7 @@ let mission: Mission = MISSIONS[0],
   translation = false,
   challenge = false,
   time = 240;
+const choiceSessionSeed = Math.floor(Math.random() * 0xffffffff);
 let paired = false;
 let saved: Record<
   string,
@@ -234,7 +235,7 @@ if (partner) {
         `<div class="modal" dir="rtl"><div class="eyebrow">ALL SYSTEMS STABLE</div><h2>מוכנים להתנעה.</h2><p>שלושת המודולים יציבים. הפעילו את מנוע הפסטיבל.</p><button id="engine-start" class="primary">START ENGINE ←</button></div>`;
     } else if (state.status === "won") {
       $("overlay").innerHTML =
-        `<div class="modal" dir="rtl"><div class="eyebrow">FESTIVAL ENGINE ONLINE</div><h2>המוזיקה חזרה!</h2><p>${state.strikes} פסילות · ${state.retries} ניסיונות חוזרים · ${state.assisted ? "עם תמיכה" : "ללא רמז או תרגום"}</p><p>${mission.stage === "transfer" && !state.assisted && !state.strikes && !state.retries ? "העברה בהקשר חדש בוצעה בניסיון ראשון." : "זהו תרגול של הבנת הוראות. אפשר לחזור לניסיון עצמאי."}</p><button id="next" class="primary">${MISSIONS.indexOf(mission) % 3 === 2 ? "למסלול הבא" : "למשימה הבאה"} ←</button><button id="retry-win">ניסיון נוסף</button></div>`;
+        `<div class="modal" dir="rtl"><div class="eyebrow">FESTIVAL ENGINE ONLINE</div><h2>המוזיקה חזרה!</h2><p>${state.strikes} פסילות · ${state.retries} ניסיונות חוזרים · ${state.assisted ? "עם תמיכה" : "ללא רמז או תרגום"}</p><p>${mission.stage === "transfer" && !state.assisted && !state.strikes && !state.retries ? "העברה בהקשר חדש בוצעה בניסיון ראשון." : "זהו תרגול של הבנת הוראות. אפשר לחזור לניסיון עצמאי."}</p><button id="next" class="primary">${MISSIONS.findIndex((m) => m.id === mission.id) % 3 === 2 ? "למסלול הבא" : "למשימה הבאה"} ←</button><button id="retry-win">ניסיון נוסף</button></div>`;
     } else if (state.status === "shutdown") {
       $("overlay").innerHTML =
         `<div class="modal" dir="rtl"><div class="eyebrow">HARMLESS SHUTDOWN</div><h2>המנוע נח להפסקה.</h2><p>שלוש פסילות עצרו את הבדיקה. אפשר להתחיל שוב עם אותן הוראות.</p><button id="retry-shutdown" class="primary">ניסיון מחדש</button></div>`;
@@ -250,18 +251,16 @@ if (partner) {
   }
   function choiceHtml(type: "prediction" | "relay") {
     const c = mission[type]!;
-    return `<section class="message-task"><div class="serial">${type === "relay" ? "OPERATOR RELAY" : "STARTUP PREDICTION"} ${state[type] ? "✓" : ""}</div><p dir="rtl">${type === "relay" ? "בחרו הודעה שלמה למפעיל:" : "לפני פעולה: צפו את התוצאה."}</p>${c.prompt ? `<p lang="en" dir="ltr">${c.prompt}</p>` : ""}${c.options
-      .map((o, i) => ({
-        o,
-        i,
-        rank:
-          ((i + 1) * 37 +
-            mission.grade * 13 +
-            mission.id.length * 7 +
-            (paired ? 11 : 0)) %
-          101,
-      }))
-      .sort((a, b) => a.rank - b.rank)
+    const ordered = c.options.map((o, i) => ({ o, i }));
+    let seed = choiceSessionSeed;
+    for (const ch of mission.id + type + (paired ? "B" : "A"))
+      seed = Math.imul(seed ^ ch.charCodeAt(0), 16777619) >>> 0;
+    for (let i = ordered.length - 1; i > 0; i--) {
+      seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+      const j = Math.floor((seed / 4294967296) * (i + 1));
+      [ordered[i], ordered[j]] = [ordered[j], ordered[i]];
+    }
+    return `<section class="message-task"><div class="serial">${type === "relay" ? "OPERATOR RELAY" : "STARTUP PREDICTION"} ${state[type] ? "✓" : ""}</div><p dir="rtl">${type === "relay" ? "בחרו הודעה שלמה למפעיל:" : "לפני פעולה: צפו את התוצאה."}</p>${c.prompt ? `<p lang="en" dir="ltr">${c.prompt}</p>` : ""}${ordered
       .map(
         ({ o, i }) =>
           `<button data-choice="${type}" data-index="${i}" dir="ltr" ${state[type] ? "disabled" : ""}>${o}</button>`,
@@ -294,11 +293,11 @@ if (partner) {
               },
               relay: {
                 source:
-                  "For this startup, stop the fan before TEST. Do not turn on either relay.",
+                  "For this startup: If the pressure reaches five, the engine will stop. Stop the fan before TEST. Do not turn on either relay.",
                 options: [
-                  "Start the fan before TEST.",
-                  "Stop the fan before TEST; leave both relays off.",
-                  "Stop both relays after TEST.",
+                  "If the pressure reaches five, the engine will stop. Start the fan before TEST; leave both relays off.",
+                  "If the pressure reaches five, the engine will stop. Stop the fan before TEST; leave both relays off.",
+                  "If the pressure reaches five, the engine will stop. Stop both relays after TEST; keep the fan on.",
                 ],
                 correct: 1,
               },
@@ -357,6 +356,7 @@ if (partner) {
     });
     click("recover", () => {
       resetModule(state, mission, selected!);
+      recordAttempt();
       audio.cue("reset");
       update();
     });
@@ -392,6 +392,7 @@ if (partner) {
         const retries = state.retries + 1;
         loadMission(mission);
         state.retries = retries;
+        recordAttempt();
         update();
       });
     click("mute", () => {
@@ -433,6 +434,7 @@ if (partner) {
     const r = state.retries + 1;
     loadMission(mission);
     state.retries = r;
+    recordAttempt();
     update();
   };
   $("pause").onclick = () => {
@@ -486,7 +488,20 @@ if (partner) {
   });
   let last = performance.now(),
     seconds = 0;
-  function step(ms: number) {
+  let windowBlurred = false;
+  document.addEventListener("visibilitychange", () => {
+    last = performance.now();
+  });
+  window.addEventListener("blur", () => {
+    windowBlurred = true;
+    last = performance.now();
+  });
+  window.addEventListener("focus", () => {
+    windowBlurred = false;
+    last = performance.now();
+    scene.settleTime = 2;
+  });
+  function step(ms: number, draw = true) {
     const dt = Math.min(ms / 1000, 0.1);
     if (
       started &&
@@ -497,7 +512,8 @@ if (partner) {
       !selected &&
       state.status === "playing" &&
       challenge &&
-      !document.hidden
+      !document.hidden &&
+      !windowBlurred
     ) {
       time = Math.max(0, time - ms / 1000);
       if (time === 0) {
@@ -511,7 +527,7 @@ if (partner) {
         if (small) small.textContent = Math.ceil(time) + "s";
       }
     }
-    scene.render(dt);
+    scene.render(paused || settings || windowBlurred ? 0 : dt, draw);
   }
   function loop(now: number) {
     if (now - last >= 40 && !document.hidden) {
@@ -523,7 +539,8 @@ if (partner) {
   requestAnimationFrame(loop);
   (window as any).advanceTime = (ms: number) => {
     for (let i = 0; i < Math.ceil(ms / 16.667); i++)
-      step(Math.min(16.667, ms - i * 16.667));
+      step(Math.min(16.667, ms - i * 16.667), false);
+    scene.renderer.render(scene.scene, scene.camera);
   };
   (window as any).render_game_to_text = () =>
     JSON.stringify({

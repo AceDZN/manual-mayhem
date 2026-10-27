@@ -590,7 +590,10 @@ export class EngineScene {
       if (Math.abs(dx) + Math.abs(e.clientY - drag.y) > 8) drag.moved = true;
       if (drag.data.control === "source") {
         if (this.wirePreview) this.root.remove(this.wirePreview);
-        const v = this.ray.ray.at(11, new T.Vector3());
+        const front = new T.Plane(new T.Vector3(0, 0, 1), -1.92);
+        const v =
+          this.ray.ray.intersectPlane(front, new T.Vector3()) ||
+          this.ray.ray.at(8, new T.Vector3());
         this.root.worldToLocal(v);
         this.wirePreview = this.line(
           [new T.Vector3(0.91, 1.43, 1.9), new T.Vector3(0.8, 1, 2.8), v],
@@ -752,7 +755,8 @@ export class EngineScene {
       this.puffs.push({ sprite, life: 1.4 });
     }
   }
-  render(dt: number) {
+  render(dt: number, draw = true) {
+    if (dt === 0 && this.settleTime <= 0) return;
     for (const p of this.puffs) {
       p.life -= dt;
       p.sprite.position.y += dt * 0.9;
@@ -803,6 +807,7 @@ export class EngineScene {
       this.toggleR.rotation.x = s.right ? -0.5 : 0.5;
       if (s.fan) this.fan.rotation.z += dt * 7;
     }
-    this.renderer.render(this.scene, this.camera);
+    if (dt === 0) this.settleTime = 0;
+    if (draw) this.renderer.render(this.scene, this.camera);
   }
 }

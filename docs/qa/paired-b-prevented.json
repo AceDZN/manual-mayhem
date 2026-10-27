@@ -1,0 +1,133 @@
+{
+  "mode": "playing",
+  "mission": {
+    "id": "g9-transfer",
+    "grade": 9,
+    "stage": "transfer",
+    "title": "תחזית חדשה · דגם B",
+    "variant": "B"
+  },
+  "coordinateSystem": "device front: x right, y up; left/right fixed facing module; z toward player",
+  "selected": "switches",
+  "view": {
+    "rotation": 0,
+    "camera": [
+      3.280000056326384,
+      2.6500000592321102,
+      9.300000075995914
+    ]
+  },
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-23",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "small": true,
+        "large": false,
+        "pressure": 1
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-23",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "connected": "none",
+        "clipA": false,
+        "clipB": false,
+        "signal": "idle"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-24",
+      "complete": true,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": false,
+        "fan": false,
+        "pressure": 4,
+        "signal": "stable"
+      }
+    }
+  ],
+  "relay": true,
+  "prediction": true,
+  "strikes": 1,
+  "time": 239,
+  "evidence": {
+    "assisted": false,
+    "retries": 1,
+    "events": [
+      {
+        "action": "prediction:0",
+        "module": "prediction",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "relay:1",
+        "module": "relay",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "switches",
+        "correct": false,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "fan-off",
+        "module": "switches",
+        "correct": true,
+        "assisted": false,
+        "retry": 1
+      },
+      {
+        "action": "test",
+        "module": "switches",
+        "correct": true,
+        "assisted": false,
+        "retry": 1
+      }
+    ]
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 1,
+    "stemLevels": [
+      0.9,
+      0.92,
+      0,
+      0,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": false,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "activeShots": 3,
+    "cueCount": 27,
+    "lastCue": "activate",
+    "rms": 0.017622,
+    "transportSeconds": 50.59,
+    "voiceAvailable": false
+  },
+  "feedback": "המודול יציב. ההוראה הפכה לפעולה מדויקת."
+}

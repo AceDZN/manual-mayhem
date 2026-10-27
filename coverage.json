@@ -37,7 +37,7 @@
       ],
       "status": "verified",
       "verification": {
-        "semanticTests": "25/25 passed 2026-10-27",
+        "semanticTests": "25/25 passed on final source, 2026-10-27",
         "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     },
@@ -64,7 +64,7 @@
       ],
       "status": "verified",
       "verification": {
-        "semanticTests": "25/25 passed 2026-10-27",
+        "semanticTests": "25/25 passed on final source, 2026-10-27",
         "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     },
@@ -91,7 +91,7 @@
       ],
       "status": "verified",
       "verification": {
-        "semanticTests": "25/25 passed 2026-10-27",
+        "semanticTests": "25/25 passed on final source, 2026-10-27",
         "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     },
@@ -118,7 +118,7 @@
       ],
       "status": "verified",
       "verification": {
-        "semanticTests": "25/25 passed 2026-10-27",
+        "semanticTests": "25/25 passed on final source, 2026-10-27",
         "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     },
@@ -144,7 +144,7 @@
       ],
       "status": "verified",
       "verification": {
-        "semanticTests": "25/25 passed 2026-10-27",
+        "semanticTests": "25/25 passed on final source, 2026-10-27",
         "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     },
@@ -170,7 +170,7 @@
       ],
       "status": "verified",
       "verification": {
-        "semanticTests": "25/25 passed 2026-10-27",
+        "semanticTests": "25/25 passed on final source, 2026-10-27",
         "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
       }
     },
@@ -196,8 +196,9 @@
       ],
       "status": "verified",
       "verification": {
-        "semanticTests": "25/25 passed 2026-10-27",
-        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
+        "semanticTests": "25/25 passed on final source, 2026-10-27",
+        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27",
+        "pairedVariant": "A fan-on safe3; B fan-off safe4; wrong TEST stop5; unit+real browser verified"
       }
     },
     {
@@ -221,8 +222,9 @@
       ],
       "status": "verified",
       "verification": {
-        "semanticTests": "25/25 passed 2026-10-27",
-        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
+        "semanticTests": "25/25 passed on final source, 2026-10-27",
+        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27",
+        "relayIntegrity": "Complete condition/result, before-plan and prohibition preserved; correct original index retained through display shuffle"
       }
     }
   ],
@@ -235,5 +237,18 @@
     "Literary analysis and extended narrative/opinion writing",
     "Retained mastery or learning gains"
   ],
-  "verificationNote": "Nine authored missions passed independent semantic checks and integrated real-control browser wins. Guided assistance, independent and transfer evidence are distinct. Additional physical-control/final polish regression is recorded separately in PLAYTEST.md."
+  "verificationNote": "Selected-rule records verified through 25 independent semantic tests, all-nine real-control browser wins, physical interactions, paired startup B recovery/win, persistent evidence checks and a 60.04-second causal source-loop sequence. This is not whole-chapter completion or retained mastery.",
+  "browserEvidence": [
+    "docs/qa/browser-results.json",
+    "docs/qa/physical-results.json",
+    "docs/qa/evidence-results.json",
+    "docs/qa/source-sequence/sequence.json",
+    "docs/qa/skill-client-final/state-0.json"
+  ],
+  "verificationLimits": [
+    "No measured learning gains or retained mastery",
+    "No live speaking/listening/spontaneous-writing assessment",
+    "Real native focus events unsupported in both automation modes; synthetic handlers tested",
+    "No personal audio audition by independent QA tester; see audio owner report"
+  ]
 }

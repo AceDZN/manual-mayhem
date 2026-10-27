@@ -389,11 +389,13 @@ footer button.active {
 }
 #feedback {
   position: absolute;
-  left: 50%;
+  right: 24px;
+  left: auto;
   bottom: 160px;
-  transform: translateX(-50%);
-  max-width: 470px;
-  width: 40%;
+  transform: none;
+  max-width: 300px;
+  width: 280px;
+  pointer-events: none;
   display: flex;
   gap: 12px;
   align-items: flex-start;

@@ -1,0 +1,98 @@
+{
+  "mode": "playing",
+  "mission": {
+    "id": "g7-guided",
+    "grade": 7,
+    "stage": "guided",
+    "title": "סיבוב ראשון",
+    "variant": "A"
+  },
+  "coordinateSystem": "device front: x right, y up; left/right fixed facing module; z toward player",
+  "selected": null,
+  "view": {
+    "rotation": 0.33,
+    "camera": [
+      5.8,
+      5.3,
+      12.7
+    ]
+  },
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-01",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "small": true,
+        "large": false,
+        "pressure": 1
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-01",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "connected": "none",
+        "clipA": false,
+        "clipB": false,
+        "signal": "idle"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-01",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": false,
+        "fan": false,
+        "pressure": 4,
+        "receiver": "none",
+        "signal": "idle"
+      }
+    }
+  ],
+  "relay": true,
+  "prediction": true,
+  "strikes": 0,
+  "time": 232,
+  "evidence": {
+    "assisted": true,
+    "retries": 0,
+    "events": []
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 0,
+    "stemLevels": [
+      0.9,
+      0,
+      0,
+      0,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": false,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "activeShots": 0,
+    "cueCount": 0,
+    "lastCue": null,
+    "rms": 0.015552,
+    "transportSeconds": 8.44,
+    "voiceAvailable": false
+  },
+  "feedback": ""
+}

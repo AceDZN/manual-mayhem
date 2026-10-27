@@ -1,0 +1,29 @@
+{
+  "results": [
+    {
+      "check": "wrong attempt survives mission leave/re-entry and reload",
+      "retries": 1,
+      "status": "pass"
+    },
+    {
+      "check": "hinted mission cannot re-enter as first attempt",
+      "retries": 1,
+      "status": "pass"
+    },
+    {
+      "check": "A and B have separate persistent attempt keys",
+      "status": "pass"
+    },
+    {
+      "check": "master mute and range unmute through actual settings",
+      "status": "pass"
+    },
+    {
+      "check": "synthetic blur freezes overview clock; focus has no hidden-time catchup then clock advances",
+      "before": 240,
+      "afterFocus": 240,
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

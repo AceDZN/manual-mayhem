@@ -28,7 +28,7 @@ Original export bytes, copied bytes, and runtime bytes are identical. No extra l
 
 Combined model transfer: **2,355,708 bytes**; 37,140 triangles. Exported vertex counts exceed the Tripo UI's source counts due to vertex splits at UV/normal seams. Both models have y-minimum 0 and local x/z centering, simplifying ground contact. Preserve original PBR textures and avoid crushing the subtle normal/roughness detail. At a nominal 1K RGBA uncompressed texture budget, six textures are approximately 24 MiB before mipmaps; this is an estimate, not measured GPU memory.
 
-Intended placement: pump as rear circulation assembly and service arm as an outer bench fixture; neither should obscure the precise actionable valve/socket/switch surfaces. Semantic control geometry, labels, collision proxies, and mechanical gauge motion are authored by the lead. These rigid props have no deforming animation; any whole-object motion is a mechanical transform, not skeletal rigging. Final gameplay-camera integration is verified by the lead's visual review.
+Final placement: pump as a forward-left bench circulation assembly and service arm as an outer-right bench fixture; neither should obscure the precise actionable valve/socket/switch surfaces. Semantic control geometry, labels, collision proxies, and mechanical gauge motion are authored by the lead. These rigid props have no deforming animation; any whole-object motion is a mechanical transform, not skeletal rigging. Final gameplay-camera integration is verified by the lead's visual review.
 
 ## Hebrew font
 

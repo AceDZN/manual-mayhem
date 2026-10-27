@@ -1,0 +1,37 @@
+
+> manual-mayhem@1.0.0 test
+> tsx --test tests/*.test.ts
+
+✔ three authored stages per grade and three tangible families per mission (0.96425ms)
+✔ g7-guided: independently read solution reaches startup readiness (0.318166ms)
+✔ g7-independent: independently read solution reaches startup readiness (0.113667ms)
+✔ g7-transfer: independently read solution reaches startup readiness (0.076791ms)
+✔ g8-guided: independently read solution reaches startup readiness (0.975875ms)
+✔ g8-independent: independently read solution reaches startup readiness (0.868625ms)
+✔ g8-transfer: independently read solution reaches startup readiness (0.190042ms)
+✔ g9-guided: independently read solution reaches startup readiness (0.212667ms)
+✔ g9-independent: independently read solution reaches startup readiness (0.285209ms)
+✔ g9-transfer: independently read solution reaches startup readiness (0.512875ms)
+✔ G7 same initial valves: before contrast reverses the first valid action (0.323459ms)
+✔ G7 prohibition changes the working lever; shape reference changes socket (0.136542ms)
+✔ G7 negative RESET stays prohibited and causes a recoverable strike (0.158958ms)
+✔ G8 passive by-agent swaps actual receiver mapping without changing initial appearance (0.105458ms)
+✔ G8 before/after changes cable-first versus clips-first outcome (0.122333ms)
+✔ both clip orders are semantically permitted within a stated both-clips step (0.067666ms)
+✔ G8 transfer requested receiver differs from remembered cooling-line action (0.043792ms)
+✔ G9 zero-conditional pressure rule repeats open, closed, open (0.216333ms)
+✔ G9 past-passive record identifies replaced relay; explicit current check governs work (0.108417ms)
+✔ G9 this-startup prediction has a tangible stopped and prevented branch (0.074667ms)
+✔ G9 paired startup reverses fan plan and generic world rule without mission-ID coupling (0.081125ms)
+✔ relay choice preserves procedure/order/prohibition and wrong relay is assisted evidence (0.082542ms)
+✔ three mistakes shut down; no action silently repairs after shutdown (0.129625ms)
+✔ relay cannot revive a shut-down machine or change post-startup evidence (0.095917ms)
+✔ fresh restart state is independent of prior mutated attempt (0.043583ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 126.772958

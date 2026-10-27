@@ -1,0 +1,44 @@
+{
+  "results": [
+    {
+      "check": "real headed tab blur",
+      "documentHidden": false,
+      "audio": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 0,
+        "stemLevels": [
+          0.9,
+          0,
+          0,
+          0,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.8,
+          "music": 0.75,
+          "sfx": 0.8,
+          "voice": 1
+        },
+        "activeShots": 0,
+        "cueCount": 0,
+        "lastCue": null,
+        "rms": 0.01434,
+        "transportSeconds": 0.98,
+        "voiceAvailable": false
+      },
+      "time": 239
+    },
+    {
+      "check": "real native blur environment",
+      "status": "unsupported",
+      "note": "Headed automation did not generate hidden or blur events; synthetic handler test reported separately."
+    }
+  ],
+  "errors": []
+}

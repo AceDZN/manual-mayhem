@@ -423,9 +423,9 @@ export const MISSIONS: Mission[] = [
       source:
         "For this startup: If the pressure reaches five, the engine will stop. Start the fan before the next test. Do not turn on either relay.",
       options: [
-        "Test first, then start the fan.",
-        "Start the fan before TEST; leave both relays off.",
-        "Start the fan and both relays, then TEST.",
+        "If the pressure reaches five, the engine will stop. Test first, then start the fan; leave both relays off.",
+        "If the pressure reaches five, the engine will stop. Start the fan before TEST; leave both relays off.",
+        "If the pressure reaches five, the engine will stop. Start the fan and both relays, then TEST.",
       ],
       correct: 1,
     },
