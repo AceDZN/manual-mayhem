@@ -11,9 +11,9 @@ npm run dev
 
 Open http://localhost:5262/ . Production preview: `npm run build && npm run preview` → http://localhost:4262/ . Ports are strict. No backend, AI runtime, keys or accounts. All assets are local. Source and public repository: https://github.com/AceDZN/manual-mayhem . No production deployment.
 
-Select grade 7, 8 or 9 and one of three authored missions. Start enables audio. Click a module to inspect it straight on; use the physical controls or the labeled buttons. Drag the handle/background to rotate the overview. Turn wheels by rim drag/click; drag the orange OUT cable to the socket under the described screen. M opens/closes the manual; Esc closes the active view; 1/2/3 inspect modules; Tab/Enter operate buttons; F toggles fullscreen. Left/right always refer to facing the module. No movement controls or pointer lock.
+Select grade 7, 8 or 9 and one of three authored missions. Start enables audio. Click a module to inspect it straight on; its matching manual page stays available. Use the physical controls, or open “כפתורי הפעלה” for labeled keyboard/touch buttons. Drag the handle/background to rotate the overview. Turn wheels by rim drag/click; drag the orange OUT cable to the socket under the described screen. The manual is visible immediately. Read the matching page, then choose its operation action; M switches reading/operation focus; Esc closes the active view; 1/2/3 inspect modules; Tab/Enter operate buttons; F toggles fullscreen. Left/right always refer to facing the module. No movement controls or pointer lock.
 
-Solo manual flip is complete play. For a real human reader, open `?manual=1` on a separate screen (or `/manual` with a SPA fallback). The reader page is static: no live answers, machine state, microphone, account or sync. It can be printed.
+Solo contextual-manual play is complete. The first action explicitly asks the player to read before operating; wide layouts keep the paper beside the machine, while narrow app panels and phones have explicit reading/operation phases. For a real human reader, open `?manual=1` on a separate screen (or `/manual` with a SPA fallback). The reader page is static: no live answers, machine state, microphone, account or sync. It can be printed.
 
 Practice has no clock. Optional challenge time stops during inspection, manual, translation, pause and settings. A hint/translation, retry, mistake or reviewed message selection is recorded locally; prior attempts survive mission/grade changes and reloads, and A/B variants have separate ledgers; successful play does not imply retained mastery or speaking assessment. RESET is a physical action that can violate a prohibition. “איפוס לצורך ניסיון חוזר” is an external recovery affordance.
 
@@ -41,6 +41,8 @@ The image in `docs/visual-targets/gameplay-mockup.png` is an AI-generated **desi
 
 ## Actual gameplay
 
-![Actual Three.js gameplay](docs/qa/rotation-before.png)
+![Revised actual Three.js gameplay](docs/qa/revision/1440-final-initial.png)
 
 [Real 60-second manual → mistake → recovery → physical cable → startup sequence](docs/qa/source-sequence/README.md). This screenshot and sequence are working gameplay; the imagegen design target is labeled separately.
+
+The visual/manual revision requested by the human is documented with real desktop/mobile captures and regression evidence in [docs/qa/revision](docs/qa/revision/REVISION.md). The initial flat renderer and hidden-manual interface are superseded.

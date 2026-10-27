@@ -1,0 +1,252 @@
+{
+  "mode": "manual",
+  "mission": {
+    "id": "g9-transfer",
+    "grade": 9,
+    "stage": "transfer",
+    "title": "תחזית להתנעה הבאה",
+    "variant": "A"
+  },
+  "manual": {
+    "visible": true,
+    "reading": true,
+    "page": "switches",
+    "serial": "S-23",
+    "text": "For this startup: If the pressure reaches five, the engine will stop. Current pressure: three. The next test adds two without the fan, or zero with it. Start the fan before TEST. Do not turn on either relay."
+  },
+  "selected": "cable",
+  "controlsOpen": false,
+  "coordinateSystem": "Fixed front view: x right, y up; gauges left, valves center, patch right, relays lower. Left/right always facing module.",
+  "view": {
+    "rotation": 0,
+    "camera": [
+      2.9964990034397347,
+      2.9388523746382584,
+      8.079212567771615
+    ]
+  },
+  "controls": [
+    {
+      "module": "valves",
+      "control": "small",
+      "x": -484,
+      "y": 352
+    },
+    {
+      "module": "valves",
+      "control": "large",
+      "x": -148,
+      "y": 353
+    },
+    {
+      "module": "valves",
+      "control": "test",
+      "x": -714,
+      "y": 593
+    },
+    {
+      "module": "cable",
+      "control": "connect-square",
+      "x": 211,
+      "y": 366
+    },
+    {
+      "module": "cable",
+      "control": "connect-round",
+      "x": 399,
+      "y": 366
+    },
+    {
+      "module": "cable",
+      "control": "clip-a",
+      "x": 182,
+      "y": 502
+    },
+    {
+      "module": "cable",
+      "control": "clip-b",
+      "x": 429,
+      "y": 502
+    },
+    {
+      "module": "cable",
+      "control": "test",
+      "x": 305,
+      "y": 518
+    },
+    {
+      "module": "cable",
+      "control": "source",
+      "x": 305,
+      "y": 669
+    },
+    {
+      "module": "switches",
+      "control": "left",
+      "x": -785,
+      "y": 658
+    },
+    {
+      "module": "switches",
+      "control": "right",
+      "x": -601,
+      "y": 658
+    },
+    {
+      "module": "switches",
+      "control": "fan",
+      "x": -370,
+      "y": 662
+    },
+    {
+      "module": "switches",
+      "control": "test",
+      "x": -197,
+      "y": 654
+    },
+    {
+      "module": "cable",
+      "control": "reset",
+      "x": -39,
+      "y": 654
+    }
+  ],
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-23",
+      "complete": true,
+      "fault": false,
+      "world": {
+        "small": false,
+        "large": true,
+        "pressure": 2,
+        "signal": "stable"
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-23",
+      "complete": true,
+      "fault": false,
+      "world": {
+        "connected": "round",
+        "clipA": true,
+        "clipB": true,
+        "signal": "stable"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-23",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": false,
+        "fan": false,
+        "pressure": 3,
+        "signal": "idle"
+      }
+    }
+  ],
+  "relay": false,
+  "prediction": false,
+  "strikes": 0,
+  "time": null,
+  "evidence": {
+    "assisted": false,
+    "retries": 0,
+    "events": [
+      {
+        "action": "small-close",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "large-open",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "clip-a",
+        "module": "cable",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "clip-b",
+        "module": "cable",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "connect-round",
+        "module": "cable",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "cable",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      }
+    ]
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 2,
+    "stemLevels": [
+      0.9,
+      0.92,
+      0.92,
+      0,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": true,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "mix": {
+      "master": 0.800000011920929,
+      "music": 0.20999999344348907,
+      "musicTarget": 0.21000000000000002,
+      "sfx": 0.800000011920929,
+      "voice": 1
+    },
+    "activeShots": 5,
+    "cueCount": 132,
+    "cueCounts": {
+      "page": 15,
+      "knob": 19,
+      "settle": 20,
+      "activate": 18,
+      "cable": 8,
+      "latch": 19,
+      "switch": 25,
+      "victory": 8
+    },
+    "lastCue": "cable",
+    "rms": 0.018552,
+    "transportSeconds": 13.22,
+    "voiceAvailable": false
+  },
+  "feedback": "המודול יציב. ההוראה הפכה לפעולה מדויקת."
+}

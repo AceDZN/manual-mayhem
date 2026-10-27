@@ -1,0 +1,33 @@
+{
+  "results": [
+    {
+      "check": "Tab/Enter drawer actions, M reading, layered Escape",
+      "status": "pass"
+    },
+    {
+      "check": "M and Digit shortcuts ignored under pause/settings",
+      "status": "pass"
+    },
+    {
+      "check": "physical wheel drag/click and camera separation",
+      "status": "pass"
+    },
+    {
+      "check": "free cable plug drag/cancel/drop + physical clips/TEST",
+      "status": "pass"
+    },
+    {
+      "check": "physical relay controls finish engine startup",
+      "status": "pass"
+    },
+    {
+      "check": "context scroll resets, reading unassisted, optional translation assisted, operation mix restores",
+      "status": "pass"
+    },
+    {
+      "check": "final settled1440/900/390 compositions and844 instruction-first landscape",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,226 @@
+{
+  "mode": "playing",
+  "mission": {
+    "id": "g7-guided",
+    "grade": 7,
+    "stage": "guided",
+    "title": "סיבוב ראשון",
+    "variant": "A"
+  },
+  "manual": {
+    "visible": true,
+    "reading": false,
+    "page": "valves",
+    "serial": "V-01",
+    "text": "First, close the small valve. Next, open the large valve. Do not press RESET."
+  },
+  "selected": "valves",
+  "controlsOpen": false,
+  "coordinateSystem": "Fixed front view: x right, y up; gauges left, valves center, patch right, relays lower. Left/right always facing module.",
+  "view": {
+    "rotation": 0,
+    "camera": [
+      -1.0000003361525744,
+      3.4300001859244587,
+      12.589992203624266
+    ]
+  },
+  "controls": [
+    {
+      "module": "valves",
+      "control": "small",
+      "x": 245,
+      "y": 424
+    },
+    {
+      "module": "valves",
+      "control": "large",
+      "x": 433,
+      "y": 424
+    },
+    {
+      "module": "valves",
+      "control": "test",
+      "x": 78,
+      "y": 562
+    },
+    {
+      "module": "cable",
+      "control": "connect-square",
+      "x": 620,
+      "y": 429
+    },
+    {
+      "module": "cable",
+      "control": "connect-round",
+      "x": 730,
+      "y": 429
+    },
+    {
+      "module": "cable",
+      "control": "clip-a",
+      "x": 601,
+      "y": 518
+    },
+    {
+      "module": "cable",
+      "control": "clip-b",
+      "x": 746,
+      "y": 518
+    },
+    {
+      "module": "cable",
+      "control": "test",
+      "x": 672,
+      "y": 518
+    },
+    {
+      "module": "cable",
+      "control": "source",
+      "x": 673,
+      "y": 607
+    },
+    {
+      "module": "cable",
+      "control": "source",
+      "x": 901,
+      "y": 702
+    },
+    {
+      "module": "switches",
+      "control": "left",
+      "x": 58,
+      "y": 598
+    },
+    {
+      "module": "switches",
+      "control": "right",
+      "x": 163,
+      "y": 598
+    },
+    {
+      "module": "switches",
+      "control": "fan",
+      "x": 289,
+      "y": 601
+    },
+    {
+      "module": "switches",
+      "control": "test",
+      "x": 378,
+      "y": 598
+    },
+    {
+      "module": "valves",
+      "control": "reset",
+      "x": 470,
+      "y": 598
+    }
+  ],
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-01",
+      "complete": true,
+      "fault": false,
+      "world": {
+        "small": false,
+        "large": true,
+        "pressure": 2,
+        "signal": "stable"
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-01",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "connected": "none",
+        "clipA": false,
+        "clipB": false,
+        "signal": "idle"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-01",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": false,
+        "fan": false,
+        "pressure": 4,
+        "receiver": "none",
+        "signal": "idle"
+      }
+    }
+  ],
+  "relay": true,
+  "prediction": true,
+  "strikes": 0,
+  "time": null,
+  "evidence": {
+    "assisted": true,
+    "retries": 1,
+    "events": [
+      {
+        "action": "small-close",
+        "module": "valves",
+        "correct": true,
+        "assisted": true,
+        "retry": 1
+      },
+      {
+        "action": "large-open",
+        "module": "valves",
+        "correct": true,
+        "assisted": true,
+        "retry": 1
+      }
+    ]
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 1,
+    "stemLevels": [
+      0.9,
+      0.92,
+      0,
+      0,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": false,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "mix": {
+      "master": 0.800000011920929,
+      "music": 0.75,
+      "musicTarget": 0.75,
+      "sfx": 0.800000011920929,
+      "voice": 1
+    },
+    "activeShots": 2,
+    "cueCount": 8,
+    "cueCounts": {
+      "knob": 4,
+      "settle": 2,
+      "activate": 2
+    },
+    "lastCue": "activate",
+    "rms": 0.026553,
+    "transportSeconds": 2.81,
+    "voiceAvailable": false
+  },
+  "feedback": "המודול יציב. ההוראה הפכה לפעולה מדויקת."
+}

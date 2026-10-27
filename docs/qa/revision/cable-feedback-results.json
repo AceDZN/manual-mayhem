@@ -1,0 +1,21 @@
+{
+  "result": {
+    "status": "pass",
+    "plug": {
+      "module": "cable",
+      "control": "source",
+      "x": 487,
+      "y": 618
+    },
+    "socket": {
+      "module": "cable",
+      "control": "connect-square",
+      "x": 222,
+      "y": 318
+    },
+    "feedback": null,
+    "staticPartnerManual": true,
+    "clipsFirstPhysicalPath": true
+  },
+  "errors": []
+}

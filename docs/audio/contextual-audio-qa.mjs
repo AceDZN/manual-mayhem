@@ -1,0 +1,55 @@
+// New contextual-paper UI regression. Run sequentially after the general QA browser closes.
+import { chromium } from 'playwright';
+import fs from 'node:fs/promises';import assert from 'node:assert/strict';
+const browser=await chromium.launch({channel:'chrome',headless:true,args:['--use-angle=metal','--enable-gpu','--ignore-gpu-blocklist','--autoplay-policy=user-gesture-required']});
+const page=await browser.newPage({viewport:{width:1440,height:900}});const checks=[],errors=[];
+page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+const state=()=>page.evaluate(()=>JSON.parse(window.render_game_to_text()));
+const cueCount=(s,name)=>s.audio.cueCounts[name]||0;
+const near=(value,target)=>assert.ok(Math.abs(value-target)<.002,`${value} must reach ${target}`);
+const record=async(name,verify)=>{await verify();checks.push({name,pass:true,state:await state()})};
+const click=selector=>page.locator(selector).click();
+const setRange=async(name,steps)=>{const el=page.locator(`[data-gain="${name}"]`);await el.press('Home');for(let i=0;i<steps;i++)await el.press('ArrowUp')};
+let stage='navigation';
+try{
+ await page.goto('http://localhost:5262/',{waitUntil:'domcontentloaded',timeout:60000});await page.waitForFunction(()=>!!window.render_game_to_text);
+ await record('Contextual paper is initially visible with no AudioContext',async()=>{const s=await state();assert.equal(s.mode,'intro');assert.equal(s.manual.visible,true);assert.equal(s.manual.reading,true);assert.equal(s.audio.state,'not-started')});
+ stage='gesture start';await click('#start');await page.waitForFunction(()=>{const a=JSON.parse(window.render_game_to_text()).audio;return a.loaded===16&&a.activeLoops===5&&a.rms>0});await page.waitForTimeout(400);
+ await record('Start enters operation while paper stays visible; original mix reaches stored preference',async()=>{const s=await state();assert.equal(s.manual.visible,true);assert.equal(s.manual.reading,false);assert.equal(s.audio.state,'running');assert.equal(s.audio.ducked,false);near(s.audio.mix.music,s.audio.gains.music);assert.equal(s.audio.activeLoops,5)});
+ let pages=cueCount(await state(),'page');
+ stage='reading';await click('#read-mode');await page.waitForTimeout(250);
+ await record('Reading same paper ducks without a false page-turn cue',async()=>{const s=await state();assert.equal(s.manual.reading,true);assert.equal(s.audio.ducked,true);near(s.audio.mix.music,s.audio.gains.music*.28);assert.equal(cueCount(s,'page'),pages)});
+ await click('#read-mode');await page.waitForTimeout(100);
+ await record('Repeated read focus has no duplicate page sound or new loops',async()=>{const s=await state();assert.equal(cueCount(s,'page'),pages);assert.equal(s.audio.activeLoops,5)});
+ stage='translated reading to operation';await click('#translate');await click('#operate');await page.waitForTimeout(450);
+ await record('Operating after translation restores full preference with visible paper',async()=>{const s=await state();assert.equal(s.manual.visible,true);assert.equal(s.manual.reading,false);assert.equal(s.audio.ducked,false);near(s.audio.mix.music,s.audio.gains.music);assert.equal(cueCount(s,'page'),pages)});
+ stage='page navigation';await click('[data-page="cable"]');await page.waitForTimeout(250);pages++;
+ await record('An actual section change makes exactly one paper cue and ducks reading',async()=>{const s=await state();assert.equal(s.manual.page,'cable');assert.equal(s.manual.reading,true);assert.equal(s.audio.ducked,true);assert.equal(cueCount(s,'page'),pages)});
+ await click('[data-page="cable"]');await click('[data-page="cable"]');
+ await record('Rereading the same section does not repeat its paper cue',async()=>assert.equal(cueCount(await state(),'page'),pages));
+ await click('#operate-bottom');await click('#controls-toggle');await click('#controls-toggle');await click('#controls-toggle');
+ await record('Operation/inspection UI rerenders do not make false paper sounds',async()=>{const s=await state();assert.equal(s.manual.reading,false);assert.equal(cueCount(s,'page'),pages);assert.equal(s.audio.activeLoops,5)});
+ stage='physical action cues';const cables=cueCount(await state(),'cable'),latches=cueCount(await state(),'latch');await click('[data-control="connect-square"]');await click('[data-control="clip-a"]');await click('[data-control="clip-b"]');await click('[data-control="test"]');await page.waitForTimeout(700);
+ await record('Cable and clip actions retain their distinct cues and add one score stem',async()=>{const s=await state();assert.equal(s.modules.find(m=>m.id==='cable').complete,true);assert.equal(cueCount(s,'cable'),cables+1);assert.equal(cueCount(s,'latch'),latches+2);assert.equal(s.audio.moduleStems,1);assert.equal(cueCount(s,'page'),pages)});
+ stage='manual keyboard phase';await page.keyboard.press('KeyM');await page.waitForTimeout(200);await record('M enters quiet reading without a false page turn',async()=>{const s=await state();assert.equal(s.manual.reading,true);assert.equal(s.audio.ducked,true);assert.equal(cueCount(s,'page'),pages)});await page.keyboard.press('KeyM');await page.waitForTimeout(400);
+ await record('M returns to operation and restores full music',async()=>{const s=await state();assert.equal(s.manual.reading,false);assert.equal(s.audio.ducked,false);near(s.audio.mix.music,s.audio.gains.music);assert.equal(cueCount(s,'page'),pages)});
+ stage='settings';await click('#settings');const old=(await state()).audio.gains;await setRange('music',0);const settings=(await state()).audio;
+ assert.equal(settings.gains.music,0);assert.equal(settings.gains.master,old.master);assert.equal(settings.gains.sfx,old.sfx);assert.equal(settings.gains.voice,old.voice);
+ const victories=cueCount(await state(),'victory');await click('#sound-check');
+ await record('Settings music gain remains independent; sound-check starts a real cue',async()=>{const s=await state();assert.equal(s.audio.state,'running');assert.equal(s.audio.gains.music,0);assert.equal(cueCount(s,'victory'),victories+1)});
+ await setRange('music',10);await click('#mute');await page.waitForTimeout(200);
+ await record('Master mute still silences actual output',async()=>{const s=await state();assert.equal(s.audio.gains.master,0);assert.equal(s.audio.rms,0)});
+ await setRange('master',16);await click('#close-overlay');await page.waitForTimeout(450);
+ stage='pause';await click('#pause');await page.waitForTimeout(250);const transport=(await state()).audio.transportSeconds;await page.waitForTimeout(180);
+ await record('Pause still suspends and freezes the existing transport',async()=>{const s=await state();assert.equal(s.audio.state,'suspended');assert.equal(s.audio.transportSeconds,transport);assert.equal(s.audio.activeLoops,5)});
+ await click('#resume');await page.waitForTimeout(350);await record('Resume retains one five-source transport',async()=>assert.equal((await state()).audio.activeLoops,5));
+ stage='restart';for(let i=0;i<3;i++)await click('#restart');await page.waitForTimeout(250);
+ await record('Repeated restart returns to reading without duplicated loops',async()=>{const s=await state();assert.equal(s.manual.reading,true);assert.equal(s.audio.ducked,true);assert.equal(s.audio.moduleStems,0);assert.equal(s.audio.activeLoops,5)});
+ await click('#operate');await page.waitForTimeout(400);await page.screenshot({path:'docs/audio/contextual-operating-audio.png',fullPage:true});
+ stage='saved gain reload';await page.reload({waitUntil:'domcontentloaded'});await click('#start');await page.waitForFunction(()=>JSON.parse(window.render_game_to_text()).audio.activeLoops===5);await page.waitForTimeout(450);
+ await record('Saved gains survive reload and the new Start/manual transition',async()=>{const a=(await state()).audio;assert.equal(a.gains.music,.5);assert.equal(a.gains.master,.8);assert.equal(a.ducked,false);near(a.mix.music,.5);assert.equal(a.activeLoops,5)});
+ assert.equal(errors.length,0);
+ await fs.writeFile('docs/audio/contextual-audio-qa.json',JSON.stringify({date:new Date().toISOString(),browser:'Native Chrome headless / Metal',method:'Real UI clicks and keyboard slider inputs; no game-state injection. This test checks emitted cue sources/mix values and browser playback, not subjective human listening.',checks,errors},null,2)+'\n');
+ await fs.rm('docs/audio/contextual-audio-qa-failure.json',{force:true});console.log(JSON.stringify({checks:checks.length,passed:checks.length,errors},null,2));
+}catch(error){console.error(stage,error);await fs.writeFile('docs/audio/contextual-audio-qa-failure.json',JSON.stringify({stage,failure:String(error),checks,errors,state:await state().catch(()=>null)},null,2));process.exitCode=1}
+finally{await browser.close()}

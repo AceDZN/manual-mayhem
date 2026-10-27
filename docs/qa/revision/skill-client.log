@@ -1,0 +1,16 @@
+Failed to click selector #start page.click: Timeout 5000ms exceeded.
+Call log:
+[2m  - waiting for locator('#start')[22m
+[2m    - locator resolved to <button dir="rtl" id="start" class="primary">קראתי · עכשיו למכונה ←</button>[22m
+[2m  - attempting click action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+
+    at main (/Users/acedzn/.codex/skills/develop-web-game/scripts/web_game_playwright_client.js:292:18) {
+  log: [
+    "  - waiting for locator('#start')",
+    '    - locator resolved to <button dir="rtl" id="start" class="primary">קראתי · עכשיו למכונה ←</button>',
+    '  - attempting click action',
+    '    - waiting for element to be visible, enabled and stable'
+  ],
+  name: 'TimeoutError'
+}

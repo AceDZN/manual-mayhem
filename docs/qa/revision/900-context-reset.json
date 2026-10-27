@@ -1,0 +1,214 @@
+{
+  "mode": "manual",
+  "mission": {
+    "id": "g9-transfer",
+    "grade": 9,
+    "stage": "transfer",
+    "title": "תחזית להתנעה הבאה",
+    "variant": "A"
+  },
+  "manual": {
+    "visible": true,
+    "reading": true,
+    "page": "valves",
+    "serial": "V-23",
+    "text": "Before this startup, close the small valve before you open the large valve."
+  },
+  "selected": null,
+  "controlsOpen": false,
+  "coordinateSystem": "Fixed front view: x right, y up; gauges left, valves center, patch right, relays lower. Left/right always facing module.",
+  "view": {
+    "rotation": 0,
+    "camera": [
+      -6.977530488065234,
+      6.730646422310845,
+      16.469613960664738
+    ]
+  },
+  "controls": [
+    {
+      "module": "valves",
+      "control": "small",
+      "x": 256,
+      "y": 419
+    },
+    {
+      "module": "valves",
+      "control": "large",
+      "x": 368,
+      "y": 408
+    },
+    {
+      "module": "valves",
+      "control": "test",
+      "x": 136,
+      "y": 518
+    },
+    {
+      "module": "cable",
+      "control": "connect-square",
+      "x": 462,
+      "y": 397
+    },
+    {
+      "module": "cable",
+      "control": "connect-round",
+      "x": 519,
+      "y": 392
+    },
+    {
+      "module": "cable",
+      "control": "clip-a",
+      "x": 450,
+      "y": 451
+    },
+    {
+      "module": "cable",
+      "control": "clip-b",
+      "x": 524,
+      "y": 442
+    },
+    {
+      "module": "cable",
+      "control": "test",
+      "x": 487,
+      "y": 446
+    },
+    {
+      "module": "cable",
+      "control": "source",
+      "x": 485,
+      "y": 498
+    },
+    {
+      "module": "cable",
+      "control": "source",
+      "x": 606,
+      "y": 541
+    },
+    {
+      "module": "switches",
+      "control": "left",
+      "x": 132,
+      "y": 545
+    },
+    {
+      "module": "switches",
+      "control": "right",
+      "x": 200,
+      "y": 535
+    },
+    {
+      "module": "switches",
+      "control": "fan",
+      "x": 277,
+      "y": 526
+    },
+    {
+      "module": "switches",
+      "control": "test",
+      "x": 325,
+      "y": 515
+    },
+    {
+      "module": null,
+      "control": "reset",
+      "x": 378,
+      "y": 508
+    }
+  ],
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-23",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "small": true,
+        "large": false,
+        "pressure": 1
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-23",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "connected": "none",
+        "clipA": false,
+        "clipB": false,
+        "signal": "idle"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-23",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": false,
+        "fan": false,
+        "pressure": 3,
+        "signal": "idle"
+      }
+    }
+  ],
+  "relay": false,
+  "prediction": false,
+  "strikes": 0,
+  "time": null,
+  "evidence": {
+    "assisted": false,
+    "retries": 0,
+    "events": []
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 0,
+    "stemLevels": [
+      0.9,
+      0,
+      0,
+      0,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": true,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "mix": {
+      "master": 0.800000011920929,
+      "music": 0.20999999344348907,
+      "musicTarget": 0.21000000000000002,
+      "sfx": 0.800000011920929,
+      "voice": 1
+    },
+    "activeShots": 3,
+    "cueCount": 23,
+    "cueCounts": {
+      "knob": 4,
+      "settle": 4,
+      "activate": 4,
+      "page": 4,
+      "cable": 1,
+      "latch": 2,
+      "switch": 3,
+      "victory": 1
+    },
+    "lastCue": "page",
+    "rms": 0.027024,
+    "transportSeconds": 5.5,
+    "voiceAvailable": false
+  },
+  "feedback": ""
+}

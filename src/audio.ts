@@ -74,6 +74,7 @@ export class AudioEngine {
   private suspendTimer?: ReturnType<typeof setTimeout>;
   private loadError: string | null = null;
   private cueCounter = 0;
+  private cueCounts: Partial<Record<AudioCue, number>> = {};
   private lastCue: string | null = null;
   private gains: AudioGains = { ...defaults };
   private readonly onVisibility = () => {
@@ -197,6 +198,7 @@ export class AudioEngine {
   }
 
   setPaused(paused: boolean): void {
+    if (this.requestedPause === paused) return;
     this.requestedPause = paused;
     this.applyPause();
   }
@@ -232,8 +234,11 @@ export class AudioEngine {
     this.applyGains();
   }
 
-  /** Reading translations / optional spoken replay can duck music and ambience. */
+  /** Actual reading focus / optional spoken replay ducks music and ambience.
+   * A contextual paper remaining visible is not, by itself, reading focus.
+   */
   duck(ducked: boolean): void {
+    if (this.ducked === ducked) return;
     this.ducked = ducked;
     this.applyGains();
   }
@@ -246,7 +251,11 @@ export class AudioEngine {
         this.requestedPause || this.background ? 0 : this.gains.master,
       );
     if (this.music)
-      this.ramp(this.music.gain, this.gains.music * (this.ducked ? 0.28 : 1));
+      this.ramp(
+        this.music.gain,
+        this.gains.music * (this.ducked ? 0.28 : 1),
+        this.ducked ? 0.12 : 0.3,
+      );
     if (this.effects) this.ramp(this.effects.gain, this.gains.sfx);
     if (this.voice) this.ramp(this.voice.gain, this.gains.voice);
   }
@@ -288,6 +297,7 @@ export class AudioEngine {
     this.shots.add(source);
     this.lastCue = name;
     this.cueCounter++;
+    this.cueCounts[name] = (this.cueCounts[name] || 0) + 1;
     source.onended = () => {
       this.shots.delete(source);
       source.disconnect();
@@ -317,8 +327,16 @@ export class AudioEngine {
       background: this.background,
       ducked: this.ducked,
       gains: { ...this.gains },
+      mix: {
+        master: this.master?.gain.value || 0,
+        music: this.music?.gain.value || 0,
+        musicTarget: this.gains.music * (this.ducked ? 0.28 : 1),
+        sfx: this.effects?.gain.value || 0,
+        voice: this.voice?.gain.value || 0,
+      },
       activeShots: this.shots.size,
       cueCount: this.cueCounter,
+      cueCounts: { ...this.cueCounts },
       lastCue: this.lastCue,
       rms: Math.round(rms * 1000000) / 1000000,
       transportSeconds:

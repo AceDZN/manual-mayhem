@@ -1,0 +1,172 @@
+[
+  {
+    "file": "petrol-metalness.png",
+    "bytes": 28496,
+    "sha256": "fbc7077c7b29db08f5184401f98150903c0ad9340ee1e04831b40ca63e4bf30b"
+  },
+  {
+    "file": "wood-color.png",
+    "bytes": 240253,
+    "sha256": "2b989304913c6deaf26c0c653d76dbffd168f982ad52abbcc9bbe8a3343fd0c2"
+  },
+  {
+    "file": "wood-roughness.png",
+    "bytes": 110707,
+    "sha256": "510258b6ba6914abed3be6fe28f9d199ca5609a27e8e4f44e9f2d204dcc77d4d"
+  },
+  {
+    "file": "ivory-roughness.png",
+    "bytes": 140655,
+    "sha256": "5a3c997e600135c324e73ca3b51c9e0047e691e9487fe340c1b88bc767354149"
+  },
+  {
+    "file": "petrol-height.png",
+    "bytes": 33403,
+    "sha256": "d92a69462add07dbb3f971e246e3eedaa0ce9097b66754b968625d4a61038194"
+  },
+  {
+    "file": "brass-metalness.png",
+    "bytes": 1301,
+    "sha256": "bbb688c52547339457c6e421e2f6c54001996eb8cab266b01c411461df04a94d"
+  },
+  {
+    "file": "rubber-color.png",
+    "bytes": 57056,
+    "sha256": "8444151a421661e570c760752c0c71a039e68512d4ed3a16b7dcc894aef4624f"
+  },
+  {
+    "file": "wood-height.png",
+    "bytes": 48889,
+    "sha256": "393009eeab7622867262a853f5b769b4979a4951a9cb7c079aeaab39d60663a3"
+  },
+  {
+    "file": "paper-roughness.png",
+    "bytes": 59345,
+    "sha256": "b8f1dadab54105a06c697b6a53d06f82acab38e4e03df68d87e841a85e520cfa"
+  },
+  {
+    "file": "rubber-roughness.png",
+    "bytes": 59345,
+    "sha256": "ab159c6119bbd825fb52f1f5da9863c9d818423496d53278c414f8232b81a66c"
+  },
+  {
+    "file": "petrol-color.png",
+    "bytes": 65711,
+    "sha256": "a771406c9f3c9923280165aa348e60d8f9120ea7086d1ff4d2c37a5606eaf684"
+  },
+  {
+    "file": "steel-color.png",
+    "bytes": 60114,
+    "sha256": "94e2dc8237d5eb5a9ab0dda0b76c18f340555bec5caa7cdd92050db05c68ae6e"
+  },
+  {
+    "file": "paper-color.png",
+    "bytes": 64285,
+    "sha256": "469d8dcc25a80642e6ab5c1484130248ef1d70f01c16a18d40efd2763f7e3ed4"
+  },
+  {
+    "file": "orange-roughness.png",
+    "bytes": 74420,
+    "sha256": "7d76f34131d7c582111174915c0927bfa4e53dd8e584a75e9ca3e96582c5d78b"
+  },
+  {
+    "file": "steel-metalness.png",
+    "bytes": 1301,
+    "sha256": "bbb688c52547339457c6e421e2f6c54001996eb8cab266b01c411461df04a94d"
+  },
+  {
+    "file": "workshop-backdrop.png",
+    "bytes": 1897054,
+    "sha256": "bf8d63e22c9f843631f34221980c1a028aeaaef5e0160986bc7817dae454958a"
+  },
+  {
+    "file": "petrol-roughness.png",
+    "bytes": 74552,
+    "sha256": "37933fc2f5fc0d33089a21499c2b272e1176279c32fa29d31b5b318bccbad4ee"
+  },
+  {
+    "file": "ivory-metalness.png",
+    "bytes": 59608,
+    "sha256": "113a6c0089b1212cf2ad6ef08b7afbe4614b2d9cb12f418a185b92b975b2f2f7"
+  },
+  {
+    "file": "orange-color.png",
+    "bytes": 118613,
+    "sha256": "43ca326ff9b96f0a81eeb947e78473f8172427e29ba443ea29e64913a64eb5a0"
+  },
+  {
+    "file": "brass-color.png",
+    "bytes": 79041,
+    "sha256": "ad8cedef13ab0178e64d3f00825b28f7946f908a013f2269100e4de32163f92e"
+  },
+  {
+    "file": "wood-metalness.png",
+    "bytes": 652,
+    "sha256": "2246170fc566dca3db894b3a00973299e033214875839c1fec7567e92f93c18f"
+  },
+  {
+    "file": "brass-roughness.png",
+    "bytes": 59345,
+    "sha256": "fcff54f5bb19e49cd971cbcf0628a852e027b76e5108f1ff03489fb1d0eea378"
+  },
+  {
+    "file": "orange-height.png",
+    "bytes": 33536,
+    "sha256": "6e21b17f327b7b60bf44e77ca69f0a659281ecee2e14ed2eb1e61daa07b1a2b8"
+  },
+  {
+    "file": "rubber-height.png",
+    "bytes": 26334,
+    "sha256": "7e832b9218cd0d1d6805b759dd0c49303a76ea1e669254048580474bb05409ff"
+  },
+  {
+    "file": "paper-height.png",
+    "bytes": 26334,
+    "sha256": "7e832b9218cd0d1d6805b759dd0c49303a76ea1e669254048580474bb05409ff"
+  },
+  {
+    "file": "paper-metalness.png",
+    "bytes": 334,
+    "sha256": "191c4a0fc193ffc3a195e3823fddd109efd883c273c5cb6d29baa22500885747"
+  },
+  {
+    "file": "brass-height.png",
+    "bytes": 26699,
+    "sha256": "388a846a21cfc4d9f1dca853946be5eea94dd41b3753cfddb9d65a306237b970"
+  },
+  {
+    "file": "steel-height.png",
+    "bytes": 26366,
+    "sha256": "cbfd68c1de4a22c73c1824a623bbe9bc2eed8fd0375f165ca810ea7347003eb4"
+  },
+  {
+    "file": "rubber-metalness.png",
+    "bytes": 334,
+    "sha256": "191c4a0fc193ffc3a195e3823fddd109efd883c273c5cb6d29baa22500885747"
+  },
+  {
+    "file": "steel-roughness.png",
+    "bytes": 59345,
+    "sha256": "2accecefcafded395210955fab6998d78f19508258261ffffedee10d2c6e804e"
+  },
+  {
+    "file": "ivory-height.png",
+    "bytes": 56916,
+    "sha256": "3121af25cc5d3a8144833047e5119ce9b188db9f6bbc8770c9e9e4e2c06086ef"
+  },
+  {
+    "file": "orange-metalness.png",
+    "bytes": 334,
+    "sha256": "191c4a0fc193ffc3a195e3823fddd109efd883c273c5cb6d29baa22500885747"
+  },
+  {
+    "file": "material-sheet.jpg",
+    "bytes": 62853,
+    "sha256": "783a8822505ec9ede0088beaceaf5b7af2c5dc9fb83fa62bd404a48c269bd3ef"
+  },
+  {
+    "file": "ivory-color.png",
+    "bytes": 226564,
+    "sha256": "97c1cf63d6a9c44c14bb0b61944bd868d1a7fb838c45c74c904109c4a74853a9"
+  }
+]

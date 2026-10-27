@@ -1,0 +1,71 @@
+{
+  "results": [
+    {
+      "check": "900px novice opening exposes paper and explicit read→operate action",
+      "status": "pass"
+    },
+    {
+      "check": "900px visible read→operate mission win",
+      "mission": "g7-guided",
+      "events": 8,
+      "status": "pass"
+    },
+    {
+      "check": "900px visible read→operate mission win",
+      "mission": "g7-independent",
+      "events": 8,
+      "status": "pass"
+    },
+    {
+      "check": "900px visible read→operate mission win",
+      "mission": "g7-transfer",
+      "events": 9,
+      "status": "pass"
+    },
+    {
+      "check": "900px visible read→operate mission win",
+      "mission": "g8-guided",
+      "events": 8,
+      "status": "pass"
+    },
+    {
+      "check": "900px visible read→operate mission win",
+      "mission": "g8-independent",
+      "events": 9,
+      "status": "pass"
+    },
+    {
+      "check": "900px visible read→operate mission win",
+      "mission": "g8-transfer",
+      "events": 9,
+      "status": "pass"
+    },
+    {
+      "check": "900px visible read→operate mission win",
+      "mission": "g9-guided",
+      "events": 12,
+      "status": "pass"
+    },
+    {
+      "check": "900px visible read→operate mission win",
+      "mission": "g9-independent",
+      "events": 9,
+      "status": "pass"
+    },
+    {
+      "check": "900px visible read→operate mission win",
+      "mission": "g9-transfer",
+      "events": 10,
+      "status": "pass"
+    },
+    {
+      "check": "wrong order, precise feedback, recovery and corrected procedure",
+      "status": "pass"
+    },
+    {
+      "check": "1440 desktop and390 mobile initial/read/operate; touch module success and landscape resize",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

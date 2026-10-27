@@ -33,3 +33,7 @@ Final placement: pump as a forward-left bench circulation assembly and service a
 ## Hebrew font
 
 `public/fonts/NotoSansHebrew.ttf` is an unmodified local copy of Noto Sans Hebrew, 112,640 bytes. Copyright 2022 The Noto Project Authors; upstream [notofonts/hebrew](https://github.com/notofonts/hebrew). Copied read-only from Critter Safari alongside the full SIL Open Font License 1.1 at `public/fonts/OFL.txt`. SHA256 `7ef36a2c3593758cdb622e1bdef4f84523e92fbc3ccc667438dd80ff54c2de88`. The OFL permits bundling and redistribution with its notice; the font is not sold on its own or renamed. Use `@font-face` with a local project URL so Hebrew UI remains readable offline.
+
+## Visual revision
+
+The revised engine is authored as detailed interactive Three.js geometry rather than a flat three-column control board. Eight locally authored PBR surface sets and an original generated workshop-only background are documented in `docs/art/revision-review.md` and `public/textures/manifest.json`. These add about3.93MB of local art including the backdrop/material sheet; no new Tripo generation or model-credit spend occurred. The two existing GLBs remain secondary workshop props, not a claim that the generated target is an imported model. Printed faces and labels now use correctly tagged sRGB CanvasTextures; environment and lighting errors found in early revision captures were corrected.

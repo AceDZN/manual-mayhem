@@ -1,0 +1,225 @@
+{
+  "mode": "playing",
+  "mission": {
+    "id": "g7-independent",
+    "grade": 7,
+    "stage": "independent",
+    "title": "בלי קיצורי דרך",
+    "variant": "A"
+  },
+  "manual": {
+    "visible": true,
+    "reading": false,
+    "page": "valves",
+    "serial": "V-02",
+    "text": "You must open the large valve before you close the small valve. Do not press RESET."
+  },
+  "selected": "valves",
+  "controlsOpen": true,
+  "coordinateSystem": "Fixed front view: x right, y up; gauges left, valves center, patch right, relays lower. Left/right always facing module.",
+  "view": {
+    "rotation": 0,
+    "camera": [
+      -1.1034632085726335,
+      3.4861244153198254,
+      12.656049269867689
+    ]
+  },
+  "controls": [
+    {
+      "module": "valves",
+      "control": "small",
+      "x": 246,
+      "y": 424
+    },
+    {
+      "module": "valves",
+      "control": "large",
+      "x": 433,
+      "y": 424
+    },
+    {
+      "module": "valves",
+      "control": "test",
+      "x": 80,
+      "y": 561
+    },
+    {
+      "module": "cable",
+      "control": "connect-square",
+      "x": 617,
+      "y": 429
+    },
+    {
+      "module": "cable",
+      "control": "connect-round",
+      "x": 726,
+      "y": 429
+    },
+    {
+      "module": "cable",
+      "control": "clip-a",
+      "x": 598,
+      "y": 517
+    },
+    {
+      "module": "cable",
+      "control": "clip-b",
+      "x": 742,
+      "y": 517
+    },
+    {
+      "module": "cable",
+      "control": "test",
+      "x": 669,
+      "y": 517
+    },
+    {
+      "module": "cable",
+      "control": "source",
+      "x": 669,
+      "y": 605
+    },
+    {
+      "module": "cable",
+      "control": "source",
+      "x": 895,
+      "y": 699
+    },
+    {
+      "module": "switches",
+      "control": "left",
+      "x": 60,
+      "y": 597
+    },
+    {
+      "module": "switches",
+      "control": "right",
+      "x": 164,
+      "y": 597
+    },
+    {
+      "module": "switches",
+      "control": "fan",
+      "x": 290,
+      "y": 600
+    },
+    {
+      "module": "switches",
+      "control": "test",
+      "x": 377,
+      "y": 596
+    },
+    {
+      "module": "valves",
+      "control": "reset",
+      "x": 469,
+      "y": 596
+    }
+  ],
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-02",
+      "complete": false,
+      "fault": true,
+      "world": {
+        "small": true,
+        "large": false,
+        "pressure": 1
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-02",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "connected": "none",
+        "clipA": false,
+        "clipB": false,
+        "signal": "idle"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-02",
+      "complete": false,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": false,
+        "fan": false,
+        "pressure": 4,
+        "receiver": "none",
+        "signal": "idle"
+      }
+    }
+  ],
+  "relay": true,
+  "prediction": true,
+  "strikes": 1,
+  "time": null,
+  "evidence": {
+    "assisted": false,
+    "retries": 1,
+    "events": [
+      {
+        "action": "small-close",
+        "module": "valves",
+        "correct": false,
+        "assisted": false,
+        "retry": 1
+      }
+    ]
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 0,
+    "stemLevels": [
+      0.9,
+      0,
+      0,
+      0,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": false,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "mix": {
+      "master": 0.800000011920929,
+      "music": 0.75,
+      "musicTarget": 0.75,
+      "sfx": 0.800000011920929,
+      "voice": 1
+    },
+    "activeShots": 2,
+    "cueCount": 142,
+    "cueCounts": {
+      "page": 16,
+      "knob": 19,
+      "settle": 21,
+      "activate": 19,
+      "cable": 8,
+      "latch": 21,
+      "switch": 27,
+      "victory": 9,
+      "error": 1,
+      "strike": 1
+    },
+    "lastCue": "strike",
+    "rms": 0.017009,
+    "transportSeconds": 15.42,
+    "voiceAvailable": false
+  },
+  "feedback": "בדקו את “before / after” ואת שם הברז. סדר אחר גורם לשחרור קיטור; אפשר לאפס את המודול ולנסות שוב."
+}

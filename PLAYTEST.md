@@ -61,3 +61,21 @@ Actual captures include `g7-transfer-manual.png`, `g8-transfer-manual.png`, `g9-
 - Small landscape viewports remain compact and crop the workshop; the scrollable accessible controls and manual are usable. Portrait touch and keyboard alternatives were tested separately from physical mouse raycasts.
 
 The operating-system Hebrew keyboard layout was not changed by this tester. Hebrew UI, LTR English, Tab/Enter and physical-code shortcuts were verified; a manual OS-layout check remains distinct.
+
+## Revision audit — manual-first flow and visual fidelity
+
+The user rejected the prior visual result and found the manual hidden or confusing. The earlier passing tests remain behavioral evidence; they do not constitute acceptance of the rejected visual/interaction design. This revision must make the paper visible immediately, make read → operate navigation clear, and improve the actual scene toward the exact imagegen target.
+
+`docs/qa/revision/qa-review.md` records the completed independent review. All25 semantic tests pass. `node docs/qa/revision-usability.mjs` completed all nine missions at900×760 through visible contextual read→operate controls, with messages after the physical modules; all independent/transfer paths were first-attempt, unassisted and strike-free. Wrong-order/recovery,390px touch, desktop and landscape captures passed.
+
+`node docs/qa/revision/focused-controls.mjs` passed seven focused checks: keyboard drawer/M/Escape, paused/settings shortcut guards, actual wheel/relay raycasts, free cable drag/cancel/clips, context scroll reset, assistance accounting and settled responsive layouts. A further `node docs/qa/revision/cable-feedback.mjs` verified the final visible free plug, actual connection and physical clips-first transfer path; it also confirmed the separate partner manual has nine fixed procedures and no live canvas/operation controls. The three passing browser reports contain no console/page errors. All named final captures were opened and inspected.
+
+Visual review directly compared the fixed mockup with current1440/900/mobile images. The scene now has substantial worn ivory casing, readable gauges and labels, deep petrol recesses, cast brass wheels, warm workshop depth and visible useful paper. First-pass CTA clipping/washout, short-landscape instruction hiding, source outside the viewport and stale feedback over the cable were found through actual captures and corrected. Rejected internal evidence is retained under `docs/qa/revision/first-pass/`; final cable captures use `900-cable-final-*` and `900-clips-first-final-*`.
+
+Passing revision runs used native Chrome/Metal after an initial software-WebGL load timeout. This tester has not personally auditioned audio or changed the OS keyboard layout; the earlier native focus-event automation limit remains explicit. These checks establish finite game behavior and a reviewed visual/interaction improvement, without inferring user approval or learning gains.
+
+### Lead's final in-app and stock-client check
+
+The compiled preview was refreshed in the human's existing in-app browser at723px. Lead inspected the real image and accessibility state, activated the visible read→operate action and confirmed the full-width valve inspection and explicit return-manual control. The initial reading view was restored for handoff. The intermediate responsive layout uses an open right-side book over the device during reading and full-width device operation.
+
+The required stock develop-web-game client produced `docs/qa/revision/skill-client/shot-0.png` and state, both inspected. Its software SwiftShader browser timed out during the Start locator click; that output remains diagnostic rather than being counted as a successful gameplay action. Native Chrome/Metal full-game and physical checks are the operational evidence for this revision.

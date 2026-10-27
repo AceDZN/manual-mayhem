@@ -11,38 +11,30 @@ const audio = new AudioEngine();
 let mission: Mission = MISSIONS[0],
   state: GameState = createState(mission),
   started = false,
-  manual = false,
-  settings = false,
+  manual = true,
   paused = false,
+  settings = false,
   selected: string | null = null,
   translation = false,
+  controlsOpen = false,
+  manualPage = "valves",
   challenge = false,
-  time = 240;
-const choiceSessionSeed = Math.floor(Math.random() * 0xffffffff);
-let paired = false;
-let saved: Record<
-  string,
-  { strikes: number; assisted: boolean; retries: number; events: number }
-> = {};
+  time = 240,
+  paired = false;
+const seed = Math.floor(Math.random() * 0xffffffff);
+let renderedPaperKey = "";
+let records: Record<
+    string,
+    { strikes: number; assisted: boolean; retries: number; events: number }
+  > = {},
+  attempts: Record<string, number> = {};
 try {
-  saved = JSON.parse(localStorage.getItem("mm-records") || "{}");
+  records = JSON.parse(localStorage.getItem("mm-records") || "{}");
+  attempts = JSON.parse(localStorage.getItem("mm-attempts") || "{}");
 } catch {}
-let attemptHistory: Record<string, number> = {};
-try {
-  attemptHistory = JSON.parse(localStorage.getItem("mm-attempts") || "{}");
-} catch {}
-const attemptKey = () => mission.id + (paired ? "-b" : "");
-state.retries = attemptHistory[attemptKey()] || 0;
-function recordAttempt() {
-  attemptHistory[attemptKey()] = Math.max(
-    attemptHistory[attemptKey()] || 0,
-    state.retries + 1,
-  );
-  try {
-    localStorage.setItem("mm-attempts", JSON.stringify(attemptHistory));
-  } catch {}
-}
-const escape = (s: string) =>
+const key = () => mission.id + (paired ? "-b" : "");
+state.retries = attempts[key()] || 0;
+const esc = (s: string) =>
   s.replace(
     /[&<>"']/g,
     (c) =>
@@ -50,96 +42,167 @@ const escape = (s: string) =>
         c
       ]!,
   );
-const missionManual = (m: Mission) =>
-  `<article class="manual-mission"><div class="eyebrow">GRADE ${m.grade} · ${STAGE_HE[m.stage]}</div><h2>${m.title}</h2>${m.modules.map((v) => `<section><div class="serial">${v.serial} / ${v.title}</div><p lang="en" dir="ltr">${v.manual}</p></section>`).join("")}${m.relay ? `<section><div class="serial">OPERATOR MESSAGE</div><p lang="en" dir="ltr">${m.relay.source}</p></section>` : ""}</article>`;
+function remember() {
+  attempts[key()] = Math.max(attempts[key()] || 0, state.retries + 1);
+  try {
+    localStorage.setItem("mm-attempts", JSON.stringify(attempts));
+  } catch {}
+}
+const NAMES: Record<string, string> = {
+  valves: "ברזים",
+  cable: "חיבור הכבל",
+  switches: "מנופים",
+  operator: "מסר למפעיל",
+};
+function manualArticle(m: Mission) {
+  return `<article class="manual-mission"><div class="serial">GRADE ${m.grade} / ${STAGE_HE[m.stage]}</div><h2>${m.title}</h2>${m.modules.map((s) => `<section><h3>${s.serial} · ${s.title}</h3><p lang="en" dir="ltr">${s.manual}</p></section>`).join("")}${m.relay ? `<section><h3>OPERATOR MESSAGE</h3><p lang="en" dir="ltr">${m.relay.source}</p></section>` : ""}</article>`;
+}
 if (partner) {
-  app.innerHTML = `<div class="reader"><header><div class="brand">MANUAL MAYHEM<span>FESTIVAL ENGINE / FIELD MANUAL</span></div><button onclick="print()">הדפסה</button></header><div class="reader-intro" dir="rtl"><h1>מדריך השותף</h1><p>המפעיל מתאר את תג המודול ואת מצבו. קוראים את הנוהל המתאים ומוסרים פעולה, חפץ, סדר ומגבלה. המדריך הזה קבוע ואין לו מידע חי על המכונה.</p><p>Left / right מתייחסים למבט ישר מול המודול. Square □ ו-round ○ מתארים מסכים. TEST הוא בדיקה; RESET הוא לחצן במכונה. “איפוס לצורך ניסיון חוזר” הוא פעולת התאוששות חיצונית.</p><a href="./">חזרה למכונה</a></div>${MISSIONS.map(missionManual).join("")}<article class="variant-appendix"><div class="serial">S-24 / ALTERNATE STARTUP</div><p lang="en" dir="ltr">${PAIRED_STARTUP.manual}</p></article></div>`;
+  app.innerHTML = `<main class="reader"><header><div class="brand">MANUAL MAYHEM<small>FESTIVAL ENGINE / FIELD MANUAL</small></div><button onclick="print()">הדפסה</button></header><div class="reader-intro" dir="rtl"><h1>מדריך השותף</h1><p>המפעיל מתאר את תג המודול ואת מצבו. מצאו את הדגם, קראו את הנוהל ומסרו פעולה, חפץ, סדר ומגבלה. המדריך הזה קבוע ואין בו מידע חי מהמכונה.</p><a href="./">חזרה למכונה ←</a></div>${MISSIONS.map(manualArticle).join("")}<article><h3>S-24 / ALTERNATE STARTUP</h3><p lang="en">${PAIRED_STARTUP.manual}</p></article></main>`;
 } else {
-  app.innerHTML = `<header class="topbar"><div class="brand">MANUAL MAYHEM<span>בלגן לפי המדריך · FESTIVAL ENGINE CO.</span></div><div class="nav-controls"><label class="grade-label">כיתה <select id="grade" aria-label="כיתה"><option value="7">ז׳ / 7</option><option value="8">ח׳ / 8</option><option value="9">ט׳ / 9</option></select></label><select id="mission" aria-label="משימה"></select><button id="settings" aria-label="הגדרות שמע">♫ <span>שמע</span></button><button id="pause">Ⅱ <span>השהיה</span></button></div></header>
-<main id="workspace"><canvas id="scene" aria-label="מנוע פסטיבל תלת ממדי: לחצו מודול לבדיקה" tabindex="0"></canvas><div class="workshop-label">AIRSHIP SERVICE BENCH <b>№ 042</b></div><div id="mission-strip"></div><div id="hud"></div><div id="module-tabs"></div><div id="inspect"></div><div id="feedback" role="status" aria-live="polite"></div><div id="welcome"></div><div id="overlay"></div><div id="manual"></div><footer><span id="control-tip">גררו רקע או ידית לסיבוב · לחצו מודול לבדיקה</span><div><button id="return">↩ חזרה לשולחן</button><button id="manual-toggle">M · מדריך</button><button id="restart">↻ התחלה מחדש</button></div></footer></main>`;
-  const canvas = document.querySelector<HTMLCanvasElement>("#scene")!;
+  app.innerHTML = `<header class="topbar"><div class="brand">MANUAL MAYHEM<small>בלגן לפי המדריך</small></div><div class="nav-controls"><label>כיתה <select id="grade" aria-label="כיתה"><option value="7">ז׳ / 7</option><option value="8">ח׳ / 8</option><option value="9">ט׳ / 9</option></select></label><select id="mission" aria-label="משימה"></select><button id="settings" aria-label="הגדרות שמע">♫</button><button id="pause" aria-label="השהיה">Ⅱ</button></div></header>
+<main id="workspace"><section id="stage"><canvas id="scene" tabindex="0" aria-label="מכונת הפסטיבל: לחצו על מודול כדי להתקרב ולהפעיל אותו"></canvas><div id="hud"></div><div id="mission-strip"></div><div id="welcome"></div><div id="feedback" role="status" aria-live="polite"></div><div id="inspect"></div><nav id="module-tabs" aria-label="מודולים במכונה"></nav><footer><button id="return">↩ כל המכונה</button><button id="manual-toggle" class="book-button">▤ המדריך</button><button id="controls-toggle">כפתורי הפעלה</button><button id="restart" aria-label="התחלה מחדש">↻</button></footer><div class="bench-caption">FESTIVAL ENGINE CO. <span>WORKBENCH 042</span></div></section><aside id="manual" aria-label="מדריך ההפעלה"></aside><div id="overlay"></div></main>`;
+  const $ = (id: string) => document.getElementById(id)!;
+  const canvas = $("scene") as HTMLCanvasElement;
   const scene = new EngineScene(canvas);
   scene.onSelect = (id) => {
-    if (!started || paused || settings || manual) return;
+    if (!started || paused || settings) return;
+    manual = false;
     selectModule(id);
   };
   scene.onControl = (id, c) => handleControl(id, c);
-  const $ = (id: string) => document.getElementById(id)!;
+  canvas.addEventListener(
+    "pointerdown",
+    () => {
+      if (started && !paused && !settings) {
+        if (manual) {
+          manual = false;
+          update();
+        }
+        audio.duck(false);
+      }
+    },
+    true,
+  );
   function selectModule(id: string | null) {
+    const changed = selected !== id;
+    if (changed)
+      state.feedback =
+        id && state.modules.find((m) => m.id === id)?.fault
+          ? mission.modules.find((m) => m.id === id)!.feedback
+          : "";
     selected = id;
     scene.select(id);
-    audio.cue("latch");
+    if (id) {
+      if (manualPage !== id) audio.cue("page");
+      manualPage = id;
+    }
+    if (changed && id) audio.cue("latch");
     update();
   }
-  function loadMission(m: Mission) {
-    paired = m.modules.some((x) => x.serial === "S-24");
+  function begin() {
+    challenge = ($("challenge") as HTMLInputElement | null)?.checked || false;
+    started = true;
+    manual = false;
+    audio.start();
+    selected = manualPage === "operator" ? null : manualPage;
+    scene.select(selected);
+    update();
+  }
+  function operate() {
+    if (!started) {
+      begin();
+      return;
+    }
+    manual = false;
+    if (manualPage !== "operator") {
+      selected = manualPage;
+      scene.select(selected);
+    }
+    update();
+  }
+  function readPage(id: string) {
+    const changed = manualPage !== id;
+    if (changed) state.feedback = "";
+    manualPage = id;
+    manual = true;
+    translation = false;
+    if (changed) audio.cue("page");
+    update();
+  }
+  function load(m: Mission) {
     mission = m;
+    paired = m.modules.some((x) => x.serial === "S-24");
     state = createState(m);
-    state.retries = attemptHistory[attemptKey()] || 0;
+    state.retries = attempts[key()] || 0;
+    manualPage = "valves";
     selected = null;
     scene.select(null);
-    time = 240;
-    manual = false;
+    manual = true;
     translation = false;
+    controlsOpen = false;
     paused = false;
+    time = 240;
     audio.setProgress(0);
-    audio.setPaused(false);
     update();
   }
-  function updateMissionOptions() {
-    $("mission").innerHTML = MISSIONS.filter((m) => m.grade === mission.grade)
-      .map(
-        (m) =>
-          `<option value="${m.id}" ${m.id === mission.id ? "selected" : ""}>${saved[m.id] ? "✓ " : ""}${STAGE_HE[m.stage]} · ${m.title}</option>`,
-      )
-      .join("");
-  }
-  function controls() {
+  function actionButtons() {
     if (!selected) return "";
-    const mod = state.modules.find((m) => m.id === selected)!;
+    const mod = state.modules.find((v) => v.id === selected)!;
     const w = mod.world;
-    const btn = (id: string, label: string) =>
-      `<button class="action" data-control="${id}" ${mod.fault || mod.complete || state.status !== "playing" ? "disabled" : ""}>${label}</button>`;
+    const button = (id: string, text: string) =>
+      `<button data-control="${id}" ${mod.complete || mod.fault || state.status !== "playing" ? "disabled" : ""}>${text}</button>`;
     if (selected === "valves")
       return (
-        btn("small", `${w.small ? "סגירת" : "פתיחת"} הברז הקטן A`) +
-        btn("large", `${w.large ? "סגירת" : "פתיחת"} הברז הגדול B`) +
-        btn("test", "TEST · בדיקה") +
-        btn("reset", "RESET · לחצן במכונה")
+        button("small", `${w.small ? "סגירת" : "פתיחת"} הברז הקטן A`) +
+        button("large", `${w.large ? "סגירת" : "פתיחת"} הברז הגדול B`) +
+        button("test", "TEST · בדיקה") +
+        button("reset", "RESET · לחצן במכונה")
       );
     if (selected === "cable")
       return (
-        btn("connect-square", "חיבור מתחת למסך □") +
-        btn("connect-round", "חיבור מתחת למסך ○") +
-        btn("clip-a", "סגירת תפס A") +
-        btn("clip-b", "סגירת תפס B") +
-        btn("test", "TEST · בדיקה") +
-        btn("reset", "RESET · לחצן במכונה")
+        button("connect-square", "חיבור מתחת למסך □") +
+        button("connect-round", "חיבור מתחת למסך ○") +
+        button("clip-a", "סגירת תפס A") +
+        button("clip-b", "סגירת תפס B") +
+        button("test", "TEST · בדיקה") +
+        button("reset", "RESET · לחצן במכונה")
       );
     return (
       (mission.id === "g9-independent"
-        ? btn("tag-left", "תג REPLACED לשמאל") +
-          btn("tag-right", "תג REPLACED לימין")
+        ? button("tag-left", "תג REPLACED לשמאל") +
+          button("tag-right", "תג REPLACED לימין")
         : "") +
-      btn("left", `${w.left ? "כיבוי" : "הפעלת"} מנוף שמאל`) +
-      btn("right", `${w.right ? "כיבוי" : "הפעלת"} מנוף ימין`) +
-      btn("fan", `${w.fan ? "כיבוי" : "הפעלת"} מאוורר`) +
-      btn("test", "TEST · בדיקה") +
-      btn("reset", "RESET · לחצן במכונה")
+      button("left", `${w.left ? "כיבוי" : "הפעלת"} מנוף שמאל`) +
+      button("right", `${w.right ? "כיבוי" : "הפעלת"} מנוף ימין`) +
+      button("fan", `${w.fan ? "כיבוי" : "הפעלת"} מאוורר`) +
+      button("test", "TEST · בדיקה") +
+      button("reset", "RESET · לחצן במכונה")
     );
+  }
+  function statusText() {
+    if (!selected) return "";
+    const w = state.modules.find((m) => m.id === selected)!.world;
+    if (selected === "valves")
+      return `קטן: ${w.small ? "פתוח" : "סגור"} · גדול: ${w.large ? "פתוח" : "סגור"} · מד כחול: ${w.pressure}`;
+    if (selected === "cable")
+      return `כבל: ${w.connected === "none" ? "לא מחובר" : w.connected === "square" ? "מחובר למסך המרובע" : "מחובר למסך העגול"} · תפסים: ${w.clipA ? "A סגור" : "A פתוח"}, ${w.clipB ? "B סגור" : "B פתוח"}`;
+    return `שמאל: ${w.left ? "פועל" : "כבוי"} · ימין: ${w.right ? "פועל" : "כבוי"} · מאוורר: ${w.fan ? "פועל" : "כבוי"} · לחץ: ${w.pressure}`;
   }
   function handleControl(id: string, c: string) {
     if (
       !started ||
-      manual ||
       paused ||
       settings ||
       document.hidden ||
-      selected !== id
+      selected !== id ||
+      state.status !== "playing"
     )
       return;
     const mod = state.modules.find((x) => x.id === id)!;
-    if (mod.complete || mod.fault || state.status !== "playing") return;
+    if (mod.complete || mod.fault) return;
+    manual = false;
+    audio.duck(false);
     let action = c;
     if (c === "small" || c === "large")
       action = c + (mod.world[c] ? "-close" : "-open");
@@ -147,14 +210,14 @@ if (partner) {
       action = c + (mod.world[c] ? "-off" : "-on");
     const was = mod.complete;
     const good = act(state, mission, id, action);
-    recordAttempt();
+    remember();
     audio.cue(
       good
-        ? c.includes("connect")
+        ? c.startsWith("connect")
           ? "cable"
-          : c.includes("clip")
+          : c.startsWith("clip")
             ? "latch"
-            : ["small", "large"].includes(c)
+            : c === "small" || c === "large"
               ? "knob"
               : "switch"
         : "error",
@@ -170,236 +233,233 @@ if (partner) {
     audio.setProgress(state.modules.filter((m) => m.complete).length);
     update();
   }
+  function diagram(id: string) {
+    if (id === "valves")
+      return `<svg viewBox="0 0 320 95" aria-label="תרשים זיהוי: A ברז קטן, B ברז גדול" class="manual-diagram"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M72 13v65m160-65v65M72 78h160"/><circle cx="72" cy="43" r="24"/><circle cx="232" cy="43" r="34"/><path d="M48 43h48M72 19v48M198 43h68M232 9v68"/></g><g fill="currentColor" font-size="11" font-family="Arial"><text x="43" y="94">SMALL / A</text><text x="203" y="94">LARGE / B</text></g></svg>`;
+    if (id === "cable")
+      return `<svg viewBox="0 0 320 95" class="manual-diagram" aria-label="שקעים מתחת למסכים"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="50" y="8" width="42" height="32"/><circle cx="238" cy="24" r="20"/><circle cx="71" cy="63" r="12"/><circle cx="238" cy="63" r="12"/><path d="M148 92q-35-16-10-38m0 0h32m-32 0v-15"/></g><g fill="currentColor" font-size="11" font-family="Arial"><text x="44" y="91">SQUARE</text><text x="216" y="91">ROUND</text></g></svg>`;
+    return `<svg viewBox="0 0 320 95" class="manual-diagram" aria-label="מבט קדמי: מנוף שמאל, מנוף ימין ומאוורר"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="65" cy="50" r="13"/><path d="M65 50V20m-8 0h16"/><circle cx="158" cy="50" r="13"/><path d="M158 50V20m-8 0h16"/><circle cx="255" cy="46" r="25"/><path d="m237 28 36 36m-36 0 36-36"/></g><g fill="currentColor" font-size="11" font-family="Arial"><text x="48" y="89">LEFT</text><text x="138" y="89">RIGHT</text><text x="243" y="89">FAN</text></g></svg>`;
+  }
+  function choiceHtml(type: "relay" | "prediction") {
+    const c = mission[type]!;
+    const ordered = c.options.map((o, i) => ({ o, i }));
+    let s = seed;
+    for (const ch of mission.id + type + (paired ? "B" : "A"))
+      s = Math.imul(s ^ ch.charCodeAt(0), 16777619) >>> 0;
+    for (let i = ordered.length - 1; i > 0; i--) {
+      s = (Math.imul(s, 1664525) + 1013904223) >>> 0;
+      const j = Math.floor((s / 4294967296) * (i + 1));
+      [ordered[i], ordered[j]] = [ordered[j], ordered[i]];
+    }
+    return `<section class="message-task"><div class="serial">${type === "prediction" ? "STARTUP PREDICTION" : "OPERATOR MESSAGE"} ${state[type] ? "✓" : ""}</div><p dir="rtl">${type === "prediction" ? "מה יקרה בבדיקה המתוארת?" : "איזו הודעה שומרת את ההוראה במדויק?"}</p><p lang="en" dir="ltr">${c.prompt || c.source || ""}</p>${ordered.map(({ o, i }) => `<button data-choice="${type}" data-index="${i}" dir="ltr" ${state[type] ? "disabled" : ""}>${o}</button>`).join("")}</section>`;
+  }
+  function paper() {
+    const spec = mission.modules.find((s) => s.id === manualPage);
+    const mod = state.modules.find((s) => s.id === manualPage);
+    const idx = mission.modules.findIndex((s) => s.id === manualPage);
+    const hasMessage = !!mission.relay || !!mission.prediction;
+    const intro = !started;
+    const next = state.modules.find((m) => !m.complete && m.id !== manualPage);
+    return `<div class="paper-stack"></div><div class="paper-sheet"><header class="paper-header"><div class="paper-brand">FESTIVAL ENGINE CO.<span>FIELD MANUAL · REV. 04</span></div><a href="?manual=1" target="_blank" title="מדריך נפרד לשותף">↗</a></header><div class="read-operate" dir="rtl"><button id="read-mode" class="${manual ? "current" : ""}"><b>1</b> קוראים</button><span>←</span><button id="operate" class="${!manual && started ? "current" : ""}"><b>2</b> מפעילים במכונה</button></div><div class="paper-scroll"><div class="paper-intro" dir="rtl">${intro ? "<h1>מתחילים במדריך.</h1><p>קראו את ההוראה כאן, ואז הפעילו את המודול התואם במכונה משמאל.</p>" : `<p>המדריך של המודול שמולכם. אפשר לקרוא ולחזור להפעלה בכל רגע.</p>`}</div><nav class="paper-tabs" aria-label="פרקים במדריך">${mission.modules.map((s, i) => `<button data-page="${s.id}" class="${manualPage === s.id ? "current" : ""}">${String(i + 1).padStart(2, "0")}<span>${NAMES[s.id]}</span>${state.modules[i].complete ? "✓" : ""}</button>`).join("")}${hasMessage ? `<button data-page="operator" id="operator-page" class="${manualPage === "operator" ? "current" : ""}">✉<span>מסר</span>${state.relay && state.prediction ? "✓" : "•"}</button>` : ""}</nav>${spec ? `<article class="procedure"><div class="module-reference"><span>${String(idx + 1).padStart(2, "0")} / ${spec.title}</span><b>${spec.serial}</b></div><h2 dir="rtl">${NAMES[manualPage]}</h2><div class="english-procedure" lang="en" dir="ltr">${spec.manual}</div>${diagram(manualPage)}<div class="word-help" dir="rtl">${manualPage === "valves" ? "מזהים לפי הגודל והתג A / B. המד הכחול שייך לברזים." : manualPage === "cable" ? "גררו את התקע הכתום אל השקע המתואר. מזהים לפי הצורה שמתחת למסך." : "שמאל וימין נקבעים במבט ישר מול המודול."}</div><button id="translate" class="translation-button">${translation ? "סגירת העזרה" : "עזרה בעברית / תרגום"}</button>${translation ? `<div class="translation" dir="rtl">${spec.translation}<br>${spec.help}</div>` : ""}${mod?.complete ? '<div class="stable-stamp">INSPECTED · STABLE ✓</div>' : ""}</article>` : `<article class="procedure"><div class="module-reference">OPERATOR DESK / לפני ההתנעה</div><h2 dir="rtl">מסר מדויק למפעיל</h2>${mission.prediction ? choiceHtml("prediction") : ""}${mission.relay ? choiceHtml("relay") : ""}</article>`}${intro ? `<label class="challenge-option" dir="rtl"><input type="checkbox" id="challenge" ${challenge ? "checked" : ""}/> מצב אתגר עם שעון (ללא חובה)</label>` : ""}<div class="paper-footnote" dir="rtl">קראו את כל ההוראה. חפשו פעולה, חפץ, סדר ומגבלה.<br>רמז או תרגום מסמנים ניסיון עם תמיכה.</div></div><div class="paper-action">${!started ? '<button id="start" class="primary" dir="rtl">קראתי · עכשיו למכונה ←</button>' : mod?.complete ? `<button id="next-module" class="primary" dir="rtl">${next ? "למדריך של המודול הבא" : (hasMessage && !state.relay) || (hasMessage && !state.prediction) ? "למסר שלפני ההתנעה" : "חזרה למכונה"} ←</button>` : manualPage === "operator" ? '<button id="close-manual" class="primary" dir="rtl">חזרה למכונה ←</button>' : `<button id="operate-bottom" class="primary" dir="rtl">${manual ? "קראתי · להפעלת המודול" : "חזרה להפעלת " + NAMES[manualPage]} ←</button>`}<small>${manual ? "READ → ACT → CHECK" : "אפשר לחזור למדריך עם M בכל רגע"}</small></div><div class="page-number">${manualPage === "operator" ? "04" : String(idx + 1).padStart(2, "0")} <span>MANUAL MAYHEM</span></div></div>`;
+  }
   function update() {
-    updateMissionOptions();
-    $("return").hidden = !selected;
-    $("pause").innerHTML = paused
-      ? "▶ <span>המשך</span>"
-      : "Ⅱ <span>השהיה</span>";
-    $("manual-toggle").classList.toggle("active", manual);
-    $("mission-strip").innerHTML =
-      `<div class="eyebrow">GRADE ${mission.grade} / ${STAGE_HE[mission.stage]}</div><h1>${mission.title}</h1><p>${mission.brief}</p>${mission.id === "g9-transfer" ? `<button id="paired-model">${paired ? "דגם A: מאוורר מפחית לחץ" : "דגם B: תוכנית הפוכה"} ↔</button>` : ""}`;
-    $("hud").innerHTML =
-      `<div class="module-count"><b>${state.modules.filter((v) => v.complete).length}</b> / 3 <span>MODULES</span></div><div class="strikes" aria-label="${state.strikes} פסילות">${[0, 1, 2].map((i) => `<i class="${i < state.strikes ? "marked" : ""}">×</i>`).join("")}<small>${challenge ? Math.ceil(time) + "s" : "PRACTICE · ללא שעון"}</small></div>`;
-    $("module-tabs").innerHTML = state.modules
+    if (state.status === "ready") {
+      manual = false;
+      selected = null;
+      controlsOpen = false;
+      scene.select(null);
+    }
+    document.body.classList.toggle("reading", manual || !started);
+    document.body.classList.toggle("operating", started && !manual);
+    document.body.classList.toggle("has-inspector", !!selected && controlsOpen);
+    $("mission").innerHTML = MISSIONS.filter((m) => m.grade === mission.grade)
       .map(
-        (v, i) =>
-          `<button data-module="${v.id}" class="${v.complete ? "stable" : ""} ${selected === v.id ? "selected" : ""}"><small>0${i + 1}</small>${mission.modules[i].title}<span>${v.complete ? "✓ STABLE" : v.fault ? "! VENTED" : mission.modules[i].serial}</span></button>`,
+        (m) =>
+          `<option value="${m.id}" ${m.id === mission.id ? "selected" : ""}>${records[m.id] ? "✓ " : ""}${STAGE_HE[m.stage]} · ${m.title}</option>`,
       )
       .join("");
+    $("hud").innerHTML =
+      `<div class="module-count"><b>${state.modules.filter((m) => m.complete).length}</b><span>/ 3 MODULES</span></div><div class="status-lamps">${state.modules.map((m) => `<i class="${m.complete ? "on" : ""}"></i>`).join("<em></em>")}</div><div class="strikes">${[0, 1, 2].map((i) => `<span class="${i < state.strikes ? "marked" : ""}">×</span>`).join("")}<small>${challenge ? Math.ceil(time) + " s" : "תרגול · ללא שעון"}</small></div>`;
+    $("mission-strip").innerHTML =
+      `<div class="eyebrow">GRADE ${mission.grade} · ${STAGE_HE[mission.stage]}</div><h1>${mission.title}</h1>${mission.id === "g9-transfer" ? `<button id="paired-model">${paired ? "דגם A" : "דגם B · תוכנית הפוכה"} ↔</button>` : ""}`;
+    $("mission-strip").hidden = !!selected;
+    $("welcome").innerHTML = !started
+      ? '<span class="first-arrow">←</span><p dir="rtl">המכונה מחכה.<br><b>המדריך פתוח בצד ימין.</b></p>'
+      : "";
+    $("welcome").hidden = started;
+    $("module-tabs").innerHTML = mission.modules
+      .map(
+        (m, i) =>
+          `<button data-module="${m.id}" class="${selected === m.id ? "current" : ""} ${state.modules[i].complete ? "stable" : ""}"><small>${String(i + 1).padStart(2, "0")}</small><span>${m.title}<b>${m.serial} ${state.modules[i].complete ? "✓" : ""}</b></span></button>`,
+      )
+      .join("");
+    $("module-tabs").hidden = !started;
     const mod = state.modules.find((m) => m.id === selected);
-    const spec = mission.modules.find((m) => m.id === selected);
-    $("inspect").hidden = !mod;
-    $("inspect").innerHTML =
-      mod && spec
-        ? `<div class="inspector-head"><div><small>${spec.serial} / FRONT VIEW</small><h2>${spec.title}</h2></div><button id="close-inspect" aria-label="חזרה למבט כללי">×</button></div><div class="world" dir="ltr">${Object.entries(
-            mod.world,
-          )
-            .map(
-              ([k, v]) =>
-                `<span>${escape(k)} <b>${typeof v === "boolean" ? (v ? "ON" : "OFF") : escape(String(v))}</b></span>`,
-            )
-            .join(
-              "",
-            )}</div>${mod.complete ? '<p class="success-text">✓ המודול יציב</p>' : mod.fault ? '<p dir="rtl">שחרור קיטור. קראו את המשוב, אפסו ונסו שוב.</p>' : `<div class="action-grid" dir="rtl">${controls()}</div>`}<div class="inspector-tools"><button id="help" ${mod.complete ? "disabled" : ""}>רמז בעברית</button><button id="recover" ${mod.complete ? "disabled" : ""}>איפוס לצורך ניסיון חוזר</button></div>${translation ? `<p class="translation" dir="rtl">${spec.help}<br>${spec.translation}</p>` : ""}`
-        : "";
-    $("feedback").innerHTML = state.feedback
-      ? `<span>${state.modules.some((m) => m.fault) ? "!" : "•"}</span><p dir="rtl">${state.feedback}</p>`
+    $("inspect").hidden = !mod || !controlsOpen;
+    $("inspect").innerHTML = mod
+      ? `<header><div><small>${mission.modules.find((m) => m.id === selected)!.serial} / ${NAMES[selected!]}</small><h2>כפתורי הפעלה</h2></div><button id="close-inspect" aria-label="סגירת כפתורי הפעלה">×</button></header><p class="world" dir="rtl">${statusText()}</p>${mod.fault ? '<p dir="rtl">שחרור קיטור. קראו את המשוב ואפסו לניסיון חוזר.</p>' : mod.complete ? '<p dir="rtl" class="success-text">המודול יציב ✓</p>' : `<div class="action-grid" dir="rtl">${actionButtons()}</div>`}<div class="inspector-tools"><button id="help">רמז בעברית</button><button id="recover">איפוס לניסיון חוזר</button></div>${translation ? `<div class="translation" dir="rtl">${mission.modules.find((m) => m.id === selected)!.help}</div>` : ""}`
       : "";
     $("feedback").hidden = !state.feedback;
-    $("welcome").hidden = started;
-    $("welcome").innerHTML =
-      `<div class="eyebrow">THE FESTIVAL IS WAITING</div><h2>להחזיר את המוזיקה.</h2><p dir="rtl">שלושה מודולים. מדריך אחד.<br>קראו את תג הדגם, פתחו את המדריך ובצעו את הפעולות.</p><div class="start-controls" dir="rtl"><label><input type="checkbox" id="challenge" ${challenge ? "checked" : ""}/> מצב אתגר עם שעון</label><button id="start" class="primary">מתחילים ←</button></div><p class="tiny" dir="rtl">לחיצה לבדיקה · גלגל בסיבוב/לחיצה · כבל בגרירה<br>אפשר גם עם Tab ו־Enter. M למדריך, Esc לחזרה.</p>`;
-    $("overlay").hidden = !(
+    $("feedback").innerHTML = state.feedback
+      ? `<div dir="rtl"><b>${state.modules.some((m) => m.fault) ? "שחרור קיטור" : "בדיקת המכונה"}</b><p>${state.feedback}</p></div>${selected && state.modules.find((m) => m.id === selected)?.fault ? '<button id="recover-inline">איפוס לניסיון חוזר ↻</button>' : ""}`
+      : "";
+    $("return").hidden = !selected;
+    $("controls-toggle").hidden = !selected;
+    $("manual-toggle").innerHTML = manual ? "▤ קריאה במדריך" : "▤ חזרה למדריך";
+    $("controls-toggle").classList.toggle("current", controlsOpen);
+    $("pause").textContent = paused ? "▶" : "Ⅱ";
+    const pageKey = mission.id + String(paired) + manualPage;
+    const scroll =
+      renderedPaperKey === pageKey
+        ? $("manual").querySelector(".paper-scroll")?.scrollTop || 0
+        : 0;
+    renderedPaperKey = pageKey;
+    $("manual").innerHTML = paper();
+    ($("manual").querySelector(".paper-scroll") as HTMLElement).scrollTop =
+      scroll;
+    renderOverlay();
+    scene.sync(state, mission);
+    audio.duck(manual || settings);
+    audio.setPaused(paused || !started);
+    bindDynamic();
+  }
+  function renderOverlay() {
+    const shown =
       paused ||
       settings ||
       state.status === "ready" ||
       state.status === "won" ||
-      state.status === "shutdown"
-    );
+      state.status === "shutdown";
+    $("overlay").hidden = !shown;
     if (settings) {
-      const snap = audio.snapshot() as any;
-      const gains = snap.gains || {
-        master: 0.8,
-        music: 0.6,
-        sfx: 0.8,
-        voice: 1,
-      };
+      const gains = audio.snapshot().gains;
       $("overlay").innerHTML =
-        `<div class="modal settings" dir="rtl"><button class="x" id="close-overlay" aria-label="סגירה">×</button><div class="eyebrow">SOUND DESK</div><h2>צלילי הסדנה</h2>${["master", "music", "sfx", "voice"].map((k, i) => `<label>${["עוצמה כללית", "מוזיקה וסביבה", "אפקטים", "קול (ללא דיבור בחבילה)"][i]}<input type="range" min="0" max="1" step=".05" value="${gains[k] ?? 0.7}" data-gain="${k}" aria-label="${k}"/></label>`).join("")}<button id="mute">השתקה כללית</button><button id="sound-check" ${started ? "" : "disabled"}>בדיקת צליל</button><p>המוזיקה מוסיפה שכבה עם כל מודול יציב. בזמן קריאת המדריך היא נחלשת.</p><a href="./audio/manual-mayhem-preview.mp3" target="_blank" style="color:#2e574b;font-size:12px">האזנה למיקס של 25 שניות ↗</a></div>`;
+        `<div class="modal" dir="rtl"><button id="close-overlay" class="x">×</button><div class="eyebrow">SOUND DESK</div><h2>צלילי הסדנה</h2>${(["master", "music", "sfx", "voice"] as const).map((k, i) => `<label>${["עוצמה כללית", "מוזיקה וסביבה", "אפקטים", "קול (ללא דיבור בחבילה)"][i]}<input type="range" min="0" max="1" step=".05" value="${gains[k]}" data-gain="${k}" aria-label="${k}"/></label>`).join("")}<button id="mute">השתקה כללית</button><button id="sound-check" ${started ? "" : "disabled"}>בדיקת צליל</button><a href="./audio/manual-mayhem-preview.mp3" target="_blank">מיקס של 25 שניות ↗</a></div>`;
     } else if (paused) {
       $("overlay").innerHTML =
-        `<div class="modal" dir="rtl"><div class="eyebrow">WORKSHOP PAUSED</div><h2>הסדנה בהפסקה</h2><p>הזמן והצליל עצרו.</p><button id="resume" class="primary">חזרה למכונה</button></div>`;
+        '<div class="modal" dir="rtl"><div class="eyebrow">WORKSHOP PAUSED</div><h2>הסדנה בהפסקה</h2><p>הזמן והצליל עצרו.</p><button id="resume" class="primary">חזרה למכונה</button></div>';
     } else if (state.status === "ready") {
       $("overlay").innerHTML =
-        `<div class="modal" dir="rtl"><div class="eyebrow">ALL SYSTEMS STABLE</div><h2>מוכנים להתנעה.</h2><p>שלושת המודולים יציבים. הפעילו את מנוע הפסטיבל.</p><button id="engine-start" class="primary">START ENGINE ←</button></div>`;
+        '<div class="modal" dir="rtl"><div class="eyebrow">ALL SYSTEMS STABLE</div><h2>מוכנים להתנעה.</h2><p>שלושת המודולים יציבים. התניעו את מנוע הפסטיבל.</p><button id="engine-start" class="primary">START ENGINE ←</button></div>';
     } else if (state.status === "won") {
       $("overlay").innerHTML =
-        `<div class="modal" dir="rtl"><div class="eyebrow">FESTIVAL ENGINE ONLINE</div><h2>המוזיקה חזרה!</h2><p>${state.strikes} פסילות · ${state.retries} ניסיונות חוזרים · ${state.assisted ? "עם תמיכה" : "ללא רמז או תרגום"}</p><p>${mission.stage === "transfer" && !state.assisted && !state.strikes && !state.retries ? "העברה בהקשר חדש בוצעה בניסיון ראשון." : "זהו תרגול של הבנת הוראות. אפשר לחזור לניסיון עצמאי."}</p><button id="next" class="primary">${MISSIONS.findIndex((m) => m.id === mission.id) % 3 === 2 ? "למסלול הבא" : "למשימה הבאה"} ←</button><button id="retry-win">ניסיון נוסף</button></div>`;
+        `<div class="modal" dir="rtl"><div class="eyebrow">FESTIVAL ENGINE ONLINE</div><h2>המוזיקה חזרה!</h2><p>${state.strikes} פסילות · ${state.retries} ניסיונות חוזרים · ${state.assisted ? "עם תמיכה" : "ללא רמז או תרגום"}</p><p>${mission.stage === "transfer" && !state.assisted && !state.strikes && !state.retries ? "העברה בהקשר חדש בוצעה בניסיון ראשון." : "זהו תרגול של הבנת הוראות. אפשר לחזור לניסיון נוסף."}</p><button id="next" class="primary">למשימה הבאה ←</button><button id="retry-win">ניסיון נוסף</button></div>`;
     } else if (state.status === "shutdown") {
       $("overlay").innerHTML =
-        `<div class="modal" dir="rtl"><div class="eyebrow">HARMLESS SHUTDOWN</div><h2>המנוע נח להפסקה.</h2><p>שלוש פסילות עצרו את הבדיקה. אפשר להתחיל שוב עם אותן הוראות.</p><button id="retry-shutdown" class="primary">ניסיון מחדש</button></div>`;
+        '<div class="modal" dir="rtl"><div class="eyebrow">HARMLESS SHUTDOWN</div><h2>המנוע נח להפסקה.</h2><p>שלוש פסילות עצרו את הבדיקה. אפשר לנסות שוב.</p><button id="retry-shutdown" class="primary">ניסיון מחדש</button></div>';
     }
-    $("manual").hidden = !manual;
-    $("manual").innerHTML = manual
-      ? `<aside class="paper-manual"><header><div><small>FESTIVAL ENGINE CO.</small><h2>FIELD MANUAL</h2></div><button id="close-manual" aria-label="סגירת מדריך">×</button></header><div class="manual-note" dir="rtl">התאימו את תג המודול לדגם במדריך. קראו את כל הסעיף לפני פעולה. אין כאן סימון של הצעד הבא.</div>${missionManual(mission)}${mission.prediction ? choiceHtml("prediction") : ""}${mission.relay ? choiceHtml("relay") : ""}<div class="manual-bottom"><button id="translate">עזרה בעברית / תרגום</button><a href="?manual=1" target="_blank" rel="noopener">מדריך לשותף ↗</a></div>${translation ? `<div class="translation" dir="rtl">${mission.modules.map((s) => `<p><b>${s.serial}</b> ${s.translation}</p>`).join("")}</div>` : ""}<p class="tiny" dir="rtl">המדריך זמין ללא הגבלת זמן. רמז או תרגום מסמנים ניסיון עם תמיכה.</p></aside>`
-      : "";
-    scene.sync(state, mission);
-    audio.duck(manual || translation || settings);
-    audio.setPaused(paused || !started);
-    bindDynamic();
   }
-  function choiceHtml(type: "prediction" | "relay") {
-    const c = mission[type]!;
-    const ordered = c.options.map((o, i) => ({ o, i }));
-    let seed = choiceSessionSeed;
-    for (const ch of mission.id + type + (paired ? "B" : "A"))
-      seed = Math.imul(seed ^ ch.charCodeAt(0), 16777619) >>> 0;
-    for (let i = ordered.length - 1; i > 0; i--) {
-      seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
-      const j = Math.floor((seed / 4294967296) * (i + 1));
-      [ordered[i], ordered[j]] = [ordered[j], ordered[i]];
-    }
-    return `<section class="message-task"><div class="serial">${type === "relay" ? "OPERATOR RELAY" : "STARTUP PREDICTION"} ${state[type] ? "✓" : ""}</div><p dir="rtl">${type === "relay" ? "בחרו הודעה שלמה למפעיל:" : "לפני פעולה: צפו את התוצאה."}</p>${c.prompt ? `<p lang="en" dir="ltr">${c.prompt}</p>` : ""}${ordered
-      .map(
-        ({ o, i }) =>
-          `<button data-choice="${type}" data-index="${i}" dir="ltr" ${state[type] ? "disabled" : ""}>${o}</button>`,
-      )
-      .join("")}</section>`;
+  function recover() {
+    if (!selected) return;
+    resetModule(state, mission, selected);
+    remember();
+    audio.cue("reset");
+    update();
   }
   function bindDynamic() {
-    const pair = document.getElementById("paired-model");
-    if (pair)
-      pair.onclick = () => {
-        paired = !paired;
-        const original = MISSIONS.find((m) => m.id === "g9-transfer")!;
-        mission = paired
-          ? {
-              ...original,
-              title: "תחזית חדשה · דגם B",
-              brief: "אותו לוח; הפעם המאוורר מוסיף לחץ. התוכנית חייבת להשתנות.",
-              modules: original.modules.map((m) =>
-                m.id === "switches" ? PAIRED_STARTUP : m,
-              ),
-              prediction: {
-                prompt:
-                  "Current pressure: 4. The next test adds 1 with the fan, or zero without it. If pressure reaches five, the engine will stop. What happens with the fan on?",
-                options: [
-                  "The engine will stop: 4 + 1 = 5.",
-                  "The engine will stay at three.",
-                  "The past record guarantees success.",
-                ],
-                correct: 0,
-              },
-              relay: {
-                source:
-                  "For this startup: If the pressure reaches five, the engine will stop. Stop the fan before TEST. Do not turn on either relay.",
-                options: [
-                  "If the pressure reaches five, the engine will stop. Start the fan before TEST; leave both relays off.",
-                  "If the pressure reaches five, the engine will stop. Stop the fan before TEST; leave both relays off.",
-                  "If the pressure reaches five, the engine will stop. Stop both relays after TEST; keep the fan on.",
-                ],
-                correct: 1,
-              },
-            }
-          : original;
-        state = createState(mission);
-        state.retries = attemptHistory[attemptKey()] || 0;
+    const on = (id: string, fn: () => void) => {
+      const el = document.getElementById(id);
+      if (el) el.onclick = fn;
+    };
+    on("start", begin);
+    on("operate", operate);
+    on("operate-bottom", operate);
+    on("close-manual", operate);
+    on("read-mode", () => {
+      manual = true;
+      update();
+    });
+    on("next-module", () => {
+      const next = state.modules.find(
+        (m) => !m.complete && m.id !== manualPage,
+      );
+      if (next) readPage(next.id);
+      else if (!state.relay || !state.prediction) readPage("operator");
+      else {
+        manual = false;
         selected = null;
         scene.select(null);
-        time = 240;
-        manual = false;
-        translation = false;
-        audio.setProgress(0);
         update();
-      };
-    document
-      .querySelectorAll<HTMLButtonElement>("[data-control]")
-      .forEach(
-        (b) => (b.onclick = () => handleControl(selected!, b.dataset.control!)),
-      );
-    document.querySelectorAll<HTMLButtonElement>("[data-module]").forEach(
-      (b) =>
-        (b.onclick = () => {
-          if (started && !manual && !paused && !settings)
-            selectModule(b.dataset.module!);
-        }),
-    );
-    const click = (id: string, fn: () => void) => {
-      const x = document.getElementById(id);
-      if (x) x.onclick = fn;
-    };
-    click("start", () => {
-      challenge = (document.getElementById("challenge") as HTMLInputElement)
-        .checked;
-      started = true;
-      audio.start();
-      update();
-    });
-    click("close-inspect", () => selectModule(null));
-    click("close-manual", () => toggleManual());
-    click("translate", () => {
-      translation = !translation;
-      if (translation) {
-        state.assisted = true;
-        recordAttempt();
       }
+    });
+    on("close-inspect", () => {
+      controlsOpen = false;
       update();
     });
-    click("help", () => {
-      translation = !translation;
-      if (translation) {
-        state.assisted = true;
-        recordAttempt();
-      }
-      update();
-    });
-    click("recover", () => {
-      resetModule(state, mission, selected!);
-      recordAttempt();
-      audio.cue("reset");
-      update();
-    });
-    click("close-overlay", () => {
+    on("recover", recover);
+    on("recover-inline", recover);
+    for (const id of ["translate", "help"])
+      on(id, () => {
+        translation = !translation;
+        if (translation) {
+          state.assisted = true;
+          remember();
+        }
+        update();
+      });
+    on("close-overlay", () => {
       settings = false;
       update();
     });
-    click("resume", () => {
+    on("resume", () => {
       paused = false;
       audio.start();
       update();
     });
-    click("engine-start", () => {
+    on("engine-start", () => {
       state.status = "won";
-      saved[attemptKey()] = {
+      manual = false;
+      records[key()] = {
         strikes: state.strikes,
         assisted: state.assisted,
         retries: state.retries,
         events: state.events.length,
       };
-      localStorage.setItem("mm-records", JSON.stringify(saved));
-      recordAttempt();
+      try {
+        localStorage.setItem("mm-records", JSON.stringify(records));
+      } catch {}
+      remember();
       audio.cue("victory");
       update();
     });
-    click("next", () => {
-      const index = MISSIONS.findIndex((m) => m.id === mission.id);
-      loadMission(MISSIONS[(index + 1) % MISSIONS.length]);
+    on("next", () => {
+      load(
+        MISSIONS[
+          (MISSIONS.findIndex((m) => m.id === mission.id) + 1) % MISSIONS.length
+        ],
+      );
       ($("grade") as HTMLSelectElement).value = String(mission.grade);
     });
     for (const id of ["retry-win", "retry-shutdown"])
-      click(id, () => {
-        const retries = state.retries + 1;
-        loadMission(mission);
-        state.retries = retries;
-        recordAttempt();
+      on(id, () => {
+        const r = state.retries + 1;
+        load(mission);
+        state.retries = r;
+        remember();
         update();
       });
-    click("mute", () => {
+    on("mute", () => {
       audio.setGains({ master: 0 });
       update();
     });
-    click("sound-check", () => audio.cue("victory"));
+    on("sound-check", () => audio.cue("victory"));
+    document.querySelectorAll<HTMLButtonElement>("[data-module]").forEach(
+      (el) =>
+        (el.onclick = () => {
+          if (!started) return;
+          manual = false;
+          selectModule(el.dataset.module!);
+        }),
+    );
+    document
+      .querySelectorAll<HTMLButtonElement>("[data-page]")
+      .forEach((el) => (el.onclick = () => readPage(el.dataset.page!)));
+    document
+      .querySelectorAll<HTMLButtonElement>("[data-control]")
+      .forEach(
+        (el) =>
+          (el.onclick = () => handleControl(selected!, el.dataset.control!)),
+      );
     document
       .querySelectorAll<HTMLInputElement>("[data-gain]")
       .forEach(
@@ -416,59 +476,105 @@ if (partner) {
             el.dataset.choice as "relay" | "prediction",
             Number(el.dataset.index),
           );
-          recordAttempt();
+          remember();
           audio.cue(good ? "latch" : "error");
           update();
         }),
     );
+    on("paired-model", () => {
+      const base = MISSIONS.find((m) => m.id === "g9-transfer")!;
+      const wantB = !paired;
+      load(
+        wantB
+          ? {
+              ...base,
+              title: "תחזית חדשה · דגם B",
+              brief: "בבדיקה הזאת המאוורר מוסיף לחץ.",
+              modules: base.modules.map((m) =>
+                m.id === "switches" ? PAIRED_STARTUP : m,
+              ),
+              prediction: {
+                prompt:
+                  "Current pressure: four. The next test adds one with the fan, or zero without it. If the pressure reaches five, the engine will stop. What happens with the fan on?",
+                options: [
+                  "The engine will stop: 4 + 1 = 5.",
+                  "The engine will stay at three.",
+                  "The record guarantees success.",
+                ],
+                correct: 0,
+              },
+              relay: {
+                source:
+                  "If the pressure reaches five, the engine will stop. Stop the fan before TEST. Do not turn on either relay.",
+                options: [
+                  "If the pressure reaches five, the engine will stop. Start the fan before TEST; leave both relays off.",
+                  "If the pressure reaches five, the engine will stop. Stop the fan before TEST; leave both relays off.",
+                  "If the pressure reaches five, the engine will stop. Stop both relays after TEST; keep the fan on.",
+                ],
+                correct: 1,
+              },
+            }
+          : base,
+      );
+    });
   }
-  function toggleManual() {
-    if (!started || paused || settings) return;
+  $("return").onclick = () => {
+    manual = false;
+    selectModule(null);
+  };
+  $("manual-toggle").onclick = () => {
+    if (!started) return;
     manual = !manual;
-    audio.cue("page");
-    update();
-  }
-  $("manual-toggle").onclick = toggleManual;
-  $("return").onclick = () => selectModule(null);
-  $("restart").onclick = () => {
-    const r = state.retries + 1;
-    loadMission(mission);
-    state.retries = r;
-    recordAttempt();
     update();
   };
-  $("pause").onclick = () => {
-    if (!started) return;
-    paused = !paused;
+  $("controls-toggle").onclick = () => {
+    controlsOpen = !controlsOpen;
     manual = false;
+    update();
+  };
+  $("restart").onclick = () => {
+    const r = state.retries + 1;
+    load(mission);
+    state.retries = r;
+    remember();
     update();
   };
   $("settings").onclick = () => {
     settings = !settings;
-    manual = false;
     update();
   };
+  $("pause").onclick = () => {
+    if (started) {
+      paused = !paused;
+      update();
+    }
+  };
   ($("grade") as HTMLSelectElement).onchange = (e) =>
-    loadMission(
+    load(
       MISSIONS.find(
         (m) => m.grade === Number((e.target as HTMLSelectElement).value),
       )!,
     );
   ($("mission") as HTMLSelectElement).onchange = (e) =>
-    loadMission(
-      MISSIONS.find((m) => m.id === (e.target as HTMLSelectElement).value)!,
-    );
+    load(MISSIONS.find((m) => m.id === (e.target as HTMLSelectElement).value)!);
   window.addEventListener("keydown", (e) => {
     if ((e.target as HTMLElement).matches("input,select,textarea")) return;
     if (e.code === "KeyM") {
       e.preventDefault();
-      toggleManual();
+      if (started && !paused && !settings) {
+        manual = !manual;
+        update();
+      }
     }
     if (e.key === "Escape") {
-      if (manual) manual = false;
-      else if (settings) settings = false;
+      if (settings) settings = false;
       else if (paused) paused = false;
-      else selectModule(null);
+      else if (controlsOpen) controlsOpen = false;
+      else if (manual && started) manual = false;
+      else {
+        selected = null;
+        scene.select(null);
+      }
       update();
     }
     if (e.code === "KeyF") {
@@ -476,19 +582,20 @@ if (partner) {
       else $("workspace").requestFullscreen();
     }
     if (
-      ["Digit1", "Digit2", "Digit3"].includes(e.code) &&
       started &&
-      !manual &&
       !paused &&
-      !settings
-    )
+      !settings &&
+      ["Digit1", "Digit2", "Digit3"].includes(e.code)
+    ) {
+      manual = false;
       selectModule(
         ["valves", "cable", "switches"][Number(e.code.slice(-1)) - 1],
       );
+    }
   });
   let last = performance.now(),
-    seconds = 0;
-  let windowBlurred = false;
+    seconds = 0,
+    windowBlurred = false;
   document.addEventListener("visibilitychange", () => {
     last = performance.now();
   });
@@ -502,7 +609,6 @@ if (partner) {
     scene.settleTime = 2;
   });
   function step(ms: number, draw = true) {
-    const dt = Math.min(ms / 1000, 0.1);
     if (
       started &&
       !paused &&
@@ -524,13 +630,16 @@ if (partner) {
       if (seconds > 1000) {
         seconds = 0;
         const small = document.querySelector(".strikes small");
-        if (small) small.textContent = Math.ceil(time) + "s";
+        if (small) small.textContent = Math.ceil(time) + " s";
       }
     }
-    scene.render(paused || settings || windowBlurred ? 0 : dt, draw);
+    scene.render(
+      paused || settings || windowBlurred ? 0 : Math.min(ms / 1000, 0.1),
+      draw,
+    );
   }
   function loop(now: number) {
-    if (now - last >= 40 && !document.hidden) {
+    if (now - last >= 33 && !document.hidden) {
       step(now - last);
       last = now;
     }
@@ -546,13 +655,15 @@ if (partner) {
     JSON.stringify({
       mode: !started
         ? "intro"
-        : manual
-          ? "manual"
-          : settings
-            ? "settings"
-            : paused
-              ? "paused"
-              : state.status,
+        : settings
+          ? "settings"
+          : paused
+            ? "paused"
+            : state.status !== "playing"
+              ? state.status
+              : manual
+                ? "manual"
+                : state.status,
       mission: {
         id: mission.id,
         grade: mission.grade,
@@ -560,13 +671,22 @@ if (partner) {
         title: mission.title,
         variant: paired ? "B" : "A",
       },
-      coordinateSystem:
-        "device front: x right, y up; left/right fixed facing module; z toward player",
+      manual: {
+        visible: innerWidth >= 760 || manual || !started,
+        reading: manual,
+        page: manualPage,
+        serial: mission.modules.find((m) => m.id === manualPage)?.serial,
+        text: mission.modules.find((m) => m.id === manualPage)?.manual,
+      },
       selected,
+      controlsOpen,
+      coordinateSystem:
+        "Fixed front view: x right, y up; gauges left, valves center, patch right, relays lower. Left/right always facing module.",
       view: {
-        rotation: Math.round(scene.rotation * 1000) / 1000,
+        rotation: scene.rotation,
         camera: scene.camera.position.toArray(),
       },
+      controls: scene.screenControls(),
       modules: state.modules.map((m, i) => ({
         id: m.id,
         serial: mission.modules[i].serial,
@@ -574,9 +694,6 @@ if (partner) {
         fault: m.fault,
         world: m.world,
       })),
-      manual: manual
-        ? mission.modules.map((m) => ({ serial: m.serial, text: m.manual }))
-        : undefined,
       relay: state.relay,
       prediction: state.prediction,
       strikes: state.strikes,
