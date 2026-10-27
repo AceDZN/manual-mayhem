@@ -1,0 +1,60 @@
+[
+  {
+    "name": "pump",
+    "path": "public/models/pump.glb",
+    "bytes": 1292920,
+    "sha256": "45da97237e0986fe13d6c827fa23a59086b1cb07e05b4bd188a2ab34a19776a3",
+    "meshes": 1,
+    "primitives": 1,
+    "vertices": 13051,
+    "triangles": 19032,
+    "min": [
+      -0.5000000596046448,
+      0,
+      -0.2066955864429474
+    ],
+    "max": [
+      0.5000000596046448,
+      0.490814208984375,
+      0.2066955864429474
+    ],
+    "size": [
+      1.0000001192092896,
+      0.490814208984375,
+      0.4133911728858948
+    ],
+    "images": 3,
+    "skins": 0,
+    "animations": 0,
+    "extensionsRequired": []
+  },
+  {
+    "name": "service-arm",
+    "path": "public/models/service-arm.glb",
+    "bytes": 1062788,
+    "sha256": "ee0c1eb2888452a29aa05f65bee2546389ad71fedcd5464b6618f94d7bb2e22f",
+    "meshes": 1,
+    "primitives": 1,
+    "vertices": 11964,
+    "triangles": 18108,
+    "min": [
+      -0.5000000596046448,
+      0,
+      -0.2566223442554474
+    ],
+    "max": [
+      0.5000000596046448,
+      0.892333984375,
+      0.2566223442554474
+    ],
+    "size": [
+      1.0000001192092896,
+      0.892333984375,
+      0.5132446885108948
+    ],
+    "images": 3,
+    "skins": 0,
+    "animations": 0,
+    "extensionsRequired": []
+  }
+]

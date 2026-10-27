@@ -1,0 +1,13 @@
+import {chromium} from 'playwright';
+const b=await chromium.launch({headless:true,args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const p=await b.newPage({viewport:{width:1100,height:720},deviceScaleFactor:1});
+p.on('pageerror',e=>console.log('PAGEERROR',String(e)));
+p.on('console',m=>{if(m.type()==='error')console.log('CONSOLE',m.text())});
+console.log('goto');await p.goto('http://localhost:5262',{waitUntil:'domcontentloaded',timeout:20000});
+console.log('loaded');await p.waitForSelector('#start',{state:'visible',timeout:30000});
+console.log('visible',await p.locator('#start').boundingBox());
+await p.screenshot({path:'docs/qa/intro.png'});console.log('screenshot');
+await p.locator('#start').click({timeout:20000});console.log('started');
+console.log(await p.evaluate(()=>window.render_game_to_text()));
+await p.screenshot({path:'docs/qa/initial-gameplay.png'});console.log('captured');
+await b.close();

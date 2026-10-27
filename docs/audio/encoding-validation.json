@@ -1,0 +1,114 @@
+[
+  {
+    "file": "public/audio/activate.wav",
+    "decodedDuration": 1.3500226757369616,
+    "peakDBFS": -16.71,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0
+  },
+  {
+    "file": "public/audio/cable.wav",
+    "decodedDuration": 0.38,
+    "peakDBFS": -18.51,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0
+  },
+  {
+    "file": "public/audio/error.wav",
+    "decodedDuration": 1.0499773242630386,
+    "peakDBFS": -19.36,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0
+  },
+  {
+    "file": "public/audio/knob.wav",
+    "decodedDuration": 0.12997732426303854,
+    "peakDBFS": -16.19,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0
+  },
+  {
+    "file": "public/audio/latch.wav",
+    "decodedDuration": 0.3,
+    "peakDBFS": -13.26,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0
+  },
+  {
+    "file": "public/audio/page.wav",
+    "decodedDuration": 0.5,
+    "peakDBFS": -16.25,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0
+  },
+  {
+    "file": "public/audio/reset.wav",
+    "decodedDuration": 1.0499773242630386,
+    "peakDBFS": -19.0,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0
+  },
+  {
+    "file": "public/audio/settle.wav",
+    "decodedDuration": 0.9,
+    "peakDBFS": -21.24,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0
+  },
+  {
+    "file": "public/audio/strike.wav",
+    "decodedDuration": 0.6499773242630386,
+    "peakDBFS": -22.64,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0
+  },
+  {
+    "file": "public/audio/switch.wav",
+    "decodedDuration": 0.2,
+    "peakDBFS": -15.84,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0
+  },
+  {
+    "file": "public/audio/victory.wav",
+    "decodedDuration": 2.8,
+    "peakDBFS": -15.69,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0
+  },
+  {
+    "file": "public/audio/workshop-ambient.mp3",
+    "decodedDuration": 17.77777777777778,
+    "peakDBFS": -33.82,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 4.8e-05
+  },
+  {
+    "file": "public/audio/workshop-glass.mp3",
+    "decodedDuration": 71.11111111111111,
+    "peakDBFS": -24.27,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0002677
+  },
+  {
+    "file": "public/audio/workshop-groove.mp3",
+    "decodedDuration": 71.11111111111111,
+    "peakDBFS": -17.3,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0017471
+  },
+  {
+    "file": "public/audio/workshop-harmony.mp3",
+    "decodedDuration": 71.11111111111111,
+    "peakDBFS": -21.89,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.0005987
+  },
+  {
+    "file": "public/audio/workshop-lift.mp3",
+    "decodedDuration": 71.11111111111111,
+    "peakDBFS": -31.66,
+    "clippedSamples": 0,
+    "loopBoundarySampleDelta": 0.00124
+  }
+]

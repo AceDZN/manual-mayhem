@@ -1,0 +1,47 @@
+import { chromium } from 'playwright';
+import fs from 'node:fs/promises';import assert from 'node:assert/strict';
+const browser=await chromium.launch({headless:true,args:['--autoplay-policy=user-gesture-required']});
+const page=await browser.newPage({viewport:{width:1440,height:900}});const checks=[];const errors=[];
+page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+const state=()=>page.evaluate(()=>JSON.parse(window.render_game_to_text()));
+const record=async(name,fn)=>{await fn();checks.push({name,pass:true,state:await state()})};
+const click=selector=>page.locator(selector).click();
+const gain=async(name,value)=>page.locator(`[data-gain="${name}"]`).evaluate((el,value)=>{el.value=value;el.dispatchEvent(new Event('input',{bubbles:true}))},String(value));
+try{
+ await page.goto('http://localhost:5262/',{waitUntil:'domcontentloaded',timeout:60000});await page.waitForFunction(()=>!!window.render_game_to_text);
+ await record('Game intro does not create audio context',async()=>assert.equal((await state()).audio.state,'not-started'));
+ await click('#start');await page.waitForFunction(()=>{const a=JSON.parse(window.render_game_to_text()).audio;return a.loaded===16&&a.rms>0});
+ await record('Actual Start starts the original local score',async()=>{const a=(await state()).audio;assert.equal(a.state,'running');assert.equal(a.activeLoops,5);assert.equal(a.moduleStems,0);assert.equal(a.error,null)});
+ await click('#manual-toggle');
+ await record('Actual manual ducks sound and preserves transport',async()=>{const s=await state();assert.equal(s.mode,'manual');assert.equal(s.audio.ducked,true);assert.equal(s.audio.state,'running')});
+ await click('#manual-toggle');await click('[data-module="valves"]');await click('[data-control="large"]');
+ await record('Wrong physical action produces pressure vent and strike cues',async()=>{const s=await state();assert.equal(s.strikes,1);assert.equal(s.modules[0].fault,true);assert.equal(s.audio.lastCue,'strike')});
+ await click('#recover');await click('[data-control="small"]');await click('[data-control="large"]');
+ await record('Recovered valve procedure adds first musical stem',async()=>{const s=await state();assert.equal(s.modules[0].complete,true);assert.equal(s.audio.moduleStems,1)});
+ await click('[data-module="cable"]');for(const action of ['connect-square','clip-a','clip-b','test'])await click(`[data-control="${action}"]`);
+ await record('Physical cable and latch procedure adds second stem',async()=>{const s=await state();assert.equal(s.modules[1].complete,true);assert.equal(s.audio.moduleStems,2)});
+ await click('[data-module="switches"]');for(const action of ['left','test'])await click(`[data-control="${action}"]`);
+ await record('Relay procedure adds third stem',async()=>{const s=await state();assert.equal(s.modules[2].complete,true);assert.equal(s.audio.moduleStems,3);assert.equal(s.mode,'ready')});
+ await click('#engine-start');await record('Actual engine startup triggers victory cadence',async()=>{const s=await state();assert.equal(s.mode,'won');assert.equal(s.audio.lastCue,'victory')});
+ await page.screenshot({path:'docs/audio/integrated-audio-win.png',fullPage:true});
+ await click('#settings');await page.waitForTimeout(150);
+ await record('Settings pauses action pressure while retaining audible ducked mix',async()=>{const s=await state();assert.equal(s.mode,'settings');assert.equal(s.audio.state,'running');assert.equal(s.audio.ducked,true)});
+ for(const [name,value] of [['master',.7],['music',.4],['sfx',.45],['voice',.5]])await gain(name,value);
+ const cues=(await state()).audio.cueCount;await click('#sound-check');
+ await record('Actual independent sliders and sound check work',async()=>{const a=(await state()).audio;assert.deepEqual(a.gains,{master:.7,music:.4,sfx:.45,voice:.5});assert.equal(a.cueCount,cues+1);assert.equal(a.lastCue,'victory')});
+ await click('#mute');await page.waitForTimeout(180);
+ await record('Actual mute button silences output',async()=>{const a=(await state()).audio;assert.equal(a.gains.master,0);assert.ok(a.rms<.000001)});
+ await gain('master',.8);await click('#close-overlay');await click('#retry-win');
+ await record('Actual restart resets stems without another loop set',async()=>{const a=(await state()).audio;assert.equal(a.moduleStems,0);assert.equal(a.activeLoops,5)});
+ await click('#pause');await page.waitForTimeout(220);const t=(await state()).audio.transportSeconds;await page.waitForTimeout(200);
+ await record('Actual pause button freezes audio transport',async()=>{const s=await state();assert.equal(s.mode,'paused');assert.equal(s.audio.state,'suspended');assert.equal(s.audio.transportSeconds,t)});
+ await click('#resume');await page.waitForTimeout(150);
+ await record('Actual resume button preserves single transport',async()=>{const a=(await state()).audio;assert.equal(a.state,'running');assert.equal(a.activeLoops,5)});
+ for(let i=0;i<3;i++)await click('#restart');
+ await record('Three more actual restarts retain five loop sources',async()=>assert.equal((await state()).audio.activeLoops,5));
+ await page.screenshot({path:'docs/audio/integrated-audio-restart.png',fullPage:true});
+ assert.equal(errors.length,0);
+ await fs.writeFile('docs/audio/integrated-audio-qa.json',JSON.stringify({url:'http://localhost:5262/',date:new Date().toISOString(),browser:'Playwright Chromium headless',method:'UI controls only; no injected win or state changes. Settings sliders changed with browser input events.',listening:'Automated browser playback; no human listening or subjective audition claimed.',checks,errors},null,2)+'\n');
+ console.log(JSON.stringify({checks:checks.length,passed:checks.length,errors},null,2));
+}catch(e){console.error(e);await fs.writeFile('docs/audio/integrated-audio-qa-failure.json',JSON.stringify({checks,errors,failure:String(e),lastState:await state().catch(()=>null)},null,2));process.exitCode=1}
+finally{await browser.close()}

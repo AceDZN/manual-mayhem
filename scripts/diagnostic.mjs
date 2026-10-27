@@ -1,0 +1,3 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({headless:true,args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+try{const p=await b.newPage({viewport:{width:1100,height:760},deviceScaleFactor:1});p.on('pageerror',e=>console.log('ERROR',String(e)));p.on('console',m=>console.log('CONSOLE',m.type(),m.text()));await p.goto('http://localhost:5262/',{waitUntil:'domcontentloaded',timeout:30000});console.log('DOM LOADED');console.log(await p.locator('#start').count());console.log(await p.evaluate(()=>({html:document.body.innerText.slice(0,1500),s:window.render_game_to_text?.()})));await p.screenshot({path:'docs/playtest/diagnostic.png',timeout:20000});console.log('SCREENSHOT');}finally{await b.close();}

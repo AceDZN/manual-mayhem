@@ -1,0 +1,239 @@
+{
+  "game": "Manual Mayhem",
+  "reviewedAt": "2026-10-27",
+  "status": "implemented",
+  "challengeIds": [
+    "g7-guided",
+    "g7-independent",
+    "g7-transfer",
+    "g8-guided",
+    "g8-independent",
+    "g8-transfer",
+    "g9-guided",
+    "g9-independent",
+    "g9-transfer"
+  ],
+  "records": [
+    {
+      "grade": 7,
+      "chapter": 11,
+      "module": "modals-and-imperatives",
+      "url": "https://english.workbook.co.il/grade-7/chapter-11/modals-and-imperatives",
+      "challengeIds": [
+        "g7-guided",
+        "g7-independent",
+        "g7-transfer"
+      ],
+      "skill": "Interpret imperative action/object, must and negation",
+      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
+      "assistanceConditions": [
+        "Guided missions automatically assisted",
+        "Hint/translation marks assistance",
+        "Wrong relay marks subsequent attempt assisted",
+        "Fault reset increments retry; strikes persist"
+      ],
+      "tests": [
+        "G7 same initial valves; G7 prohibition changes working lever; G7 negative RESET"
+      ],
+      "status": "implemented",
+      "verification": {
+        "semanticTests": "23/23 passed 2026-10-27",
+        "browser": "pending"
+      }
+    },
+    {
+      "grade": 7,
+      "chapter": 12,
+      "module": "reading-functional-texts",
+      "url": "https://english.workbook.co.il/grade-7/chapter-12/reading-functional-texts",
+      "challengeIds": [
+        "g7-guided",
+        "g7-independent",
+        "g7-transfer"
+      ],
+      "skill": "Preserve ordered procedure and precise socket reference",
+      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
+      "assistanceConditions": [
+        "Guided missions automatically assisted",
+        "Hint/translation marks assistance",
+        "Wrong relay marks subsequent attempt assisted",
+        "Fault reset increments retry; strikes persist"
+      ],
+      "tests": [
+        "G7 same initial valves; G7 prohibition changes working lever"
+      ],
+      "status": "implemented",
+      "verification": {
+        "semanticTests": "23/23 passed 2026-10-27",
+        "browser": "pending"
+      }
+    },
+    {
+      "grade": 8,
+      "chapter": 10,
+      "module": "present-simple-passive-reference",
+      "url": "https://english.workbook.co.il/grade-8/chapter-10/present-simple-passive-reference",
+      "challengeIds": [
+        "g8-guided",
+        "g8-independent",
+        "g8-transfer"
+      ],
+      "skill": "Identify receiver and by-agent to choose physical lever",
+      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
+      "assistanceConditions": [
+        "Guided missions automatically assisted",
+        "Hint/translation marks assistance",
+        "Wrong relay marks subsequent attempt assisted",
+        "Fault reset increments retry; strikes persist"
+      ],
+      "tests": [
+        "G8 passive by-agent; G8 transfer requested receiver"
+      ],
+      "status": "implemented",
+      "verification": {
+        "semanticTests": "23/23 passed 2026-10-27",
+        "browser": "pending"
+      }
+    },
+    {
+      "grade": 8,
+      "chapter": 11,
+      "module": "connectors-and-time-clauses",
+      "url": "https://english.workbook.co.il/grade-8/chapter-11/connectors-and-time-clauses",
+      "challengeIds": [
+        "g8-guided",
+        "g8-independent",
+        "g8-transfer"
+      ],
+      "skill": "Before/after changes event order while appearance remains the same",
+      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
+      "assistanceConditions": [
+        "Guided missions automatically assisted",
+        "Hint/translation marks assistance",
+        "Wrong relay marks subsequent attempt assisted",
+        "Fault reset increments retry; strikes persist"
+      ],
+      "tests": [
+        "G8 before/after; both clip orders"
+      ],
+      "status": "implemented",
+      "verification": {
+        "semanticTests": "23/23 passed 2026-10-27",
+        "browser": "pending"
+      }
+    },
+    {
+      "grade": 8,
+      "chapter": 12,
+      "module": "mediation-and-shared-understanding",
+      "url": "https://english.workbook.co.il/grade-8/chapter-12/mediation-and-shared-understanding",
+      "challengeIds": [
+        "g8-independent",
+        "g8-transfer"
+      ],
+      "skill": "Select useful complete relay preserving order/reference/prohibition",
+      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
+      "assistanceConditions": [
+        "Guided missions automatically assisted",
+        "Hint/translation marks assistance",
+        "Wrong relay marks subsequent attempt assisted",
+        "Fault reset increments retry; strikes persist"
+      ],
+      "tests": [
+        "all mission readiness; relay choice"
+      ],
+      "status": "implemented",
+      "verification": {
+        "semanticTests": "23/23 passed 2026-10-27",
+        "browser": "pending"
+      }
+    },
+    {
+      "grade": 9,
+      "chapter": 10,
+      "module": "past-simple-passive-reference",
+      "url": "https://english.workbook.co.il/grade-9/chapter-10/past-simple-passive-reference",
+      "challengeIds": [
+        "g9-independent",
+        "g9-transfer"
+      ],
+      "skill": "Identify past maintenance receiver alongside explicitly separate current check",
+      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
+      "assistanceConditions": [
+        "Guided missions automatically assisted",
+        "Hint/translation marks assistance",
+        "Wrong relay marks subsequent attempt assisted",
+        "Fault reset increments retry; strikes persist"
+      ],
+      "tests": [
+        "G9 past-passive record"
+      ],
+      "status": "implemented",
+      "verification": {
+        "semanticTests": "23/23 passed 2026-10-27",
+        "browser": "pending"
+      }
+    },
+    {
+      "grade": 9,
+      "chapter": 11,
+      "module": "conditionals-reference",
+      "url": "https://english.workbook.co.il/grade-9/chapter-11/conditionals-reference",
+      "challengeIds": [
+        "g9-guided",
+        "g9-transfer"
+      ],
+      "skill": "Repeat fixed zero-conditional rule; predict and prevent this startup outcome",
+      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
+      "assistanceConditions": [
+        "Guided missions automatically assisted",
+        "Hint/translation marks assistance",
+        "Wrong relay marks subsequent attempt assisted",
+        "Fault reset increments retry; strikes persist"
+      ],
+      "tests": [
+        "G9 zero-conditional; G9 this-startup prediction"
+      ],
+      "status": "implemented",
+      "verification": {
+        "semanticTests": "23/23 passed 2026-10-27",
+        "browser": "pending"
+      }
+    },
+    {
+      "grade": 9,
+      "chapter": 12,
+      "module": "mediation-reference",
+      "url": "https://english.workbook.co.il/grade-9/chapter-12/mediation-reference",
+      "challengeIds": [
+        "g9-transfer"
+      ],
+      "skill": "Relay startup plan without losing before or prohibition",
+      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
+      "assistanceConditions": [
+        "Guided missions automatically assisted",
+        "Hint/translation marks assistance",
+        "Wrong relay marks subsequent attempt assisted",
+        "Fault reset increments retry; strikes persist"
+      ],
+      "tests": [
+        "relay choice"
+      ],
+      "status": "implemented",
+      "verification": {
+        "semanticTests": "23/23 passed 2026-10-27",
+        "browser": "pending"
+      }
+    }
+  ],
+  "exclusions": [
+    "Whole-chapter completion",
+    "Grade 7 chapter 10 tense mastery",
+    "Second conditional",
+    "Listening, speaking or pronunciation assessment",
+    "Spontaneous writing",
+    "Literary analysis and extended narrative/opinion writing",
+    "Retained mastery or learning gains"
+  ],
+  "verificationNote": "All nine fixtures reviewed and 23 independent semantic tests passed. Browser paths pending; no entry is marked verified."
+}

@@ -1,0 +1,543 @@
+{
+  "url": "http://localhost:5262/docs/audio/audio-harness.html",
+  "date": "2026-10-27T15:44:38.954Z",
+  "browser": "Playwright Chromium headless",
+  "listening": "Automated browser playback only; no human listening or subjective audition claimed.",
+  "checks": [
+    {
+      "name": "No context or playback before user gesture",
+      "pass": true,
+      "snapshot": {
+        "state": "not-started",
+        "loaded": 0,
+        "error": null,
+        "activeLoops": 0,
+        "moduleStems": 0,
+        "stemLevels": [],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.8,
+          "music": 0.75,
+          "sfx": 0.8,
+          "voice": 1
+        },
+        "activeShots": 0,
+        "cueCount": 0,
+        "lastCue": null,
+        "rms": 0,
+        "transportSeconds": 0,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Gesture starts 16 decoded assets and exactly five loop sources",
+      "pass": true,
+      "snapshot": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 0,
+        "stemLevels": [
+          0.9,
+          0,
+          0,
+          0,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.8,
+          "music": 0.75,
+          "sfx": 0.8,
+          "voice": 1
+        },
+        "activeShots": 0,
+        "cueCount": 0,
+        "lastCue": null,
+        "rms": 0.009956,
+        "transportSeconds": 0.74,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Each stabilized module adds a score stem",
+      "pass": true,
+      "snapshot": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 3,
+        "stemLevels": [
+          0.9,
+          0.92,
+          0.92,
+          0.92,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.8,
+          "music": 0.75,
+          "sfx": 0.8,
+          "voice": 1
+        },
+        "activeShots": 0,
+        "cueCount": 0,
+        "lastCue": null,
+        "rms": 0.017424,
+        "transportSeconds": 1.62,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Independent master gain persists",
+      "pass": true,
+      "snapshot": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 3,
+        "stemLevels": [
+          0.9,
+          0.92,
+          0.92,
+          0.92,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.31,
+          "music": 0.75,
+          "sfx": 0.8,
+          "voice": 1
+        },
+        "activeShots": 0,
+        "cueCount": 0,
+        "lastCue": null,
+        "rms": 0.009569,
+        "transportSeconds": 1.7,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Independent music gain persists",
+      "pass": true,
+      "snapshot": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 3,
+        "stemLevels": [
+          0.9,
+          0.92,
+          0.92,
+          0.92,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.31,
+          "music": 0.31,
+          "sfx": 0.8,
+          "voice": 1
+        },
+        "activeShots": 0,
+        "cueCount": 0,
+        "lastCue": null,
+        "rms": 0.00653,
+        "transportSeconds": 1.75,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Independent sfx gain persists",
+      "pass": true,
+      "snapshot": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 3,
+        "stemLevels": [
+          0.9,
+          0.92,
+          0.92,
+          0.92,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.31,
+          "music": 0.31,
+          "sfx": 0.31,
+          "voice": 1
+        },
+        "activeShots": 0,
+        "cueCount": 0,
+        "lastCue": null,
+        "rms": 0.005317,
+        "transportSeconds": 1.78,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Independent voice gain persists",
+      "pass": true,
+      "snapshot": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 3,
+        "stemLevels": [
+          0.9,
+          0.92,
+          0.92,
+          0.92,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.31,
+          "music": 0.31,
+          "sfx": 0.31,
+          "voice": 0.31
+        },
+        "activeShots": 0,
+        "cueCount": 0,
+        "lastCue": null,
+        "rms": 0.00609,
+        "transportSeconds": 1.81,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Master zero mutes actual output",
+      "pass": true,
+      "snapshot": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 3,
+        "stemLevels": [
+          0.9,
+          0.92,
+          0.92,
+          0.92,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0,
+          "music": 0.31,
+          "sfx": 0.31,
+          "voice": 0.31
+        },
+        "activeShots": 0,
+        "cueCount": 0,
+        "lastCue": null,
+        "rms": 0,
+        "transportSeconds": 1.97,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Reading duck applies",
+      "pass": true,
+      "snapshot": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 3,
+        "stemLevels": [
+          0.9,
+          0.92,
+          0.92,
+          0.92,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": true,
+        "gains": {
+          "master": 0.8,
+          "music": 0.31,
+          "sfx": 0.31,
+          "voice": 0.31
+        },
+        "activeShots": 0,
+        "cueCount": 0,
+        "lastCue": null,
+        "rms": 0.00299,
+        "transportSeconds": 2.15,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "All eleven tactile cue names are playable with bounded concurrency",
+      "pass": true,
+      "snapshot": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 3,
+        "stemLevels": [
+          0.9,
+          0.92,
+          0.92,
+          0.92,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.8,
+          "music": 0.31,
+          "sfx": 0.31,
+          "voice": 0.31
+        },
+        "activeShots": 6,
+        "cueCount": 11,
+        "lastCue": "victory",
+        "rms": 0.025215,
+        "transportSeconds": 3.43,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Pause fades, suspends and freezes transport",
+      "pass": true,
+      "snapshot": {
+        "state": "suspended",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 3,
+        "stemLevels": [
+          0.9,
+          0.92,
+          0.92,
+          0.92,
+          0.65
+        ],
+        "paused": true,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.8,
+          "music": 0.31,
+          "sfx": 0.31,
+          "voice": 0.31
+        },
+        "activeShots": 6,
+        "cueCount": 11,
+        "lastCue": "victory",
+        "rms": 0,
+        "transportSeconds": 3.57,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Resume reuses five sources",
+      "pass": true,
+      "snapshot": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 3,
+        "stemLevels": [
+          0.9,
+          0.92,
+          0.92,
+          0.92,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.8,
+          "music": 0.31,
+          "sfx": 0.31,
+          "voice": 0.31
+        },
+        "activeShots": 4,
+        "cueCount": 11,
+        "lastCue": "victory",
+        "rms": 0.01617,
+        "transportSeconds": 3.77,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Four restarts reset layering without duplicate loops",
+      "pass": true,
+      "snapshot": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 0,
+        "stemLevels": [
+          0.9,
+          0,
+          0,
+          0,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.8,
+          "music": 0.31,
+          "sfx": 0.31,
+          "voice": 0.31
+        },
+        "activeShots": 6,
+        "cueCount": 15,
+        "lastCue": "reset",
+        "rms": 0.019983,
+        "transportSeconds": 4.22,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Native headless tab focus observation",
+      "pass": null,
+      "note": "Observation only: headless Chromium may keep all pages visible.",
+      "snapshot": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 0,
+        "stemLevels": [
+          0.9,
+          0,
+          0,
+          0,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.8,
+          "music": 0.31,
+          "sfx": 0.31,
+          "voice": 0.31
+        },
+        "activeShots": 5,
+        "cueCount": 15,
+        "lastCue": "reset",
+        "rms": 0.008808,
+        "transportSeconds": 4.61,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Blur handler suspends transport (synthetic browser event)",
+      "pass": true,
+      "snapshot": {
+        "state": "suspended",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 0,
+        "stemLevels": [
+          0.9,
+          0,
+          0,
+          0,
+          0.65
+        ],
+        "paused": false,
+        "background": true,
+        "ducked": false,
+        "gains": {
+          "master": 0.8,
+          "music": 0.31,
+          "sfx": 0.31,
+          "voice": 0.31
+        },
+        "activeShots": 5,
+        "cueCount": 15,
+        "lastCue": "reset",
+        "rms": 0,
+        "transportSeconds": 4.89,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "Focus handler resumes existing transport (synthetic browser event)",
+      "pass": true,
+      "snapshot": {
+        "state": "running",
+        "loaded": 16,
+        "error": null,
+        "activeLoops": 5,
+        "moduleStems": 0,
+        "stemLevels": [
+          0.9,
+          0,
+          0,
+          0,
+          0.65
+        ],
+        "paused": false,
+        "background": false,
+        "ducked": false,
+        "gains": {
+          "master": 0.8,
+          "music": 0.31,
+          "sfx": 0.31,
+          "voice": 0.31
+        },
+        "activeShots": 1,
+        "cueCount": 15,
+        "lastCue": "reset",
+        "rms": 0.004625,
+        "transportSeconds": 5.04,
+        "voiceAvailable": false
+      }
+    },
+    {
+      "name": "HTML audio preview decodes and plays in browser",
+      "pass": true,
+      "preview": {
+        "duration": 25,
+        "currentTime": 0.33866,
+        "paused": false,
+        "readyState": 4,
+        "error": null
+      }
+    }
+  ],
+  "errors": []
+}

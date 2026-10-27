@@ -1,0 +1,112 @@
+{
+  "composition": {
+    "title": "Festival Engine / Manual Mayhem",
+    "bpm": 108,
+    "meter": "4/4",
+    "bars": 32,
+    "form": "ABAC (8 bars each)",
+    "key": "D major",
+    "loopDuration": 71.11111111111111
+  },
+  "files": {
+    "public/audio/workshop-harmony.mp3": {
+      "duration": 71.11111111111111,
+      "peakDBFS": -21.44,
+      "rmsDBFS": -32.52,
+      "loopBoundarySampleDelta": 0.0006833,
+      "bytes": 1139400
+    },
+    "public/audio/workshop-groove.mp3": {
+      "duration": 71.11111111111111,
+      "peakDBFS": -16.73,
+      "rmsDBFS": -33.29,
+      "loopBoundarySampleDelta": 0.0001786,
+      "bytes": 1139400
+    },
+    "public/audio/workshop-glass.mp3": {
+      "duration": 71.11111111111111,
+      "peakDBFS": -23.82,
+      "rmsDBFS": -38.86,
+      "loopBoundarySampleDelta": 0.0002706,
+      "bytes": 1139400
+    },
+    "public/audio/workshop-lift.mp3": {
+      "duration": 71.11111111111111,
+      "peakDBFS": -30.01,
+      "rmsDBFS": -49.42,
+      "loopBoundarySampleDelta": 0.0011911,
+      "bytes": 1139400
+    },
+    "public/audio/workshop-ambient.mp3": {
+      "duration": 17.77777777777778,
+      "peakDBFS": -33.33,
+      "rmsDBFS": -42.91,
+      "loopBoundarySampleDelta": 0.0,
+      "bytes": 285928
+    },
+    "public/audio/knob.wav": {
+      "duration": 0.12997732426303854,
+      "peakDBFS": -16.19,
+      "bytes": 11508
+    },
+    "public/audio/switch.wav": {
+      "duration": 0.2,
+      "peakDBFS": -15.84,
+      "bytes": 17684
+    },
+    "public/audio/cable.wav": {
+      "duration": 0.38,
+      "peakDBFS": -18.51,
+      "bytes": 33560
+    },
+    "public/audio/latch.wav": {
+      "duration": 0.3,
+      "peakDBFS": -13.26,
+      "bytes": 26504
+    },
+    "public/audio/page.wav": {
+      "duration": 0.5,
+      "peakDBFS": -16.25,
+      "bytes": 44144
+    },
+    "public/audio/settle.wav": {
+      "duration": 0.9,
+      "peakDBFS": -21.24,
+      "bytes": 79424
+    },
+    "public/audio/error.wav": {
+      "duration": 1.0499773242630386,
+      "peakDBFS": -19.36,
+      "bytes": 92652
+    },
+    "public/audio/strike.wav": {
+      "duration": 0.6499773242630386,
+      "peakDBFS": -22.64,
+      "bytes": 57372
+    },
+    "public/audio/reset.wav": {
+      "duration": 1.0499773242630386,
+      "peakDBFS": -19.0,
+      "bytes": 92652
+    },
+    "public/audio/activate.wav": {
+      "duration": 1.3500226757369616,
+      "peakDBFS": -16.71,
+      "bytes": 119116
+    },
+    "public/audio/victory.wav": {
+      "duration": 2.8,
+      "peakDBFS": -15.69,
+      "bytes": 247004
+    }
+  },
+  "preview": {
+    "duration": 25,
+    "sampleRate": 22050,
+    "channels": 2,
+    "peakDBFS": -11.63,
+    "rmsDBFS": -27.64,
+    "clippedSamples": 0,
+    "method": "Numerical waveform measurement before 16-bit PCM conversion; decodability separately inspected by ffprobe."
+  }
+}

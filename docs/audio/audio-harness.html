@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Manual Mayhem · audio QA harness</title><style>body{background:#172e34;color:#f8efdc;font:18px system-ui;max-width:840px;margin:40px auto;padding:20px}button,input{font:inherit;margin:10px;padding:10px}label{display:block}pre{white-space:pre-wrap;font-size:13px}a{color:#ffbd83}</style><h1>Manual Mayhem audio QA</h1><p>Development harness for the original 108 BPM layered score. Game controls are tested separately.</p><button id="start">Start audio</button><button id="pause">Pause</button><button id="resume">Resume</button><button id="restart">Restart</button><button id="progress">Stabilize module</button><button id="duck">Toggle reading duck</button><button id="cue">Cycle tactile cues</button><div id="settings"></div><p><a href="./manual-mayhem-mix-preview.wav">25-second mixed preview WAV</a></p><audio id="preview" controls preload="metadata" src="./manual-mayhem-mix-preview.wav"></audio><pre id="state"></pre><script type="module">
+import {AudioEngine} from '/src/audio.ts';
+const engine=new AudioEngine(); let progress=0,duck=false,cue=0;
+const cues=['knob','switch','cable','latch','page','settle','error','strike','reset','activate','victory'];
+window.audioHarness={engine};
+document.querySelector('#start').onclick=()=>engine.start();
+document.querySelector('#pause').onclick=()=>engine.setPaused(true);
+document.querySelector('#resume').onclick=()=>{engine.setPaused(false);engine.start()};
+document.querySelector('#restart').onclick=()=>{progress=0;engine.setProgress(0);engine.setPaused(false);engine.start();engine.cue('reset')};
+document.querySelector('#progress').onclick=()=>engine.setProgress(progress=Math.min(3,progress+1));
+document.querySelector('#duck').onclick=()=>engine.duck(duck=!duck);
+document.querySelector('#cue').onclick=()=>engine.cue(cues[cue++%cues.length]);
+for(const name of ['master','music','sfx','voice']){const label=document.createElement('label');label.textContent=name;const input=document.createElement('input');input.type='range';input.min=0;input.max=1;input.step=.01;input.value=engine.snapshot().gains[name];input.id=name;input.oninput=()=>engine.setGains({[name]:Number(input.value)});label.append(input);document.querySelector('#settings').append(label)}
+setInterval(()=>document.querySelector('#state').textContent=JSON.stringify(engine.snapshot(),null,2),150);
+</script></html>
