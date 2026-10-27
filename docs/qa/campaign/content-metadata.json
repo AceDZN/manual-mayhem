@@ -1,0 +1,574 @@
+[
+  {
+    "id": "level-01",
+    "level": 1,
+    "grade": 7,
+    "chapter": "הוראות וסדר פעולות",
+    "skill": "imperative: action + object",
+    "sourceModules": [
+      "modals-and-imperatives",
+      "reading-functional-texts"
+    ],
+    "activeModules": [
+      "valves"
+    ],
+    "stage": "guided",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-02",
+    "level": 2,
+    "grade": 7,
+    "chapter": "הוראות וסדר פעולות",
+    "skill": "shape reference + ordered procedure",
+    "sourceModules": [
+      "modals-and-imperatives",
+      "reading-functional-texts"
+    ],
+    "activeModules": [
+      "cable"
+    ],
+    "stage": "guided",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-03",
+    "level": 3,
+    "grade": 7,
+    "chapter": "הוראות וסדר פעולות",
+    "skill": "imperative + negative instruction",
+    "sourceModules": [
+      "modals-and-imperatives",
+      "reading-functional-texts"
+    ],
+    "activeModules": [
+      "switches"
+    ],
+    "stage": "guided",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-04",
+    "level": 4,
+    "grade": 7,
+    "chapter": "הוראות וסדר פעולות",
+    "skill": "two procedures with different objects",
+    "sourceModules": [
+      "modals-and-imperatives",
+      "reading-functional-texts"
+    ],
+    "activeModules": [
+      "valves",
+      "cable"
+    ],
+    "stage": "independent",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-05",
+    "level": 5,
+    "grade": 7,
+    "chapter": "הוראות וסדר פעולות",
+    "skill": "must + reversed order + prohibition",
+    "sourceModules": [
+      "modals-and-imperatives",
+      "reading-functional-texts"
+    ],
+    "activeModules": [
+      "valves",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-06",
+    "level": 6,
+    "grade": 7,
+    "chapter": "הוראות וסדר פעולות",
+    "skill": "before + two-step relay order",
+    "sourceModules": [
+      "modals-and-imperatives",
+      "reading-functional-texts"
+    ],
+    "activeModules": [
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-07",
+    "level": 7,
+    "grade": 7,
+    "chapter": "הוראות וסדר פעולות",
+    "skill": "three families + reopen instruction",
+    "sourceModules": [
+      "modals-and-imperatives",
+      "reading-functional-texts"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-08",
+    "level": 8,
+    "grade": 7,
+    "chapter": "הוראות וסדר פעולות",
+    "skill": "changed initial state + keep closed",
+    "sourceModules": [
+      "modals-and-imperatives",
+      "reading-functional-texts"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-09",
+    "level": 9,
+    "grade": 7,
+    "chapter": "הוראות וסדר פעולות",
+    "skill": "negation over final state + named clip order",
+    "sourceModules": [
+      "modals-and-imperatives",
+      "reading-functional-texts"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-10",
+    "level": 10,
+    "grade": 7,
+    "chapter": "הוראות וסדר פעולות",
+    "skill": "unaided changed-context imperative transfer",
+    "sourceModules": [
+      "modals-and-imperatives",
+      "reading-functional-texts"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "transfer",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-11",
+    "level": 11,
+    "grade": 8,
+    "chapter": "מקבל הפעולה ומסר מדויק",
+    "skill": "present passive receiver + by-agent",
+    "sourceModules": [
+      "present-simple-passive-reference",
+      "connectors-and-time-clauses",
+      "mediation-and-shared-understanding"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "guided",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-12",
+    "level": 12,
+    "grade": 8,
+    "chapter": "מקבל הפעולה ומסר מדויק",
+    "skill": "changed passive receiver mapping",
+    "sourceModules": [
+      "present-simple-passive-reference",
+      "connectors-and-time-clauses",
+      "mediation-and-shared-understanding"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": true,
+    "prediction": false
+  },
+  {
+    "id": "level-13",
+    "level": 13,
+    "grade": 8,
+    "chapter": "מקבל הפעולה ומסר מדויק",
+    "skill": "passive receivers + after sequence",
+    "sourceModules": [
+      "present-simple-passive-reference",
+      "connectors-and-time-clauses"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-14",
+    "level": 14,
+    "grade": 8,
+    "chapter": "מקבל הפעולה ומסר מדויק",
+    "skill": "relevant relay preserves receiver/order/prohibition",
+    "sourceModules": [
+      "present-simple-passive-reference",
+      "connectors-and-time-clauses",
+      "mediation-and-shared-understanding"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": true,
+    "prediction": false
+  },
+  {
+    "id": "level-15",
+    "level": 15,
+    "grade": 8,
+    "chapter": "מקבל הפעולה ומסר מדויק",
+    "skill": "when clause + reversed receiver",
+    "sourceModules": [
+      "present-simple-passive-reference",
+      "connectors-and-time-clauses"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-16",
+    "level": 16,
+    "grade": 8,
+    "chapter": "מקבל הפעולה ומסר מדויק",
+    "skill": "only + before clause in mediated instruction",
+    "sourceModules": [
+      "present-simple-passive-reference",
+      "connectors-and-time-clauses",
+      "mediation-and-shared-understanding"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": true,
+    "prediction": false
+  },
+  {
+    "id": "level-17",
+    "level": 17,
+    "grade": 8,
+    "chapter": "מקבל הפעולה ומסר מדויק",
+    "skill": "explicit current state + ordered passive procedure",
+    "sourceModules": [
+      "present-simple-passive-reference",
+      "connectors-and-time-clauses"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-18",
+    "level": 18,
+    "grade": 8,
+    "chapter": "מקבל הפעולה ומסר מדויק",
+    "skill": "retain reference and sequence across relay",
+    "sourceModules": [
+      "present-simple-passive-reference",
+      "connectors-and-time-clauses",
+      "mediation-and-shared-understanding"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": true,
+    "prediction": false
+  },
+  {
+    "id": "level-19",
+    "level": 19,
+    "grade": 8,
+    "chapter": "מקבל הפעולה ומסר מדויק",
+    "skill": "when + explicit current state + preserved only",
+    "sourceModules": [
+      "present-simple-passive-reference",
+      "connectors-and-time-clauses",
+      "mediation-and-shared-understanding"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": true,
+    "prediction": false
+  },
+  {
+    "id": "level-20",
+    "level": 20,
+    "grade": 8,
+    "chapter": "מקבל הפעולה ומסר מדויק",
+    "skill": "changed-context passive/time-clause transfer",
+    "sourceModules": [
+      "present-simple-passive-reference",
+      "connectors-and-time-clauses",
+      "mediation-and-shared-understanding"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "transfer",
+    "relay": true,
+    "prediction": false
+  },
+  {
+    "id": "level-21",
+    "level": 21,
+    "grade": 9,
+    "chapter": "יומן תחזוקה ובדיקה עכשווית",
+    "skill": "past passive receiver + independent current check",
+    "sourceModules": [
+      "past-simple-passive-reference",
+      "mediation-reference"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "guided",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-22",
+    "level": 22,
+    "grade": 9,
+    "chapter": "יומן תחזוקה ובדיקה עכשווית",
+    "skill": "past passive changed receiver; explicit failure remains",
+    "sourceModules": [
+      "past-simple-passive-reference",
+      "mediation-reference"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": true,
+    "prediction": false
+  },
+  {
+    "id": "level-23",
+    "level": 23,
+    "grade": 9,
+    "chapter": "יומן תחזוקה ובדיקה עכשווית",
+    "skill": "past passive does not determine current repair outcome",
+    "sourceModules": [
+      "past-simple-passive-reference",
+      "mediation-reference"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": true,
+    "prediction": false
+  },
+  {
+    "id": "level-24",
+    "level": 24,
+    "grade": 9,
+    "chapter": "כלל קבוע וכיול",
+    "skill": "repeat a zero-conditional calibration",
+    "sourceModules": [
+      "conditionals-reference",
+      "mediation-reference"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "guided",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-25",
+    "level": 25,
+    "grade": 9,
+    "chapter": "כלל קבוע וכיול",
+    "skill": "reversed zero-conditional effect",
+    "sourceModules": [
+      "conditionals-reference",
+      "mediation-reference"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": true,
+    "prediction": false
+  },
+  {
+    "id": "level-26",
+    "level": 26,
+    "grade": 9,
+    "chapter": "כלל קבוע וכיול",
+    "skill": "zero conditional with joint valve conditions",
+    "sourceModules": [
+      "conditionals-reference",
+      "present-simple-passive-reference",
+      "connectors-and-time-clauses",
+      "mediation-reference"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": false,
+    "prediction": false
+  },
+  {
+    "id": "level-27",
+    "level": 27,
+    "grade": 9,
+    "chapter": "תחזית ותוכנית התנעה",
+    "skill": "first conditional prediction and fan prevention",
+    "sourceModules": [
+      "conditionals-reference",
+      "mediation-reference"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "guided",
+    "relay": false,
+    "prediction": true
+  },
+  {
+    "id": "level-28",
+    "level": 28,
+    "grade": 9,
+    "chapter": "תחזית ותוכנית התנעה",
+    "skill": "reversed first-conditional startup plan",
+    "sourceModules": [
+      "conditionals-reference",
+      "mediation-reference"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": true,
+    "prediction": true
+  },
+  {
+    "id": "level-29",
+    "level": 29,
+    "grade": 9,
+    "chapter": "תחזית ותוכנית התנעה",
+    "skill": "varied first-conditional threshold + preserved relay",
+    "sourceModules": [
+      "conditionals-reference",
+      "mediation-reference"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "independent",
+    "relay": true,
+    "prediction": true
+  },
+  {
+    "id": "level-30",
+    "level": 30,
+    "grade": 9,
+    "chapter": "תחזית ותוכנית התנעה",
+    "skill": "mixed capstone: record + current check + zero rule + startup prediction + relay",
+    "sourceModules": [
+      "past-simple-passive-reference",
+      "conditionals-reference",
+      "mediation-reference",
+      "reading-functional-texts"
+    ],
+    "activeModules": [
+      "valves",
+      "cable",
+      "switches"
+    ],
+    "stage": "transfer",
+    "relay": true,
+    "prediction": true
+  }
+]

@@ -1,6 +1,7 @@
 import type { Mission, World } from "./content";
 export interface ModuleState {
   id: string;
+  active: boolean;
   step: number;
   done: string[];
   complete: boolean;
@@ -29,9 +30,10 @@ export function createState(m: Mission): GameState {
   return {
     modules: m.modules.map((v) => ({
       id: v.id,
+      active: !m.activeModules || m.activeModules.includes(v.id),
       step: 0,
       done: [],
-      complete: false,
+      complete: !!m.activeModules && !m.activeModules.includes(v.id),
       world: { ...v.initial },
       fault: false,
     })),
@@ -60,7 +62,7 @@ export function act(
   if (s.status !== "playing") return false;
   const mod = s.modules.find((v) => v.id === id)!;
   const spec = m.modules.find((v) => v.id === id)!;
-  if (mod.complete || mod.fault) return false;
+  if (!mod.active || mod.complete || mod.fault) return false;
   const good = nextActions(s, m, id).includes(action);
   s.events.push({
     action,
@@ -90,6 +92,10 @@ export function act(
     delete effect.signal;
   }
   Object.assign(mod.world, effect);
+  if (spec.pressureRule && /^(small|large)-(open|close)$/.test(action)) {
+    const bits = `${Number(!!mod.world.small)}${Number(!!mod.world.large)}` as "00" | "01" | "10" | "11";
+    mod.world.pressure = spec.pressureRule[bits];
+  }
   mod.done.push(action);
   if (spec.steps[mod.step].every((a) => mod.done.includes(a))) {
     mod.step++;
@@ -109,6 +115,7 @@ export function checkReady(s: GameState) {
 }
 export function resetModule(s: GameState, m: Mission, id: string) {
   if (s.status === "won" || s.status === "shutdown") return;
+  if (!s.modules.find((x) => x.id === id)?.active) return;
   const n = createState(m).modules.find((x) => x.id === id)!;
   const index = s.modules.findIndex((x) => x.id === id);
   s.modules[index] = n;

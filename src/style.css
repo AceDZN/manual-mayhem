@@ -103,6 +103,47 @@ button.primary:hover {
   gap: 7px;
   align-items: center;
 }
+.nav-controls .campaign-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 5px 13px;
+  min-width: 138px;
+  text-align: right;
+}
+.campaign-button > span { font-size: 13px; }
+.campaign-button b { color: #edaa5f; }
+.campaign-button small { font-size: 9px; color: #b9ac90; }
+.modal.campaign-map {
+  width: min(650px, 94vw);
+  max-height: calc(100svh - 90px);
+  display: flex;
+  flex-direction: column;
+  padding: 27px 30px;
+}
+.modal.campaign-map h2 { font-size: 25px; margin: 5px 0; }
+.campaign-map p { margin: 5px 0 10px; line-height: 1.6; }
+.campaign-track { height: 3px; background: #b2a17b; margin: 6px 0 10px; flex-shrink: 0; }
+.campaign-track span { display: block; height: 100%; background: #365c45; transition: width .3s; }
+.level-chapters { overflow-y: auto; min-height: 0; padding: 0 3px 8px; }
+.level-chapters h3 { font-size: 11px; font-weight: 500; margin: 13px 0 5px; color: #69714f; }
+.level-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 7px; }
+.modal.campaign-map .level-grid button { display: flex; align-items: center; justify-content: space-between; min-height: 43px; margin: 0; padding: 8px 11px; }
+.level-grid b { font: 20px Georgia, serif; }
+.level-grid span { font-size: 9px; }
+.modal.campaign-map .level-grid button.current { border: 2px solid #805d2e; padding: 7px 10px; }
+.modal.campaign-map .level-grid button.completed { color: #294d3b; background: #bec2a0; }
+.modal.campaign-map .level-grid button:disabled { opacity: .42; }
+.campaign-map .campaign-resume { font-size: 10px; padding-top: 10px; margin-bottom: 13px; }
+@media (max-width: 639px) {
+  .nav-controls .campaign-button { min-width: 105px; padding: 5px 7px; }
+  .campaign-button small { font-size: 8px; }
+  .modal.campaign-map { padding: 26px 18px 20px; max-height: calc(100svh - 76px); }
+  .modal.campaign-map h2 { font-size: 23px; }
+  .level-grid { gap: 5px; }
+  .modal.campaign-map .level-grid button { min-height: 42px; padding: 6px; flex-direction: column; gap: 2px; }
+  .modal.campaign-map .level-grid button.current { padding: 5px; }
+}
 .nav-controls label {
   font-size: 10px;
   color: #b3ac96;
@@ -888,6 +929,22 @@ footer button.current {
 .reader-intro {
   margin: 30px 0;
 }
+.reader-level-nav {
+  position: sticky;
+  top: -35px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  background: #e7d8b7;
+  border-bottom: 1px solid #9b8a6255;
+}
+.reader-level-nav label { font-size: 12px; }
+.reader-level-nav select { background: #d4c5a1; color: #384a35; max-width: 100%; }
+.reader .manual-mission { scroll-margin-top: 80px; }
+@media print { .reader-level-nav { display: none; } }
 .reader h1 {
   font-size: 30px;
 }

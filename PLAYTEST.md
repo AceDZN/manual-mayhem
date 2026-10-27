@@ -1,3 +1,5 @@
+> Current scope: one sequential 30-level campaign, with no grade selector or grade limits. The nine-mission reports below are historical. Current campaign verification is recorded in the campaign audit at the end of this file.
+
 # Independent playtest
 
 2026-10-27. Tester: independent English/QA helper. Scope: this standalone repository only. Source review, semantic tests, the nine-mission integrated browser run, physical-control tests and final recorded sequence are complete. Native focus-event generation has an explicit environment limitation below. No classroom learning gain or musical-quality claim can be established by automation.
@@ -79,3 +81,44 @@ Passing revision runs used native Chrome/Metal after an initial software-WebGL l
 The compiled preview was refreshed in the human's existing in-app browser at723px. Lead inspected the real image and accessibility state, activated the visible read→operate action and confirmed the full-width valve inspection and explicit return-manual control. The initial reading view was restored for handoff. The intermediate responsive layout uses an open right-side book over the device during reading and full-width device operation.
 
 The required stock develop-web-game client produced `docs/qa/revision/skill-client/shot-0.png` and state, both inspected. Its software SwiftShader browser timed out during the Start locator click; that output remains diagnostic rather than being counted as a successful gameplay action. Native Chrome/Metal full-game and physical checks are the operational evidence for this revision.
+
+## Current campaign audit — 28 October 2026
+
+The user's latest requirement supersedes the grade-selected release: this is one sequential campaign of 30 levels, with no grade selector or grade limits. The original nine-track results above remain historical regression evidence. Grade 7–9 metadata is internal curriculum provenance. `GRADES.md`, `COVERAGE.md` and root `coverage.json` now describe the campaign and explicitly distinguish sources consulted from direct assessed decisions.
+
+`npm test` passed **76/76** checks (`docs/qa/campaign/semantic-tests.txt`): 47 independent campaign checks, four progress checks and 25 legacy semantics. All 30 campaign solutions were hand-read from the English procedures and stored in `docs/qa/campaign/solutions.json`; they were not generated from evaluator steps or `nextActions`. Contrast tests cover order reversal, square/round reference, clips before/after connection, already-closed/connected state, passive agent/receiver, replacement versus current working status, repeated pressure rules and opposite startup fan plans at stop thresholds 5 and 6. Inactive modules cannot create repair events, strikes or retry evidence.
+
+`node docs/qa/campaign/visible-campaign.mjs` passed **all 30 sequential browser wins and 34 recorded checks** in native Chrome/Metal at 900×760. It used a fresh context, actual manual/read/operate/action buttons, reviewed choices, engine start and Next; it neither injected solved state nor wrote unlocks. The first runner version stopped at level 1 because its assertion wrongly expected a guided level to be unassisted. That harness assertion was corrected, then the full campaign was rerun fresh. The final report has no console or page errors.
+
+| Actual campaign browser path | Result |
+|---|---|
+|Fresh entry and map|No grade/mission dropdown; level 1 and one active valve bay; 30 map buttons with the other 29 locked. Tab remains in the map and Escape restores focus to its opener.|
+|Levels 1–6|One active family in 1–3, then pairs in 4–6; only active modules count toward readiness and completion.|
+|Levels 7–20|All three physical procedures complete, including reversed order, explicit initial state, passive receivers and reviewed messages.|
+|Levels 21–23|Receiver tags and separate current working-status procedures complete; the same past replacement record supports different current actions.|
+|Levels 24–26|Actual valve TEST readings are 3/1/3, 2/4/2 and 2/4/3/1, respectively.|
+|Levels 27–30|Initial-scenario prediction answered before prevention actions; startup rule/plan and full reviewed relay complete. Level 30 also measures 3/1/3 and handles the current-failure record.|
+|Readiness and unlock|No next-level unlock before engine start. Each legitimate start unlocks only the next numbered level. Level 30 shows final campaign completion.|
+|Assistance and attempts|Guided levels 1,2,3,11,21,24,27 are assisted by design. Other initial passes are unassisted; all 30 initial wins have zero strikes/retries.|
+|Replay/resume|After all 30 wins, all map entries are enabled; reload resumes level 30. Replaying level 5 preserves the furthest unlock. Wrong valve order produces a strike; recovery retains retry evidence and accepts the corrected sequence.|
+|Partner reader|30 fixed `.manual-mission` articles, direct level-30 jump, no live canvas or operation controls.|
+|390px touch|Earned map opens within the mobile layout; visible touch controls complete and start a level-1 replay. No document-width overflow.|
+
+The earned final storage state is `docs/qa/campaign/earned-storage-state.json`, saved immediately after the genuine level-30 win, before the later recovery/replay scenarios. The audio helper is authorized to reuse this earned state for late-level replay checks; it is not a fabricated production seed.
+
+Actual images inspected include `900-opening.png`, `level-15-won.png`, `level-21-switches-done.png`, `level-24-switches-read.png`, `level-26-won.png`, `level-30-switches-read.png`, `level-30-switches-done.png`, `level-30-won.png`, the square/round connected cable captures, `900-completed-map.png`, `390-level30-read.png`, `390-map.png` and `partner-level-30.png`. They show the real machine, open contextual paper, readable English, pinned action, sequential map and final completion state. Long capstone procedures and maps scroll; screenshots do not imply that all their content fits in one viewport. Visual inspection is separate evidence from build/tests, and does not infer user approval or classroom learning gains.
+
+Independent source review found one procedural ambiguity in level 18: its evaluator required A before B but the cable manual did not state that order clearly. The content author added an explicit “Close clip A before clip B.” The independent title review also found Hebrew titles that translated key decisions (notably fan-off and large-valve pressure direction); these were replaced with neutral titles after the full run. Procedures and action sequences were unchanged by the title patch. Prediction headings now explicitly identify the stated initial setup, so “now” in a question is not confused with a fan state changed later by the player.
+
+`node docs/qa/campaign/focused-campaign.mjs` passed four further checks on the final interface: actual 3D right-tag selection in level 30; initial square/round cable connection in levels 17/20; inactive Digit2 leaving reading intact with only active controls exposed; and the INITIAL SETUP prediction label plus context scroll reset. It reused the earned campaign state and made no first-attempt claim. Final 1440/900 reading and operating images, tag before/after images and both initial cable captures were opened and inspected. The first focused navigation used a 15-second full-load wait and timed out; the runner was corrected to wait for DOMContentLoaded with a 60-second navigation allowance, then passed. No game code change was required.
+
+The final physical capture exposed REPLACED letters hidden behind the vertical case trim. The lead moved the tag plane ahead of the trim. `node docs/qa/campaign/tag-final.mjs` then repeated the actual level-30 right-tag raycast and saved `level-30-tag-final-before/after.png` with matching states. Both images were opened: TAG R is readable before and the complete REPLACED word is readable after, with zero strikes. The focused report now contains five passing checks including this final visual fix, with no console/page errors. This targeted replay does not claim a new full-campaign run or unaided attempt.
+
+The audio helper independently passed 14 campaign regressions in native Chrome/Metal, using fresh early progress and the earned state for later replays. Evidence and the absence of a human-audition claim are recorded in `docs/qa/campaign/audio/integration.md` and `results.json`.
+
+Current limits remain the previously documented inability to generate native OS focus events in this automation environment, lack of this tester's personal musical audition and unchanged OS keyboard layout. Automated finite procedures and reviewed-choice success do not establish retained language learning, spontaneous mediation or live listening/speaking.
+
+
+Lead final compiled-preview checks (28 October2026): `GAME_URL=http://localhost:4262/ node docs/qa/campaign/smoke.mjs` passed11 checks with no page errors: fresh30-level lock map, engine-start unlock gate, active-only win, Next/manual context, reload resume, replay,390px bounds, keyboard focus loop, inactive shortcut protection and static partner jump. Output is under `docs/qa/campaign/production` and is separate from independent full-campaign captures. Final map CSS explicitly overrides generic modal button margins; actual in-app capture shows all30 entries in the current viewport. The existing game tab was refreshed and left at level1 with the manual visible.
+
+Final label polish moves maintenance cards above the valve TEST button and in front of the frame trim. `node docs/qa/campaign/production/tags.mjs` replayed21(left) and30(right) through actual raycasts in the compiled preview; both correct tags were accepted with zero strikes. Both before/after image pairs were opened and inspected: TAG L/TAG R and full REPLACED text are readable. The probe copies the independently earned full-campaign local save from dev origin5262 to preview origin4262 without changing progress/results; it does not fabricate unlocks or wins. Pure rules remain the76-test verified version. Final production build passes, with the existing Three.js bundle-size advisory.

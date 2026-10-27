@@ -1,0 +1,214 @@
+{
+  "mode": "playing",
+  "mission": {
+    "id": "level-05",
+    "level": 5,
+    "chapter": "הוראות וסדר פעולות",
+    "skill": "must + reversed order + prohibition",
+    "title": "חובה לפתוח קודם"
+  },
+  "campaign": {
+    "currentLevel": 5,
+    "highestUnlocked": 30,
+    "completed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ]
+  },
+  "manual": {
+    "visible": true,
+    "reading": false,
+    "page": "valves",
+    "serial": "V-05",
+    "text": "You must open the large valve before you close the small valve. Do not press RESET."
+  },
+  "selected": "valves",
+  "controlsOpen": true,
+  "coordinateSystem": "Fixed front view: x right, y up; gauges left, valves center, patch right, relays lower. Left/right always facing module.",
+  "view": {
+    "rotation": 0,
+    "camera": [
+      -1.1657854902500575,
+      3.522538850470172,
+      12.699107566778407
+    ]
+  },
+  "controls": [
+    {
+      "module": "valves",
+      "control": "small",
+      "x": 247,
+      "y": 424
+    },
+    {
+      "module": "valves",
+      "control": "large",
+      "x": 433,
+      "y": 424
+    },
+    {
+      "module": "valves",
+      "control": "test",
+      "x": 80,
+      "y": 560
+    },
+    {
+      "module": "switches",
+      "control": "left",
+      "x": 61,
+      "y": 596
+    },
+    {
+      "module": "switches",
+      "control": "right",
+      "x": 165,
+      "y": 596
+    },
+    {
+      "module": "switches",
+      "control": "fan",
+      "x": 290,
+      "y": 599
+    },
+    {
+      "module": "switches",
+      "control": "test",
+      "x": 377,
+      "y": 595
+    },
+    {
+      "module": "valves",
+      "control": "reset",
+      "x": 468,
+      "y": 595
+    }
+  ],
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-05",
+      "active": true,
+      "complete": false,
+      "fault": true,
+      "world": {
+        "small": true,
+        "large": false,
+        "pressure": 1
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-05",
+      "active": false,
+      "complete": false,
+      "fault": false,
+      "world": {
+        "connected": "none",
+        "clipA": false,
+        "clipB": false,
+        "signal": "idle"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-05",
+      "active": true,
+      "complete": false,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": false,
+        "fan": false,
+        "pressure": 4,
+        "receiver": "none",
+        "signal": "idle"
+      }
+    }
+  ],
+  "relay": true,
+  "prediction": true,
+  "strikes": 1,
+  "time": null,
+  "evidence": {
+    "assisted": false,
+    "retries": 1,
+    "events": [
+      {
+        "action": "small-close",
+        "module": "valves",
+        "correct": false,
+        "assisted": false,
+        "retry": 1
+      }
+    ]
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 0,
+    "stemLevels": [
+      0.9,
+      0,
+      0,
+      0,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": false,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "mix": {
+      "master": 0.800000011920929,
+      "music": 0.75,
+      "musicTarget": 0.75,
+      "sfx": 0.800000011920929,
+      "voice": 1
+    },
+    "activeShots": 2,
+    "cueCount": 2,
+    "cueCounts": {
+      "error": 1,
+      "strike": 1
+    },
+    "lastCue": "strike",
+    "rms": 0.016349,
+    "transportSeconds": 0.54,
+    "voiceAvailable": false
+  },
+  "feedback": "בדקו את “before / after” ואת שם הברז. סדר אחר גורם לשחרור קיטור; אפשר לאפס את המודול ולנסות שוב."
+}

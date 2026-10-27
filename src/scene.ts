@@ -280,6 +280,8 @@ export class EngineScene {
   }
   gauge(x: number, y: number, r: number, title: string, blue = false) {
     const s = this.surfaces;
+    const maximum = blue ? 5 : 6;
+    const ticks = maximum * 10;
     this.cyl(r + 0.09, 0.13, x, y, 1.48, s.rubber);
     this.cyl(r + 0.065, 0.12, x, y, 1.56, s.steel);
     this.ring(r + 0.015, 0.055, x, y, 1.66, s.brass);
@@ -298,8 +300,8 @@ export class EngineScene {
     ctx.strokeStyle = "#2b302c";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    for (let i = 0; i <= 50; i++) {
-      const a = 2.38 + (i / 50) * 4.61;
+    for (let i = 0; i <= ticks; i++) {
+      const a = 2.38 + (i / ticks) * 4.61;
       const ro = 324,
         ri = i % 10 === 0 ? 282 : i % 5 === 0 ? 294 : 306;
       ctx.beginPath();
@@ -328,7 +330,7 @@ export class EngineScene {
     ctx.font = "19px Arial";
     ctx.fillText("FESTIVAL ENGINE CO.", 384, 545);
     ctx.font = "20px Georgia";
-    ctx.fillText("0 – 5  /  bar", 384, 583);
+    ctx.fillText(`0 – ${maximum}  /  bar`, 384, 583);
     const tex = new T.CanvasTexture(c);
     tex.colorSpace = T.SRGBColorSpace;
     tex.anisotropy = 8;
@@ -342,6 +344,7 @@ export class EngineScene {
       module: title.startsWith("STARTUP") ? "switches" : "valves",
     });
     const pivot = new T.Group();
+    pivot.userData.maximum = maximum;
     pivot.position.set(x, y, 1.72);
     this.root.add(pivot);
     const shape = new T.Shape();
@@ -608,8 +611,8 @@ export class EngineScene {
       0.75,
       0.18,
       x,
-      1.7,
-      1.57,
+      1.9,
+      1.8,
       this.root,
       "#d7bd86",
     );
@@ -1167,12 +1170,12 @@ export class EngineScene {
     state.modules.forEach((mod, i) => {
       const mat = this.indicators[i].material as T.MeshPhysicalMaterial;
       mat.color.set(
-        mod.complete ? "#d7d998" : mod.fault ? "#e5783f" : "#9a6939",
+        !mod.active ? "#5d6256" : mod.complete ? "#d7d998" : mod.fault ? "#e5783f" : "#9a6939",
       );
       mat.emissive.set(
-        mod.complete ? "#68a84c" : mod.fault ? "#c13b12" : "#60300a",
+        !mod.active ? "#000000" : mod.complete ? "#68a84c" : mod.fault ? "#c13b12" : "#60300a",
       );
-      mat.emissiveIntensity = mod.complete ? 1.4 : mod.fault ? 1 : 0.25;
+      mat.emissiveIntensity = !mod.active ? 0 : mod.complete ? 1.4 : mod.fault ? 1 : 0.25;
       const mesh = this.serials[mod.id];
       const tex = (mesh.material as T.MeshStandardMaterial).map!;
       const c = tex.image as HTMLCanvasElement;
@@ -1186,7 +1189,7 @@ export class EngineScene {
       ctx.fillText(
         mission.modules[i].serial +
           " / " +
-          (mod.complete ? "STABLE" : mod.fault ? "VENTED" : "READY"),
+          (!mod.active ? "STANDBY" : mod.complete ? "STABLE" : mod.fault ? "VENTED" : "READY"),
         c.width / 2,
         c.height / 2,
         c.width * 0.94,
@@ -1208,9 +1211,11 @@ export class EngineScene {
     this.looseWire.visible = socket === "none";
     if (this.freePlug) this.freePlug.visible = socket === "none";
     this.tags.forEach((tag, i) => {
-      tag.visible = mission.id === "g9-independent";
-      const attached =
-        state.modules[2].world.maintenanceTag === (i === 0 ? "left" : "right");
+      const w = state.modules[2].world;
+      tag.visible = state.modules[2].active && ("maintenanceTag" in w || "tagLeft" in w || "tagRight" in w);
+      const attached = "maintenanceTag" in w
+        ? w.maintenanceTag === (i === 0 ? "left" : "right")
+        : !!w[i === 0 ? "tagLeft" : "tagRight"];
       const tex = (tag.material as T.MeshStandardMaterial).map!;
       const card = tex.image as HTMLCanvasElement;
       const ctx = card.getContext("2d")!;
@@ -1347,9 +1352,10 @@ export class EngineScene {
         Number(this.world.modules[2].world.pressure || 0),
       ];
       this.needles.forEach((needle, i) => {
+        const maximum = Number(needle.userData.maximum);
         const target = -(
           2.38 +
-          (T.MathUtils.clamp(pressure[i], 0, 5) / 5) * 4.61
+          (T.MathUtils.clamp(pressure[i], 0, maximum) / maximum) * 4.61
         );
         needle.rotation.z += (target - needle.rotation.z) * Math.min(1, dt * 8);
       });

@@ -1,0 +1,16 @@
+{
+  "setup": "Unchanged QA-earned progress copied from dev origin5262 to preview origin4262 for replays; no fabricated unlocks/wins.",
+  "checks": [
+    {
+      "level": 21,
+      "side": "left",
+      "result": "physical raycast accepted, correct tag, zero strikes"
+    },
+    {
+      "level": 30,
+      "side": "right",
+      "result": "physical raycast accepted, correct tag, zero strikes"
+    }
+  ],
+  "errors": []
+}

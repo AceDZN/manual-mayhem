@@ -13,6 +13,8 @@ export interface ModuleSpec {
   effect: Record<string, World>;
   feedback: string;
   startup?: { deltaWithoutFan: number; deltaWithFan: number; stopAt: number };
+  /** Gauge truth table: key is small-open bit followed by large-open bit. */
+  pressureRule?: Record<'00' | '01' | '10' | '11', number>;
 }
 export interface Choice {
   source?: string;
@@ -29,8 +31,10 @@ export interface Mission {
   modules: ModuleSpec[];
   relay?: Choice;
   prediction?: Choice;
+  /** Other physical bays remain present in standby, without learner actions. */
+  activeModules?: string[];
 }
-const valve = (
+export const valve = (
   serial: string,
   manual: string,
   steps: string[][],
@@ -56,7 +60,7 @@ const valve = (
     "בדקו את “before / after” ואת שם הברז. סדר אחר גורם לשחרור קיטור; אפשר לאפס את המודול ולנסות שוב.",
   ...extra,
 });
-const cable = (
+export const cable = (
   serial: string,
   manual: string,
   socket = "square",
@@ -83,7 +87,7 @@ const cable = (
     "הביטוי “below the … screen” מציין שקע מסוים. “after both clips are closed” מחייב לסגור את שניהם לפני TEST.",
   ...extra,
 });
-const switches = (
+export const switches = (
   serial: string,
   manual: string,
   steps: string[][],

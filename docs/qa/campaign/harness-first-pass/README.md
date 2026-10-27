@@ -1,0 +1,1 @@
+This was a runner expectation error: level 1 correctly reached ready and deliberately marked the guided attempt assisted. The first harness expected false. It was corrected to expect assistance on the seven guided levels, then a fresh full campaign passed. These images are historical diagnostic evidence, not a current game failure.

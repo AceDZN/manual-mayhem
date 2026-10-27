@@ -1,0 +1,250 @@
+{
+  "results": [
+    {
+      "check": "fresh campaign, no grade selection, active-only opening,30-level lock map and keyboard Escape",
+      "status": "pass"
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 1,
+      "status": "pass",
+      "readings": [],
+      "events": 1
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 2,
+      "status": "pass",
+      "readings": [],
+      "events": 4
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 3,
+      "status": "pass",
+      "readings": [],
+      "events": 2
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 4,
+      "status": "pass",
+      "readings": [],
+      "events": 6
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 5,
+      "status": "pass",
+      "readings": [],
+      "events": 4
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 6,
+      "status": "pass",
+      "readings": [],
+      "events": 7
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 7,
+      "status": "pass",
+      "readings": [],
+      "events": 10
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 8,
+      "status": "pass",
+      "readings": [],
+      "events": 10
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 9,
+      "status": "pass",
+      "readings": [],
+      "events": 11
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 10,
+      "status": "pass",
+      "readings": [],
+      "events": 10
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 11,
+      "status": "pass",
+      "readings": [],
+      "events": 8
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 12,
+      "status": "pass",
+      "readings": [],
+      "events": 10
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 13,
+      "status": "pass",
+      "readings": [],
+      "events": 9
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 14,
+      "status": "pass",
+      "readings": [],
+      "events": 12
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 15,
+      "status": "pass",
+      "readings": [],
+      "events": 9
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 16,
+      "status": "pass",
+      "readings": [],
+      "events": 10
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 17,
+      "status": "pass",
+      "readings": [
+        2
+      ],
+      "events": 11
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 18,
+      "status": "pass",
+      "readings": [],
+      "events": 13
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 19,
+      "status": "pass",
+      "readings": [],
+      "events": 11
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 20,
+      "status": "pass",
+      "readings": [],
+      "events": 13
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 21,
+      "status": "pass",
+      "readings": [],
+      "events": 9
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 22,
+      "status": "pass",
+      "readings": [],
+      "events": 10
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 23,
+      "status": "pass",
+      "readings": [],
+      "events": 11
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 24,
+      "status": "pass",
+      "readings": [
+        3,
+        1,
+        3
+      ],
+      "events": 13
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 25,
+      "status": "pass",
+      "readings": [
+        2,
+        4,
+        2
+      ],
+      "events": 14
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 26,
+      "status": "pass",
+      "readings": [
+        2,
+        4,
+        3,
+        1
+      ],
+      "events": 15
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 27,
+      "status": "pass",
+      "readings": [],
+      "events": 9
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 28,
+      "status": "pass",
+      "readings": [],
+      "events": 11
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 29,
+      "status": "pass",
+      "readings": [],
+      "events": 10
+    },
+    {
+      "check": "visible manual→operate→messages→engine start",
+      "level": 30,
+      "status": "pass",
+      "readings": [
+        3,
+        1,
+        3
+      ],
+      "events": 16
+    },
+    {
+      "check": "final replay/reload keeps30 unlocked; wrong order→recovery preserves retry evidence",
+      "status": "pass"
+    },
+    {
+      "check": "static30-procedure partner reader, direct level30 jump, no live controls",
+      "status": "pass"
+    },
+    {
+      "check": "390px earned map/touch replay and win, no document overflow",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

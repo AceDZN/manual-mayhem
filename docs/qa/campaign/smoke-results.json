@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "no grade selector",
+    "30 sequentially locked levels",
+    "first active-only win",
+    "unlock requires engine start",
+    "next level correct manual",
+    "reload resume",
+    "unlocked replay",
+    "390 map bounds"
+  ],
+  "errors": []
+}

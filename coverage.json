@@ -1,254 +1,1448 @@
 {
   "game": "Manual Mayhem",
-  "reviewedAt": "2026-10-27",
+  "reviewedAt": "2026-10-28",
   "status": "verified",
+  "userOverride": "One sequential 30-level campaign. No selected grade, grade limit or learner eligibility gate. Source grades 7–9 are internal provenance only.",
   "challengeIds": [
-    "g7-guided",
-    "g7-independent",
-    "g7-transfer",
-    "g8-guided",
-    "g8-independent",
-    "g8-transfer",
-    "g9-guided",
-    "g9-independent",
-    "g9-transfer"
+    "level-01",
+    "level-02",
+    "level-03",
+    "level-04",
+    "level-05",
+    "level-06",
+    "level-07",
+    "level-08",
+    "level-09",
+    "level-10",
+    "level-11",
+    "level-12",
+    "level-13",
+    "level-14",
+    "level-15",
+    "level-16",
+    "level-17",
+    "level-18",
+    "level-19",
+    "level-20",
+    "level-21",
+    "level-22",
+    "level-23",
+    "level-24",
+    "level-25",
+    "level-26",
+    "level-27",
+    "level-28",
+    "level-29",
+    "level-30"
   ],
+  "verification": {
+    "semanticTests": {
+      "passed": 76,
+      "total": 76,
+      "evidence": "docs/qa/campaign/semantic-tests.txt"
+    },
+    "campaignSemanticTests": 47,
+    "browser": {
+      "passedLevels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "total": 30,
+      "evidence": "docs/qa/campaign/campaign-results.json",
+      "method": "Native Chrome/Metal, visible UI actions from independently hand-read solutions; no solved state or unlock injection."
+    },
+    "focusedBrowser": {
+      "passed": 5,
+      "evidence": "docs/qa/campaign/focused-results.json",
+      "scope": "Physical capstone tag, initial connected17/20, inactive shortcut, initial-scenario label/context scroll, final tag visual fix; earned-progress replays."
+    },
+    "audio": {
+      "passed": 14,
+      "evidence": "docs/qa/campaign/audio/results.json",
+      "scope": "Separate audio-owner automated playback/state regression; no human audition claim."
+    },
+    "screenshots": "Representative actual captures in docs/qa/campaign were opened for visual review separately from unit tests"
+  },
   "records": [
     {
-      "grade": 7,
+      "sourceGrade": 7,
       "chapter": 11,
       "module": "modals-and-imperatives",
       "url": "https://english.workbook.co.il/grade-7/chapter-11/modals-and-imperatives",
+      "skill": "Imperative action/object, must, negation and order",
       "challengeIds": [
-        "g7-guided",
-        "g7-independent",
-        "g7-transfer"
+        "level-01",
+        "level-02",
+        "level-03",
+        "level-04",
+        "level-05",
+        "level-06",
+        "level-07",
+        "level-08",
+        "level-09",
+        "level-10"
       ],
-      "skill": "Interpret imperative action/object, must and negation",
-      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
-      "assistanceConditions": [
-        "Guided missions automatically assisted",
-        "Hint/translation marks assistance",
-        "Wrong relay marks subsequent attempt assisted",
-        "Fault reset increments retry; strikes persist"
-      ],
-      "tests": [
-        "G7 same initial valves; G7 prohibition changes working lever; G7 negative RESET"
-      ],
-      "status": "verified",
-      "verification": {
-        "semanticTests": "25/25 passed on final source, 2026-10-27",
-        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
-      }
+      "consultedButNotDirectlyAssessedIds": [],
+      "evidenceRule": "Correct physical decisions and observable world outcomes after reading the English; no full-chapter mastery inference.",
+      "status": "verified"
     },
     {
-      "grade": 7,
+      "sourceGrade": 7,
       "chapter": 12,
       "module": "reading-functional-texts",
       "url": "https://english.workbook.co.il/grade-7/chapter-12/reading-functional-texts",
+      "skill": "Serial-matched procedure, object reference, initial state and sequence",
       "challengeIds": [
-        "g7-guided",
-        "g7-independent",
-        "g7-transfer"
+        "level-01",
+        "level-02",
+        "level-03",
+        "level-04",
+        "level-05",
+        "level-06",
+        "level-07",
+        "level-08",
+        "level-09",
+        "level-10",
+        "level-30"
       ],
-      "skill": "Preserve ordered procedure and precise socket reference",
-      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
-      "assistanceConditions": [
-        "Guided missions automatically assisted",
-        "Hint/translation marks assistance",
-        "Wrong relay marks subsequent attempt assisted",
-        "Fault reset increments retry; strikes persist"
-      ],
-      "tests": [
-        "G7 same initial valves; G7 prohibition changes working lever"
-      ],
-      "status": "verified",
-      "verification": {
-        "semanticTests": "25/25 passed on final source, 2026-10-27",
-        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
-      }
+      "consultedButNotDirectlyAssessedIds": [],
+      "evidenceRule": "Correct physical decisions and observable world outcomes after reading the English; no full-chapter mastery inference.",
+      "status": "verified"
     },
     {
-      "grade": 8,
+      "sourceGrade": 8,
       "chapter": 10,
       "module": "present-simple-passive-reference",
       "url": "https://english.workbook.co.il/grade-8/chapter-10/present-simple-passive-reference",
+      "skill": "Identify by-agent and receiving line; mappings reverse",
       "challengeIds": [
-        "g8-guided",
-        "g8-independent",
-        "g8-transfer"
+        "level-11",
+        "level-12",
+        "level-13",
+        "level-14",
+        "level-15",
+        "level-16",
+        "level-17",
+        "level-18",
+        "level-19",
+        "level-20",
+        "level-26"
       ],
-      "skill": "Identify receiver and by-agent to choose physical lever",
-      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
-      "assistanceConditions": [
-        "Guided missions automatically assisted",
-        "Hint/translation marks assistance",
-        "Wrong relay marks subsequent attempt assisted",
-        "Fault reset increments retry; strikes persist"
-      ],
-      "tests": [
-        "G8 passive by-agent; G8 transfer requested receiver"
-      ],
-      "status": "verified",
-      "verification": {
-        "semanticTests": "25/25 passed on final source, 2026-10-27",
-        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
-      }
+      "consultedButNotDirectlyAssessedIds": [],
+      "evidenceRule": "Correct physical decisions and observable world outcomes after reading the English; no full-chapter mastery inference.",
+      "status": "verified"
     },
     {
-      "grade": 8,
+      "sourceGrade": 8,
       "chapter": 11,
       "module": "connectors-and-time-clauses",
       "url": "https://english.workbook.co.il/grade-8/chapter-11/connectors-and-time-clauses",
+      "skill": "Before/after/when sequence and preservation of current state",
       "challengeIds": [
-        "g8-guided",
-        "g8-independent",
-        "g8-transfer"
+        "level-11",
+        "level-12",
+        "level-13",
+        "level-14",
+        "level-15",
+        "level-16",
+        "level-17",
+        "level-18",
+        "level-19",
+        "level-20",
+        "level-26"
       ],
-      "skill": "Before/after changes event order while appearance remains the same",
-      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
-      "assistanceConditions": [
-        "Guided missions automatically assisted",
-        "Hint/translation marks assistance",
-        "Wrong relay marks subsequent attempt assisted",
-        "Fault reset increments retry; strikes persist"
-      ],
-      "tests": [
-        "G8 before/after; both clip orders"
-      ],
-      "status": "verified",
-      "verification": {
-        "semanticTests": "25/25 passed on final source, 2026-10-27",
-        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
-      }
+      "consultedButNotDirectlyAssessedIds": [],
+      "evidenceRule": "Correct physical decisions and observable world outcomes after reading the English; no full-chapter mastery inference.",
+      "status": "verified"
     },
     {
-      "grade": 8,
+      "sourceGrade": 8,
       "chapter": 12,
       "module": "mediation-and-shared-understanding",
       "url": "https://english.workbook.co.il/grade-8/chapter-12/mediation-and-shared-understanding",
+      "skill": "Reviewed relay selection preserving referent/order/prohibition",
       "challengeIds": [
-        "g8-independent",
-        "g8-transfer"
+        "level-12",
+        "level-14",
+        "level-16",
+        "level-18",
+        "level-19",
+        "level-20"
       ],
-      "skill": "Select useful complete relay preserving order/reference/prohibition",
-      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
-      "assistanceConditions": [
-        "Guided missions automatically assisted",
-        "Hint/translation marks assistance",
-        "Wrong relay marks subsequent attempt assisted",
-        "Fault reset increments retry; strikes persist"
+      "consultedButNotDirectlyAssessedIds": [
+        "level-11"
       ],
-      "tests": [
-        "all mission readiness; relay choice"
-      ],
-      "status": "verified",
-      "verification": {
-        "semanticTests": "25/25 passed on final source, 2026-10-27",
-        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
-      }
+      "evidenceRule": "Selection from reviewed messages only; no spontaneous production, speaking or listening assessment.",
+      "status": "verified"
     },
     {
-      "grade": 9,
+      "sourceGrade": 9,
       "chapter": 10,
       "module": "past-simple-passive-reference",
       "url": "https://english.workbook.co.il/grade-9/chapter-10/past-simple-passive-reference",
+      "skill": "Replacement receiver tag, separate explicit current check",
       "challengeIds": [
-        "g9-independent",
-        "g9-transfer"
+        "level-21",
+        "level-22",
+        "level-23",
+        "level-30"
       ],
-      "skill": "Identify past maintenance receiver alongside explicitly separate current check",
-      "evidenceRule": "Attach the REPLACED tag to the record receiver, then act from separately stated current working status; unaided only on first attempt without support.",
-      "assistanceConditions": [
-        "Guided missions automatically assisted",
-        "Hint/translation marks assistance",
-        "Wrong relay marks subsequent attempt assisted",
-        "Fault reset increments retry; strikes persist"
-      ],
-      "tests": [
-        "G9 past-passive record"
-      ],
-      "status": "verified",
-      "verification": {
-        "semanticTests": "25/25 passed on final source, 2026-10-27",
-        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27"
-      }
+      "consultedButNotDirectlyAssessedIds": [],
+      "evidenceRule": "Correct physical decisions and observable world outcomes after reading the English; no full-chapter mastery inference.",
+      "status": "verified"
     },
     {
-      "grade": 9,
+      "sourceGrade": 9,
       "chapter": 11,
       "module": "conditionals-reference",
       "url": "https://english.workbook.co.il/grade-9/chapter-11/conditionals-reference",
+      "skill": "Repeated fixed calibration versus specific initial startup prediction and prevention",
       "challengeIds": [
-        "g9-guided",
-        "g9-transfer"
+        "level-24",
+        "level-25",
+        "level-26",
+        "level-27",
+        "level-28",
+        "level-29",
+        "level-30"
       ],
-      "skill": "Repeat fixed zero-conditional rule; predict and prevent this startup outcome",
-      "evidenceRule": "Infer physical open/close settings for calibration goals 3,1,3 from repeatable rules; predict this-startup stop and change fan plan in paired rules.",
-      "assistanceConditions": [
-        "Guided missions automatically assisted",
-        "Hint/translation marks assistance",
-        "Wrong relay marks subsequent attempt assisted",
-        "Fault reset increments retry; strikes persist"
-      ],
-      "tests": [
-        "G9 zero-conditional; G9 this-startup prediction"
-      ],
-      "status": "verified",
-      "verification": {
-        "semanticTests": "25/25 passed on final source, 2026-10-27",
-        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27",
-        "pairedVariant": "A fan-on safe3; B fan-off safe4; wrong TEST stop5; unit+real browser verified"
-      }
+      "consultedButNotDirectlyAssessedIds": [],
+      "evidenceRule": "Correct physical decisions and observable world outcomes after reading the English; no full-chapter mastery inference.",
+      "status": "verified"
     },
     {
-      "grade": 9,
+      "sourceGrade": 9,
       "chapter": 12,
       "module": "mediation-reference",
       "url": "https://english.workbook.co.il/grade-9/chapter-12/mediation-reference",
+      "skill": "Reviewed relay selection preserving record/current check or condition/result plus plan",
       "challengeIds": [
-        "g9-transfer"
+        "level-22",
+        "level-23",
+        "level-25",
+        "level-28",
+        "level-29",
+        "level-30"
       ],
-      "skill": "Relay startup plan without losing before or prohibition",
-      "evidenceRule": "A completed physical procedure and relevant reviewed relay/prediction; unaided only on first attempt without support. No speaking or free-writing claim.",
-      "assistanceConditions": [
-        "Guided missions automatically assisted",
-        "Hint/translation marks assistance",
-        "Wrong relay marks subsequent attempt assisted",
-        "Fault reset increments retry; strikes persist"
+      "consultedButNotDirectlyAssessedIds": [
+        "level-21",
+        "level-24",
+        "level-26",
+        "level-27"
       ],
-      "tests": [
-        "relay choice"
-      ],
-      "status": "verified",
-      "verification": {
-        "semanticTests": "25/25 passed on final source, 2026-10-27",
-        "browser": "All mapped missions completed via visible UI controls; docs/qa/browser-results.json, 2026-10-27",
-        "relayIntegrity": "Complete condition/result, before-plan and prohibition preserved; correct original index retained through display shuffle"
-      }
+      "evidenceRule": "Selection from reviewed messages only; no spontaneous production, speaking or listening assessment.",
+      "status": "verified"
     }
   ],
-  "exclusions": [
-    "Whole-chapter completion",
-    "Grade 7 chapter 10 tense mastery",
+  "levels": [
+    {
+      "id": "level-01",
+      "level": 1,
+      "sourceGrade": 7,
+      "chapterLabel": "הוראות וסדר פעולות",
+      "skill": "imperative: action + object",
+      "activeModules": [
+        "valves"
+      ],
+      "sourceModules": [
+        {
+          "module": "modals-and-imperatives",
+          "sourceGrade": 7,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-7/chapter-11/modals-and-imperatives",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "reading-functional-texts",
+          "sourceGrade": 7,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-7/chapter-12/reading-functional-texts",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": true,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-02",
+      "level": 2,
+      "sourceGrade": 7,
+      "chapterLabel": "הוראות וסדר פעולות",
+      "skill": "shape reference + ordered procedure",
+      "activeModules": [
+        "cable"
+      ],
+      "sourceModules": [
+        {
+          "module": "modals-and-imperatives",
+          "sourceGrade": 7,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-7/chapter-11/modals-and-imperatives",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "reading-functional-texts",
+          "sourceGrade": 7,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-7/chapter-12/reading-functional-texts",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": true,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-03",
+      "level": 3,
+      "sourceGrade": 7,
+      "chapterLabel": "הוראות וסדר פעולות",
+      "skill": "imperative + negative instruction",
+      "activeModules": [
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "modals-and-imperatives",
+          "sourceGrade": 7,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-7/chapter-11/modals-and-imperatives",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "reading-functional-texts",
+          "sourceGrade": 7,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-7/chapter-12/reading-functional-texts",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": true,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-04",
+      "level": 4,
+      "sourceGrade": 7,
+      "chapterLabel": "הוראות וסדר פעולות",
+      "skill": "two procedures with different objects",
+      "activeModules": [
+        "valves",
+        "cable"
+      ],
+      "sourceModules": [
+        {
+          "module": "modals-and-imperatives",
+          "sourceGrade": 7,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-7/chapter-11/modals-and-imperatives",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "reading-functional-texts",
+          "sourceGrade": 7,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-7/chapter-12/reading-functional-texts",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-05",
+      "level": 5,
+      "sourceGrade": 7,
+      "chapterLabel": "הוראות וסדר פעולות",
+      "skill": "must + reversed order + prohibition",
+      "activeModules": [
+        "valves",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "modals-and-imperatives",
+          "sourceGrade": 7,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-7/chapter-11/modals-and-imperatives",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "reading-functional-texts",
+          "sourceGrade": 7,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-7/chapter-12/reading-functional-texts",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-06",
+      "level": 6,
+      "sourceGrade": 7,
+      "chapterLabel": "הוראות וסדר פעולות",
+      "skill": "before + two-step relay order",
+      "activeModules": [
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "modals-and-imperatives",
+          "sourceGrade": 7,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-7/chapter-11/modals-and-imperatives",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "reading-functional-texts",
+          "sourceGrade": 7,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-7/chapter-12/reading-functional-texts",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-07",
+      "level": 7,
+      "sourceGrade": 7,
+      "chapterLabel": "הוראות וסדר פעולות",
+      "skill": "three families + reopen instruction",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "modals-and-imperatives",
+          "sourceGrade": 7,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-7/chapter-11/modals-and-imperatives",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "reading-functional-texts",
+          "sourceGrade": 7,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-7/chapter-12/reading-functional-texts",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-08",
+      "level": 8,
+      "sourceGrade": 7,
+      "chapterLabel": "הוראות וסדר פעולות",
+      "skill": "changed initial state + keep closed",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "modals-and-imperatives",
+          "sourceGrade": 7,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-7/chapter-11/modals-and-imperatives",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "reading-functional-texts",
+          "sourceGrade": 7,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-7/chapter-12/reading-functional-texts",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-09",
+      "level": 9,
+      "sourceGrade": 7,
+      "chapterLabel": "הוראות וסדר פעולות",
+      "skill": "negation over final state + named clip order",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "modals-and-imperatives",
+          "sourceGrade": 7,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-7/chapter-11/modals-and-imperatives",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "reading-functional-texts",
+          "sourceGrade": 7,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-7/chapter-12/reading-functional-texts",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-10",
+      "level": 10,
+      "sourceGrade": 7,
+      "chapterLabel": "הוראות וסדר פעולות",
+      "skill": "unaided changed-context imperative transfer",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "modals-and-imperatives",
+          "sourceGrade": 7,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-7/chapter-11/modals-and-imperatives",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "reading-functional-texts",
+          "sourceGrade": 7,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-7/chapter-12/reading-functional-texts",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": true
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-11",
+      "level": 11,
+      "sourceGrade": 8,
+      "chapterLabel": "מקבל הפעולה ומסר מדויק",
+      "skill": "present passive receiver + by-agent",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "present-simple-passive-reference",
+          "sourceGrade": 8,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-8/chapter-10/present-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "connectors-and-time-clauses",
+          "sourceGrade": 8,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-8/chapter-11/connectors-and-time-clauses",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-and-shared-understanding",
+          "sourceGrade": 8,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-8/chapter-12/mediation-and-shared-understanding",
+          "role": "consulted-provenance-only"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": true,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-12",
+      "level": 12,
+      "sourceGrade": 8,
+      "chapterLabel": "מקבל הפעולה ומסר מדויק",
+      "skill": "changed passive receiver mapping",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "present-simple-passive-reference",
+          "sourceGrade": 8,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-8/chapter-10/present-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "connectors-and-time-clauses",
+          "sourceGrade": 8,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-8/chapter-11/connectors-and-time-clauses",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-and-shared-understanding",
+          "sourceGrade": 8,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-8/chapter-12/mediation-and-shared-understanding",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": true,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-13",
+      "level": 13,
+      "sourceGrade": 8,
+      "chapterLabel": "מקבל הפעולה ומסר מדויק",
+      "skill": "passive receivers + after sequence",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "present-simple-passive-reference",
+          "sourceGrade": 8,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-8/chapter-10/present-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "connectors-and-time-clauses",
+          "sourceGrade": 8,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-8/chapter-11/connectors-and-time-clauses",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-14",
+      "level": 14,
+      "sourceGrade": 8,
+      "chapterLabel": "מקבל הפעולה ומסר מדויק",
+      "skill": "relevant relay preserves receiver/order/prohibition",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "present-simple-passive-reference",
+          "sourceGrade": 8,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-8/chapter-10/present-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "connectors-and-time-clauses",
+          "sourceGrade": 8,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-8/chapter-11/connectors-and-time-clauses",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-and-shared-understanding",
+          "sourceGrade": 8,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-8/chapter-12/mediation-and-shared-understanding",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": true,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-15",
+      "level": 15,
+      "sourceGrade": 8,
+      "chapterLabel": "מקבל הפעולה ומסר מדויק",
+      "skill": "when clause + reversed receiver",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "present-simple-passive-reference",
+          "sourceGrade": 8,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-8/chapter-10/present-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "connectors-and-time-clauses",
+          "sourceGrade": 8,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-8/chapter-11/connectors-and-time-clauses",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-16",
+      "level": 16,
+      "sourceGrade": 8,
+      "chapterLabel": "מקבל הפעולה ומסר מדויק",
+      "skill": "only + before clause in mediated instruction",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "present-simple-passive-reference",
+          "sourceGrade": 8,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-8/chapter-10/present-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "connectors-and-time-clauses",
+          "sourceGrade": 8,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-8/chapter-11/connectors-and-time-clauses",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-and-shared-understanding",
+          "sourceGrade": 8,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-8/chapter-12/mediation-and-shared-understanding",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": true,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-17",
+      "level": 17,
+      "sourceGrade": 8,
+      "chapterLabel": "מקבל הפעולה ומסר מדויק",
+      "skill": "explicit current state + ordered passive procedure",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "present-simple-passive-reference",
+          "sourceGrade": 8,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-8/chapter-10/present-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "connectors-and-time-clauses",
+          "sourceGrade": 8,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-8/chapter-11/connectors-and-time-clauses",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-18",
+      "level": 18,
+      "sourceGrade": 8,
+      "chapterLabel": "מקבל הפעולה ומסר מדויק",
+      "skill": "retain reference and sequence across relay",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "present-simple-passive-reference",
+          "sourceGrade": 8,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-8/chapter-10/present-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "connectors-and-time-clauses",
+          "sourceGrade": 8,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-8/chapter-11/connectors-and-time-clauses",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-and-shared-understanding",
+          "sourceGrade": 8,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-8/chapter-12/mediation-and-shared-understanding",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": true,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-19",
+      "level": 19,
+      "sourceGrade": 8,
+      "chapterLabel": "מקבל הפעולה ומסר מדויק",
+      "skill": "when + explicit current state + preserved only",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "present-simple-passive-reference",
+          "sourceGrade": 8,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-8/chapter-10/present-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "connectors-and-time-clauses",
+          "sourceGrade": 8,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-8/chapter-11/connectors-and-time-clauses",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-and-shared-understanding",
+          "sourceGrade": 8,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-8/chapter-12/mediation-and-shared-understanding",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": true,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-20",
+      "level": 20,
+      "sourceGrade": 8,
+      "chapterLabel": "מקבל הפעולה ומסר מדויק",
+      "skill": "changed-context passive/time-clause transfer",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "present-simple-passive-reference",
+          "sourceGrade": 8,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-8/chapter-10/present-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "connectors-and-time-clauses",
+          "sourceGrade": 8,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-8/chapter-11/connectors-and-time-clauses",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-and-shared-understanding",
+          "sourceGrade": 8,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-8/chapter-12/mediation-and-shared-understanding",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": true,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": true
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-21",
+      "level": 21,
+      "sourceGrade": 9,
+      "chapterLabel": "יומן תחזוקה ובדיקה עכשווית",
+      "skill": "past passive receiver + independent current check",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "past-simple-passive-reference",
+          "sourceGrade": 9,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-9/chapter-10/past-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-reference",
+          "sourceGrade": 9,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-9/chapter-12/mediation-reference",
+          "role": "consulted-provenance-only"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": true,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-22",
+      "level": 22,
+      "sourceGrade": 9,
+      "chapterLabel": "יומן תחזוקה ובדיקה עכשווית",
+      "skill": "past passive changed receiver; explicit failure remains",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "past-simple-passive-reference",
+          "sourceGrade": 9,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-9/chapter-10/past-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-reference",
+          "sourceGrade": 9,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-9/chapter-12/mediation-reference",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": true,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-23",
+      "level": 23,
+      "sourceGrade": 9,
+      "chapterLabel": "יומן תחזוקה ובדיקה עכשווית",
+      "skill": "past passive does not determine current repair outcome",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "past-simple-passive-reference",
+          "sourceGrade": 9,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-9/chapter-10/past-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-reference",
+          "sourceGrade": 9,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-9/chapter-12/mediation-reference",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": true,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-24",
+      "level": 24,
+      "sourceGrade": 9,
+      "chapterLabel": "כלל קבוע וכיול",
+      "skill": "repeat a zero-conditional calibration",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "conditionals-reference",
+          "sourceGrade": 9,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-9/chapter-11/conditionals-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-reference",
+          "sourceGrade": 9,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-9/chapter-12/mediation-reference",
+          "role": "consulted-provenance-only"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": true,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-25",
+      "level": 25,
+      "sourceGrade": 9,
+      "chapterLabel": "כלל קבוע וכיול",
+      "skill": "reversed zero-conditional effect",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "conditionals-reference",
+          "sourceGrade": 9,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-9/chapter-11/conditionals-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-reference",
+          "sourceGrade": 9,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-9/chapter-12/mediation-reference",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": true,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-26",
+      "level": 26,
+      "sourceGrade": 9,
+      "chapterLabel": "כלל קבוע וכיול",
+      "skill": "zero conditional with joint valve conditions",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "conditionals-reference",
+          "sourceGrade": 9,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-9/chapter-11/conditionals-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "present-simple-passive-reference",
+          "sourceGrade": 8,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-8/chapter-10/present-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "connectors-and-time-clauses",
+          "sourceGrade": 8,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-8/chapter-11/connectors-and-time-clauses",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-reference",
+          "sourceGrade": 9,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-9/chapter-12/mediation-reference",
+          "role": "consulted-provenance-only"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": false,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-27",
+      "level": 27,
+      "sourceGrade": 9,
+      "chapterLabel": "תחזית ותוכנית התנעה",
+      "skill": "first conditional prediction and fan prevention",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "conditionals-reference",
+          "sourceGrade": 9,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-9/chapter-11/conditionals-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-reference",
+          "sourceGrade": 9,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-9/chapter-12/mediation-reference",
+          "role": "consulted-provenance-only"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": false,
+        "initialScenarioPrediction": true,
+        "guided": true,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-28",
+      "level": 28,
+      "sourceGrade": 9,
+      "chapterLabel": "תחזית ותוכנית התנעה",
+      "skill": "reversed first-conditional startup plan",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "conditionals-reference",
+          "sourceGrade": 9,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-9/chapter-11/conditionals-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-reference",
+          "sourceGrade": 9,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-9/chapter-12/mediation-reference",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": true,
+        "initialScenarioPrediction": true,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-29",
+      "level": 29,
+      "sourceGrade": 9,
+      "chapterLabel": "תחזית ותוכנית התנעה",
+      "skill": "varied first-conditional threshold + preserved relay",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "conditionals-reference",
+          "sourceGrade": 9,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-9/chapter-11/conditionals-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-reference",
+          "sourceGrade": 9,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-9/chapter-12/mediation-reference",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": true,
+        "initialScenarioPrediction": true,
+        "guided": false,
+        "transfer": false
+      },
+      "status": "verified"
+    },
+    {
+      "id": "level-30",
+      "level": 30,
+      "sourceGrade": 9,
+      "chapterLabel": "תחזית ותוכנית התנעה",
+      "skill": "mixed capstone: record + current check + zero rule + startup prediction + relay",
+      "activeModules": [
+        "valves",
+        "cable",
+        "switches"
+      ],
+      "sourceModules": [
+        {
+          "module": "past-simple-passive-reference",
+          "sourceGrade": 9,
+          "chapter": 10,
+          "url": "https://english.workbook.co.il/grade-9/chapter-10/past-simple-passive-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "conditionals-reference",
+          "sourceGrade": 9,
+          "chapter": 11,
+          "url": "https://english.workbook.co.il/grade-9/chapter-11/conditionals-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "mediation-reference",
+          "sourceGrade": 9,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-9/chapter-12/mediation-reference",
+          "role": "direct-selected-rule-evidence"
+        },
+        {
+          "module": "reading-functional-texts",
+          "sourceGrade": 7,
+          "chapter": 12,
+          "url": "https://english.workbook.co.il/grade-7/chapter-12/reading-functional-texts",
+          "role": "direct-selected-rule-evidence"
+        }
+      ],
+      "assessment": {
+        "physicalProcedure": true,
+        "reviewedRelaySelection": true,
+        "initialScenarioPrediction": true,
+        "guided": false,
+        "transfer": true
+      },
+      "status": "verified"
+    }
+  ],
+  "assistanceConditions": [
+    "Guided levels 1,2,3,11,21,24,27 start assisted.",
+    "Hint or translation marks assistance.",
+    "Wrong reviewed choice marks assistance.",
+    "Recovery/restart preserves strikes and increments retry history.",
+    "Reading/navigating the English manual alone does not mark assistance."
+  ],
+  "supportOnly": [
+    {
+      "sourceGrade": 7,
+      "chapter": 6,
+      "module": "follow-the-tech-steps",
+      "url": "https://english.workbook.co.il/grade-7/chapter-6/follow-the-tech-steps",
+      "claim": "Technical procedure context only; outside primary chapters10–12 contract."
+    },
+    {
+      "sourceGrade": 7,
+      "chapter": 10,
+      "claim": "Current device-state reading only; no tense-system mastery assessment."
+    }
+  ],
+  "notAssessed": [
+    "Whole chapters",
+    "Full tense system",
     "Second conditional",
-    "Listening, speaking or pronunciation assessment",
-    "Spontaneous writing",
-    "Literary analysis and extended narrative/opinion writing",
-    "Retained mastery or learning gains"
-  ],
-  "verificationNote": "Selected-rule records verified through 25 independent semantic tests, all-nine real-control browser wins, physical interactions, paired startup B recovery/win, persistent evidence checks and a 60.04-second causal source-loop sequence. This is not whole-chapter completion or retained mastery.",
-  "browserEvidence": [
-    "docs/qa/browser-results.json",
-    "docs/qa/physical-results.json",
-    "docs/qa/evidence-results.json",
-    "docs/qa/source-sequence/sequence.json",
-    "docs/qa/skill-client-final/state-0.json"
-  ],
-  "verificationLimits": [
-    "No measured learning gains or retained mastery",
-    "No live speaking/listening/spontaneous-writing assessment",
-    "Real native focus events unsupported in both automation modes; synthetic handlers tested",
-    "No personal audio audition by independent QA tester; see audio owner report"
+    "Punctuation production",
+    "Pronunciation",
+    "Live listening",
+    "Spontaneous spoken mediation",
+    "Free writing",
+    "Broad vocabulary mastery",
+    "Learning gain or retained mastery"
   ]
 }

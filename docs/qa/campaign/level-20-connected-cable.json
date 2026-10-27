@@ -1,0 +1,288 @@
+{
+  "mode": "playing",
+  "mission": {
+    "id": "level-20",
+    "level": 20,
+    "chapter": "מקבל הפעולה ומסר מדויק",
+    "skill": "changed-context passive/time-clause transfer",
+    "title": "מנוע מסירת המסר"
+  },
+  "campaign": {
+    "currentLevel": 20,
+    "highestUnlocked": 20,
+    "completed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ]
+  },
+  "manual": {
+    "visible": true,
+    "reading": false,
+    "page": "cable",
+    "serial": "C-20",
+    "text": "The cable is already connected below the round screen. Close clip A before clip B. TEST is pressed when both are closed. Do not move the cable."
+  },
+  "selected": "cable",
+  "controlsOpen": true,
+  "coordinateSystem": "Fixed front view: x right, y up; gauges left, valves center, patch right, relays lower. Left/right always facing module.",
+  "view": {
+    "rotation": 0,
+    "camera": [
+      2.859691518513408,
+      2.433641557447074,
+      11.408267973712128
+    ]
+  },
+  "controls": [
+    {
+      "module": "valves",
+      "control": "small",
+      "x": -227,
+      "y": 307
+    },
+    {
+      "module": "valves",
+      "control": "large",
+      "x": -7,
+      "y": 308
+    },
+    {
+      "module": "valves",
+      "control": "test",
+      "x": -399,
+      "y": 471
+    },
+    {
+      "module": "cable",
+      "control": "connect-square",
+      "x": 224,
+      "y": 319
+    },
+    {
+      "module": "cable",
+      "control": "connect-round",
+      "x": 347,
+      "y": 319
+    },
+    {
+      "module": "cable",
+      "control": "clip-a",
+      "x": 204,
+      "y": 409
+    },
+    {
+      "module": "cable",
+      "control": "clip-b",
+      "x": 366,
+      "y": 409
+    },
+    {
+      "module": "cable",
+      "control": "test",
+      "x": 285,
+      "y": 420
+    },
+    {
+      "module": "cable",
+      "control": "source",
+      "x": 285,
+      "y": 519
+    },
+    {
+      "module": "switches",
+      "control": "left",
+      "x": -436,
+      "y": 510
+    },
+    {
+      "module": "switches",
+      "control": "right",
+      "x": -312,
+      "y": 509
+    },
+    {
+      "module": "switches",
+      "control": "fan",
+      "x": -160,
+      "y": 513
+    },
+    {
+      "module": "switches",
+      "control": "test",
+      "x": -49,
+      "y": 511
+    },
+    {
+      "module": "cable",
+      "control": "reset",
+      "x": 57,
+      "y": 510
+    }
+  ],
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-20",
+      "active": true,
+      "complete": true,
+      "fault": false,
+      "world": {
+        "small": true,
+        "large": false,
+        "pressure": 3,
+        "signal": "stable"
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-20",
+      "active": true,
+      "complete": true,
+      "fault": false,
+      "world": {
+        "connected": "round",
+        "clipA": true,
+        "clipB": true,
+        "signal": "stable"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-20",
+      "active": true,
+      "complete": false,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": false,
+        "fan": false,
+        "pressure": 4,
+        "receiver": "none",
+        "signal": "idle"
+      }
+    }
+  ],
+  "relay": false,
+  "prediction": true,
+  "strikes": 0,
+  "time": null,
+  "evidence": {
+    "assisted": false,
+    "retries": 0,
+    "events": [
+      {
+        "action": "small-close",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "large-open",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "large-close",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "small-open",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "clip-a",
+        "module": "cable",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "clip-b",
+        "module": "cable",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "cable",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      }
+    ]
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 2,
+    "stemLevels": [
+      0.9,
+      0.92,
+      0.92,
+      0,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": false,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "mix": {
+      "master": 0.800000011920929,
+      "music": 0.75,
+      "musicTarget": 0.75,
+      "sfx": 0.800000011920929,
+      "voice": 1
+    },
+    "activeShots": 8,
+    "cueCount": 274,
+    "cueCounts": {
+      "knob": 44,
+      "settle": 38,
+      "activate": 31,
+      "victory": 18,
+      "cable": 15,
+      "latch": 35,
+      "switch": 62,
+      "page": 31
+    },
+    "lastCue": "activate",
+    "rms": 0.036494,
+    "transportSeconds": 258.51,
+    "voiceAvailable": false
+  },
+  "feedback": "המודול יציב. ההוראה הפכה לפעולה מדויקת."
+}

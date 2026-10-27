@@ -1,0 +1,313 @@
+{
+  "mode": "manual",
+  "mission": {
+    "id": "level-24",
+    "level": 24,
+    "chapter": "כלל קבוע וכיול",
+    "skill": "repeat a zero-conditional calibration",
+    "title": "כלל קבוע: פתוח וסגור"
+  },
+  "campaign": {
+    "currentLevel": 24,
+    "highestUnlocked": 24,
+    "completed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ]
+  },
+  "manual": {
+    "visible": true,
+    "reading": true,
+    "page": "switches",
+    "serial": "S-24",
+    "text": "Start the fan before turning on the right lever. Then TEST. Keep left off."
+  },
+  "selected": "cable",
+  "controlsOpen": false,
+  "coordinateSystem": "Fixed front view: x right, y up; gauges left, valves center, patch right, relays lower. Left/right always facing module.",
+  "view": {
+    "rotation": 0,
+    "camera": [
+      3.0484519777749104,
+      2.382476120686139,
+      11.347524001740005
+    ]
+  },
+  "controls": [
+    {
+      "module": "valves",
+      "control": "small",
+      "x": -226,
+      "y": 307
+    },
+    {
+      "module": "valves",
+      "control": "large",
+      "x": -9,
+      "y": 307
+    },
+    {
+      "module": "valves",
+      "control": "test",
+      "x": -395,
+      "y": 470
+    },
+    {
+      "module": "cable",
+      "control": "connect-square",
+      "x": 223,
+      "y": 318
+    },
+    {
+      "module": "cable",
+      "control": "connect-round",
+      "x": 347,
+      "y": 319
+    },
+    {
+      "module": "cable",
+      "control": "clip-a",
+      "x": 203,
+      "y": 409
+    },
+    {
+      "module": "cable",
+      "control": "clip-b",
+      "x": 367,
+      "y": 409
+    },
+    {
+      "module": "cable",
+      "control": "test",
+      "x": 285,
+      "y": 420
+    },
+    {
+      "module": "cable",
+      "control": "source",
+      "x": 285,
+      "y": 520
+    },
+    {
+      "module": "switches",
+      "control": "left",
+      "x": -433,
+      "y": 509
+    },
+    {
+      "module": "switches",
+      "control": "right",
+      "x": -311,
+      "y": 508
+    },
+    {
+      "module": "switches",
+      "control": "fan",
+      "x": -161,
+      "y": 512
+    },
+    {
+      "module": "switches",
+      "control": "test",
+      "x": -50,
+      "y": 510
+    },
+    {
+      "module": "cable",
+      "control": "reset",
+      "x": 56,
+      "y": 510
+    }
+  ],
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-24",
+      "active": true,
+      "complete": true,
+      "fault": false,
+      "world": {
+        "small": true,
+        "large": false,
+        "pressure": 3,
+        "signal": "stable"
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-24",
+      "active": true,
+      "complete": true,
+      "fault": false,
+      "world": {
+        "connected": "square",
+        "clipA": true,
+        "clipB": true,
+        "signal": "stable"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-24",
+      "active": true,
+      "complete": false,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": false,
+        "fan": false,
+        "pressure": 4,
+        "receiver": "none",
+        "signal": "idle"
+      }
+    }
+  ],
+  "relay": true,
+  "prediction": true,
+  "strikes": 0,
+  "time": null,
+  "evidence": {
+    "assisted": true,
+    "retries": 0,
+    "events": [
+      {
+        "action": "small-open",
+        "module": "valves",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "valves",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "small-close",
+        "module": "valves",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "valves",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "small-open",
+        "module": "valves",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "valves",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "connect-square",
+        "module": "cable",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "clip-a",
+        "module": "cable",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "clip-b",
+        "module": "cable",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "cable",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      }
+    ]
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 2,
+    "stemLevels": [
+      0.9,
+      0.92,
+      0.92,
+      0,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": true,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "mix": {
+      "master": 0.800000011920929,
+      "music": 0.20999999344348907,
+      "musicTarget": 0.21000000000000002,
+      "sfx": 0.800000011920929,
+      "voice": 1
+    },
+    "activeShots": 5,
+    "cueCount": 344,
+    "cueCounts": {
+      "knob": 54,
+      "settle": 47,
+      "activate": 36,
+      "victory": 22,
+      "cable": 19,
+      "latch": 46,
+      "switch": 80,
+      "page": 40
+    },
+    "lastCue": "activate",
+    "rms": 0.044907,
+    "transportSeconds": 263.85,
+    "voiceAvailable": false
+  },
+  "feedback": ""
+}

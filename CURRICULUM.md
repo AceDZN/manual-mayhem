@@ -1,6 +1,6 @@
 # Curriculum and evidence
 
-Manual Mayhem uses original festival-engine procedures informed by the checked-in Workbook snapshots. The launch is selected-rule practice across three grades; it does not complete any whole chapter or demonstrate retained mastery.
+Manual Mayhem uses original festival-engine procedures informed by the checked-in Workbook snapshots. The current release is one30-level campaign with progressively harder selected-rule practice; source grades are private provenance and never a player-selected limit; it does not complete any whole chapter or demonstrate retained mastery.
 
 ## Source scope
 
@@ -18,13 +18,17 @@ Manual Mayhem uses original festival-engine procedures informed by the checked-i
 
 ## Evidence boundaries
 
-The three stages in each grade are guided, independent and changed-context transfer. A correct action sequence demonstrates success on that finite fixture. It is evidence of unaided interpretation only when the first attempt succeeds without hints, translation or retries. A retry after informative feedback is useful practice but is not first-attempt evidence. Cosmetic placement must not reveal the right answer.
+The campaign introduces procedures, reduces support, and changes context through30 ordered levels. Guided introductions recur when a new rule family is introduced; players advance by completing levels, independent of age or grade. A correct action sequence demonstrates success on that finite fixture. It is evidence of unaided interpretation only when the first attempt succeeds without hints, translation or retries. A retry after informative feedback is useful practice but is not first-attempt evidence. Cosmetic placement must not reveal the right answer.
 
 Solo manual reading assesses comprehension and reviewed message selection. It does not assess speech, listening, spontaneous writing, collaborative skill or pronunciation. An optional human reader may communicate in real life, but the program cannot validate that conversation.
 
 The grade-7 chapter-10 strand is supporting only: understanding displayed current state versus next instructions does not establish tense mastery. No second conditional is taught. Ordinary if + present followed by a will/modal/imperative result is the selected grade-9 pattern; this is not an absolute rule that English never permits will after if. No full tense-system, literary analysis, narrative/opinion writing or long-term retention claim is made.
 
-## Authored challenge map
+## Current campaign
+
+`src/campaign.ts` defines30 ordered levels. [CAMPAIGN.md](docs/CAMPAIGN.md) maps the authored procedures, active bays and changing interpretation across the full ladder. Levels1–6 introduce and combine bays;7–10 extend imperative procedures;11–20 add passive receivers and precise relays;21–23 separate past records from current checks;24–26 require zero-conditional calibration;27–30 add first-conditional predictions, opposite plans and a mixed capstone. `src/rules.ts` evaluates the same manual/world data. Standby bays earn no action evidence or musical progress.
+
+## Historical nine-fixture regression map
 
 The tables below describe authoritative fixture values and the intended action, rather than a claim about what a learner has mastered. Each mission contains three physical families: valve bay, cable patch bay and relay deck. The manual text and procedure tables share `src/content.ts`; `src/rules.ts` owns the consequences.
 
@@ -42,6 +46,8 @@ The tables below describe authoritative fixture values and the intended action, 
 
 All physical results also receive text feedback; sound and color alone do not carry correctness. The learner can reset a faulted module and re-read the manual; a strike remains recorded. Three strikes lead to a harmless shutdown and retry.
 
-## Independent review status
+## Historical review status
+
+The following checks describe the original nine-fixture release. Current campaign verification is recorded in `PLAYTEST.md` and `docs/qa/campaign`.
 
 2026-10-27: Source snapshots read and nine implemented fixtures independently reviewed. `npm test` passes 25 semantic tests, including independent manual-derived solutions for all nine missions and a generic paired startup that requires switching the fan off and both sides of the principal contrasts. Integrated browser runs completed all nine missions through real controls, with zero errors in the current recorded run. All three unaided transfer paths had zero strikes and retries. See `coverage.json`, `PLAYTEST.md` and `docs/qa/browser-results.json`; this finite check does not establish learning gains.

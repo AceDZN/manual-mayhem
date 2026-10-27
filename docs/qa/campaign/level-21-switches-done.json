@@ -1,0 +1,312 @@
+{
+  "mode": "ready",
+  "mission": {
+    "id": "level-21",
+    "level": 21,
+    "chapter": "יומן תחזוקה ובדיקה עכשווית",
+    "skill": "past passive receiver + independent current check",
+    "title": "מה הוחלף ומה עובד"
+  },
+  "campaign": {
+    "currentLevel": 21,
+    "highestUnlocked": 21,
+    "completed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ]
+  },
+  "manual": {
+    "visible": true,
+    "reading": false,
+    "page": "switches",
+    "serial": "S-21",
+    "text": "Record: The left relay was replaced yesterday. Attach the REPLACED tag to that relay. Current check: the right relay works; the left relay fails. Turn on only the working relay, then press TEST. Leave the failing relay off."
+  },
+  "selected": null,
+  "controlsOpen": false,
+  "coordinateSystem": "Fixed front view: x right, y up; gauges left, valves center, patch right, relays lower. Left/right always facing module.",
+  "view": {
+    "rotation": 0,
+    "camera": [
+      -4.718035362663648,
+      5.099780525026832,
+      14.610499041959418
+    ]
+  },
+  "controls": [
+    {
+      "module": "valves",
+      "control": "small",
+      "x": 230,
+      "y": 408
+    },
+    {
+      "module": "valves",
+      "control": "large",
+      "x": 371,
+      "y": 402
+    },
+    {
+      "module": "valves",
+      "control": "test",
+      "x": 84,
+      "y": 525
+    },
+    {
+      "module": "cable",
+      "control": "connect-square",
+      "x": 492,
+      "y": 396
+    },
+    {
+      "module": "cable",
+      "control": "connect-round",
+      "x": 563,
+      "y": 392
+    },
+    {
+      "module": "cable",
+      "control": "clip-a",
+      "x": 476,
+      "y": 454
+    },
+    {
+      "module": "cable",
+      "control": "clip-b",
+      "x": 570,
+      "y": 448
+    },
+    {
+      "module": "cable",
+      "control": "test",
+      "x": 524,
+      "y": 458
+    },
+    {
+      "module": "cable",
+      "control": "source",
+      "x": 522,
+      "y": 521
+    },
+    {
+      "module": "switches",
+      "control": "left",
+      "x": 76,
+      "y": 557
+    },
+    {
+      "module": "switches",
+      "control": "tag-left",
+      "x": 72,
+      "y": 518
+    },
+    {
+      "module": "switches",
+      "control": "right",
+      "x": 162,
+      "y": 549
+    },
+    {
+      "module": "switches",
+      "control": "tag-right",
+      "x": 156,
+      "y": 511
+    },
+    {
+      "module": "switches",
+      "control": "fan",
+      "x": 259,
+      "y": 542
+    },
+    {
+      "module": "switches",
+      "control": "test",
+      "x": 321,
+      "y": 533
+    }
+  ],
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-21",
+      "active": true,
+      "complete": true,
+      "fault": false,
+      "world": {
+        "small": false,
+        "large": true,
+        "pressure": 2,
+        "signal": "stable"
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-21",
+      "active": true,
+      "complete": true,
+      "fault": false,
+      "world": {
+        "connected": "round",
+        "clipA": true,
+        "clipB": true,
+        "signal": "stable"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-21",
+      "active": true,
+      "complete": true,
+      "fault": false,
+      "world": {
+        "left": false,
+        "right": true,
+        "fan": false,
+        "pressure": 4,
+        "receiver": "working relay",
+        "signal": "stable",
+        "maintenanceTag": "left",
+        "tagLeft": true,
+        "tagRight": true
+      }
+    }
+  ],
+  "relay": true,
+  "prediction": true,
+  "strikes": 0,
+  "time": null,
+  "evidence": {
+    "assisted": true,
+    "retries": 0,
+    "events": [
+      {
+        "action": "small-close",
+        "module": "valves",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "large-open",
+        "module": "valves",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "connect-round",
+        "module": "cable",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "clip-b",
+        "module": "cable",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "clip-a",
+        "module": "cable",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "cable",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "tag-left",
+        "module": "switches",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "right-on",
+        "module": "switches",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "switches",
+        "correct": true,
+        "assisted": true,
+        "retry": 0
+      }
+    ]
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 3,
+    "stemLevels": [
+      0.9,
+      0.92,
+      0.92,
+      0.92,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": false,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "mix": {
+      "master": 0.800000011920929,
+      "music": 0.7475624680519104,
+      "musicTarget": 0.75,
+      "sfx": 0.800000011920929,
+      "voice": 1
+    },
+    "activeShots": 8,
+    "cueCount": 296,
+    "cueCounts": {
+      "knob": 46,
+      "settle": 41,
+      "activate": 33,
+      "victory": 19,
+      "cable": 16,
+      "latch": 38,
+      "switch": 69,
+      "page": 34
+    },
+    "lastCue": "activate",
+    "rms": 0.043214,
+    "transportSeconds": 260.29,
+    "voiceAvailable": false
+  },
+  "feedback": "המודול יציב. ההוראה הפכה לפעולה מדויקת."
+}

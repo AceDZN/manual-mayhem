@@ -11,20 +11,24 @@ npm run dev
 
 Open http://localhost:5262/ . Production preview: `npm run build && npm run preview` → http://localhost:4262/ . Ports are strict. No backend, AI runtime, keys or accounts. All assets are local. Source and public repository: https://github.com/AceDZN/manual-mayhem . No production deployment.
 
-Select grade 7, 8 or 9 and one of three authored missions. Start enables audio. Click a module to inspect it straight on; its matching manual page stays available. Use the physical controls, or open “כפתורי הפעלה” for labeled keyboard/touch buttons. Drag the handle/background to rotate the overview. Turn wheels by rim drag/click; drag the orange OUT cable to the socket under the described screen. The manual is visible immediately. Read the matching page, then choose its operation action; M switches reading/operation focus; Esc closes the active view; 1/2/3 inspect modules; Tab/Enter operate buttons; F toggles fullscreen. Left/right always refer to facing the module. No movement controls or pointer lock.
+Start at level1 and advance through30 progressively harder levels. Completing a level opens the next; the level map lets you replay unlocked levels, and progress resumes locally after reload. There is no grade selector or grade limit. Start enables audio. Click a module to inspect it straight on; its matching manual page stays available. Use the physical controls, or open “כפתורי הפעלה” for labeled keyboard/touch buttons. Drag the handle/background to rotate the overview. Turn wheels by rim drag/click; drag the orange OUT cable to the socket under the described screen. The manual is visible immediately. Read the matching page, then choose its operation action; M switches reading/operation focus; Esc closes the active view; 1/2/3 inspect modules; Tab/Enter operate buttons; F toggles fullscreen. Left/right always refer to facing the module. No movement controls or pointer lock.
 
 Solo contextual-manual play is complete. The first action explicitly asks the player to read before operating; wide layouts keep the paper beside the machine, while narrow app panels and phones have explicit reading/operation phases. For a real human reader, open `?manual=1` on a separate screen (or `/manual` with a SPA fallback). The reader page is static: no live answers, machine state, microphone, account or sync. It can be printed.
 
-Practice has no clock. Optional challenge time stops during inspection, manual, translation, pause and settings. A hint/translation, retry, mistake or reviewed message selection is recorded locally; prior attempts survive mission/grade changes and reloads, and A/B variants have separate ledgers; successful play does not imply retained mastery or speaking assessment. RESET is a physical action that can violate a prohibition. “איפוס לצורך ניסיון חוזר” is an external recovery affordance.
+Practice has no clock. Optional challenge time stops during inspection, manual, translation, pause and settings. A hint/translation, retry, mistake or reviewed message selection is recorded locally; prior attempts survive level changes and reloads; the campaign saves unlocked levels and best results separately; successful play does not imply retained mastery or speaking assessment. RESET is a physical action that can violate a prohibition. “איפוס לצורך ניסיון חוזר” is an external recovery affordance.
 
 ## Learning scope
 
-Nine authored missions, guided → independent → changed-context transfer per grade:
+One continuous30-level campaign, available to every player:
 
-- G7: imperative action/object, ordered procedure, must/negation, functional-text restrictions.
-- G8: present passive receiver and by-agent mapping, before/after order, relevant complete relay selection.
-- G9: goal-based repeated zero-conditional rule; past-passive maintenance plus explicit current test; a specific first-conditional prediction and prevention plan. The transfer mission also offers model B: the fan now adds pressure, requiring the opposite valid action.
+- Levels1–3 introduce valves, cable and relays separately;4–6 combine two active bays.
+- Levels7–10 combine all three with changing initial states, negation and longer procedures.
+- Levels11–20 add passive receivers, event order and precise messages for an operator.
+- Levels21–23 separate maintenance history from current working condition.
+- Levels24–26 require repeated calibration from fixed conditional rules, including all four valve combinations.
+- Levels27–30 add startup predictions, changing pressure thresholds, opposite fan plans and a mixed final challenge.
 
+The difficulty changes actual valid actions and decisions, with no grade gating. The original source grades are curriculum provenance only. See [the campaign map](docs/CAMPAIGN.md) and `src/campaign.ts` for the30 authored procedures.
 Exact Workbook sources and evidence limits: `CURRICULUM.md`, `coverage.json`, `COVERAGE.md`. Selected rules only: no complete-chapter coverage, spontaneous writing, live speaking/listening, full tense system or second conditional claim.
 
 ## Assets and audio
@@ -41,8 +45,8 @@ The image in `docs/visual-targets/gameplay-mockup.png` is an AI-generated **desi
 
 ## Actual gameplay
 
-![Revised actual Three.js gameplay](docs/qa/revision/1440-final-initial.png)
+![Actual campaign gameplay](docs/qa/campaign/production/app-game.png)
 
-[Real 60-second manual → mistake → recovery → physical cable → startup sequence](docs/qa/source-sequence/README.md). This screenshot and sequence are working gameplay; the imagegen design target is labeled separately.
+[Current30-level browser verification](docs/qa/campaign/campaign-results.json) records the complete sequential campaign. The [historical60-second manual → mistake → recovery → physical cable → startup sequence](docs/qa/source-sequence/README.md) demonstrates the original release’s source loop; current campaign captures are under docs/qa/campaign. The imagegen design target is labeled separately.
 
 The visual/manual revision requested by the human is documented with real desktop/mobile captures and regression evidence in [docs/qa/revision](docs/qa/revision/REVISION.md). The initial flat renderer and hidden-manual interface are superseded.

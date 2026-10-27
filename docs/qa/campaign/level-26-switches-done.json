@@ -1,0 +1,344 @@
+{
+  "mode": "ready",
+  "mission": {
+    "id": "level-26",
+    "level": 26,
+    "chapter": "כלל קבוע וכיול",
+    "skill": "zero conditional with joint valve conditions",
+    "title": "כל ארבעת המצבים"
+  },
+  "campaign": {
+    "currentLevel": 26,
+    "highestUnlocked": 26,
+    "completed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ]
+  },
+  "manual": {
+    "visible": true,
+    "reading": false,
+    "page": "switches",
+    "serial": "S-26",
+    "text": "Cooling is opened by right, music by left. Open cooling then music; close cooling before TEST."
+  },
+  "selected": null,
+  "controlsOpen": false,
+  "coordinateSystem": "Fixed front view: x right, y up; gauges left, valves center, patch right, relays lower. Left/right always facing module.",
+  "view": {
+    "rotation": 0,
+    "camera": [
+      -4.326699428552562,
+      4.6486164082082,
+      14.105675725269522
+    ]
+  },
+  "controls": [
+    {
+      "module": "valves",
+      "control": "small",
+      "x": 223,
+      "y": 404
+    },
+    {
+      "module": "valves",
+      "control": "large",
+      "x": 372,
+      "y": 398
+    },
+    {
+      "module": "valves",
+      "control": "test",
+      "x": 70,
+      "y": 526
+    },
+    {
+      "module": "cable",
+      "control": "connect-square",
+      "x": 501,
+      "y": 395
+    },
+    {
+      "module": "cable",
+      "control": "connect-round",
+      "x": 576,
+      "y": 392
+    },
+    {
+      "module": "cable",
+      "control": "clip-a",
+      "x": 485,
+      "y": 456
+    },
+    {
+      "module": "cable",
+      "control": "clip-b",
+      "x": 583,
+      "y": 450
+    },
+    {
+      "module": "cable",
+      "control": "test",
+      "x": 535,
+      "y": 460
+    },
+    {
+      "module": "cable",
+      "control": "source",
+      "x": 533,
+      "y": 527
+    },
+    {
+      "module": "switches",
+      "control": "left",
+      "x": 60,
+      "y": 560
+    },
+    {
+      "module": "switches",
+      "control": "right",
+      "x": 152,
+      "y": 552
+    },
+    {
+      "module": "switches",
+      "control": "fan",
+      "x": 255,
+      "y": 546
+    },
+    {
+      "module": "switches",
+      "control": "test",
+      "x": 320,
+      "y": 537
+    }
+  ],
+  "modules": [
+    {
+      "id": "valves",
+      "serial": "V-26",
+      "active": true,
+      "complete": true,
+      "fault": false,
+      "world": {
+        "small": false,
+        "large": false,
+        "pressure": 1,
+        "signal": "stable"
+      }
+    },
+    {
+      "id": "cable",
+      "serial": "C-26",
+      "active": true,
+      "complete": true,
+      "fault": false,
+      "world": {
+        "connected": "square",
+        "clipA": true,
+        "clipB": true,
+        "signal": "stable"
+      }
+    },
+    {
+      "id": "switches",
+      "serial": "S-26",
+      "active": true,
+      "complete": true,
+      "fault": false,
+      "world": {
+        "left": true,
+        "right": false,
+        "fan": false,
+        "pressure": 4,
+        "receiver": "music line",
+        "signal": "stable"
+      }
+    }
+  ],
+  "relay": true,
+  "prediction": true,
+  "strikes": 0,
+  "time": null,
+  "evidence": {
+    "assisted": false,
+    "retries": 0,
+    "events": [
+      {
+        "action": "small-open",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "large-open",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "small-close",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "large-close",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "valves",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "clip-b",
+        "module": "cable",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "clip-a",
+        "module": "cable",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "cable",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "right-on",
+        "module": "switches",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "left-on",
+        "module": "switches",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "right-off",
+        "module": "switches",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      },
+      {
+        "action": "test",
+        "module": "switches",
+        "correct": true,
+        "assisted": false,
+        "retry": 0
+      }
+    ]
+  },
+  "audio": {
+    "state": "running",
+    "loaded": 16,
+    "error": null,
+    "activeLoops": 5,
+    "moduleStems": 3,
+    "stemLevels": [
+      0.9,
+      0.92,
+      0.92,
+      0.92,
+      0.65
+    ],
+    "paused": false,
+    "background": false,
+    "ducked": false,
+    "gains": {
+      "master": 0.8,
+      "music": 0.75,
+      "sfx": 0.8,
+      "voice": 1
+    },
+    "mix": {
+      "master": 0.800000011920929,
+      "music": 0.7475624680519104,
+      "musicTarget": 0.75,
+      "sfx": 0.800000011920929,
+      "voice": 1
+    },
+    "activeShots": 7,
+    "cueCount": 392,
+    "cueCounts": {
+      "knob": 61,
+      "settle": 54,
+      "activate": 40,
+      "victory": 24,
+      "cable": 20,
+      "latch": 51,
+      "switch": 99,
+      "page": 43
+    },
+    "lastCue": "activate",
+    "rms": 0.050426,
+    "transportSeconds": 267.22,
+    "voiceAvailable": false
+  },
+  "feedback": "המודול יציב. ההוראה הפכה לפעולה מדויקת."
+}

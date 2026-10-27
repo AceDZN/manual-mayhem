@@ -1,0 +1,21 @@
+{
+  "results": [
+    {
+      "check": "capstone REPLACED receiver tag via actual3D raycast, right tag world/visual",
+      "status": "pass"
+    },
+    {
+      "check": "already-connected cable initial visuals and world state for17/20",
+      "status": "pass"
+    },
+    {
+      "check": "inactive Digit2 cannot exit reading/select standby; hook only active controls",
+      "status": "pass"
+    },
+    {
+      "check": "prediction explicit initial-scenario label; long message→procedure scroll reset",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}
