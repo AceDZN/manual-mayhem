@@ -1,0 +1,3 @@
+Original prompt: Create a fun browser-playable real 3D direct adaptation of the known game named in BUILD_HANDOFF.md. Teach English to Hebrew speakers in grades 7, 8 and 9 from Workbook rules chapters 10–12, using real grade-specific challenges rather than harder timers. Use imagegen targets before development, search Tripo assets before generation, provide good models/rigs, logical controls, composed background music, ambience and SFX. Separate builder chat and public AceDZN repo on main.
+
+2026-10-27: Parent seeded handoff and curriculum files only. This folder is not yet initialized as a Git repo. Lead must initialize/create public origin, generate target, build and verify.
