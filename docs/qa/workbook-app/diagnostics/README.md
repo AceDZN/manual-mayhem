@@ -1,0 +1,1 @@
+The first local Next dev host failed to proxy its root route before a game card loaded. This is a local app-host diagnostic, not a passing game/app test. Final published-app verification is recorded separately.

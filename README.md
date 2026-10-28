@@ -9,7 +9,7 @@ npm ci
 npm run dev
 ```
 
-Open http://localhost:5262/ . Production preview: `npm run build && npm run preview` → http://localhost:4262/ . Ports are strict. No backend, AI runtime, keys or accounts. All assets are local. Source and public repository: https://github.com/AceDZN/manual-mayhem . No production deployment.
+Open http://localhost:5262/ . Production preview: `npm run build && npm run preview` → http://localhost:4262/ . Ports are strict. No backend, AI runtime, keys or accounts. All assets are local. Source and public repository: https://github.com/AceDZN/manual-mayhem . [Play the published Workbook game](https://english-games.workbook.co.il/manual-mayhem).
 
 Start at level1 and advance through30 progressively harder levels. Completing a level opens the next; the level map lets you replay unlocked levels, and progress resumes locally after reload. There is no grade selector or grade limit. Start enables audio. Click a module to inspect it straight on; its matching manual page stays available. Use the physical controls, or open “כפתורי הפעלה” for labeled keyboard/touch buttons. Drag the handle/background to rotate the overview. Turn wheels by rim drag/click; drag the orange OUT cable to the socket under the described screen. The manual is visible immediately. Read the matching page, then choose its operation action; M switches reading/operation focus; Esc closes the active view; 1/2/3 inspect modules; Tab/Enter operate buttons; F toggles fullscreen. Left/right always refer to facing the module. No movement controls or pointer lock.
 

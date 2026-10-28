@@ -1,0 +1,1 @@
+The existing develop-web-game client was run against the immutable public release at level24. Its browser timed out after30seconds waiting for DOMContentLoaded. No success, screenshot inspection or gameplay win is claimed from that attempt. Native Chromium iframe, final-render and actual Workbook app checks are separate evidence.
