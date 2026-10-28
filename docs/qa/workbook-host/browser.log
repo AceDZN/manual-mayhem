@@ -1,0 +1,67 @@
+PASS: required model holds ready; asset-ready precedes genuine visible Start
+PASS: real L1 repair→engine-start completion once; versioned envelope and operating-only duration
+PASS: retry and wrong-action recovery cannot fabricate completion; replay emits one start/completion; Next waits actual operation
+PASS: direct30 has fresh playable entry with zero fabricated completions; saved resume/invalid-link ignore/explicit1 override
+PASS: fresh invalid/out-of-range deep links retain normal sequential campaign1
+PASS: required model abort reports trusted error without ready or fabricated play events
+PASS: standalone remains silent; actual1600x900 initial-view poster captured from build
+PASS: same-origin prefixed JS/CSS/models/textures/font/audio paths resolve without HTTP failures
+{
+  "results": [
+    {
+      "check": "required model holds ready; asset-ready precedes genuine visible Start",
+      "status": "pass"
+    },
+    {
+      "check": "real L1 repair→engine-start completion once; versioned envelope and operating-only duration",
+      "status": "pass",
+      "durationMs": 40569,
+      "measuredWallMs": 43258,
+      "syntheticFocusOnly": true
+    },
+    {
+      "check": "retry and wrong-action recovery cannot fabricate completion; replay emits one start/completion; Next waits actual operation",
+      "status": "pass"
+    },
+    {
+      "check": "direct30 has fresh playable entry with zero fabricated completions; saved resume/invalid-link ignore/explicit1 override",
+      "status": "pass"
+    },
+    {
+      "check": "fresh invalid/out-of-range deep links retain normal sequential campaign1",
+      "status": "pass"
+    },
+    {
+      "check": "required model abort reports trusted error without ready or fabricated play events",
+      "status": "pass",
+      "messages": [
+        {
+          "data": {
+            "source": "workbook-game",
+            "version": 1,
+            "slug": "manual-mayhem",
+            "type": "error",
+            "message": "Engine model unavailable: pump.glb"
+          },
+          "origin": "http://127.0.0.1:64057",
+          "fromFrame": true,
+          "at": 5878.300000011921
+        }
+      ]
+    },
+    {
+      "check": "standalone remains silent; actual1600x900 initial-view poster captured from build",
+      "status": "pass"
+    },
+    {
+      "check": "same-origin prefixed JS/CSS/models/textures/font/audio paths resolve without HTTP failures",
+      "status": "pass"
+    }
+  ],
+  "errors": [
+    {
+      "expectedFailure": true,
+      "error": "Failed to load resource: net::ERR_FAILED"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+✔ lesson links accept every public one-based level without a grade gate (3.49125ms)
+✔ absent, fractional, scientific, signed and out-of-range levels are ignored (0.871042ms)
+✔ level parsing respects a smaller catalog and rejects an invalid count (0.381166ms)
+✔ only exact Workbook HTTPS origins and loopback HTTP parents are allowed (1.8015ms)
+✔ ready is a single event and does not invent a started level (2.679417ms)
+✔ early actual play is queued and ready arrives before start and completion (1.478875ms)
+✔ queue preserves multiple genuinely played levels in order (0.323375ms)
+✔ repeated start and success frames cannot duplicate an attempt (0.874458ms)
+✔ reset permits a genuine replay without fabricating success (0.429958ms)
+✔ reset ordering remains genuine even before assets become ready (1.655458ms)
+✔ premature or mismatched completions do not consume the actual attempt (0.253459ms)
+✔ invalid durations do not consume success; zero and rounded times are valid (0.13025ms)
+✔ invalid levels cannot replace a valid active attempt (1.64875ms)
+✔ session default supports level30 and a smaller catalog rejects extra levels (2.392875ms)
+✔ adapter sends an exact versioned envelope to the trusted iframe parent only (0.922917ms)
+✔ adapter falls back to the referrer origin when ancestorOrigins is absent (1.606666ms)
+✔ untrusted ancestor cannot be replaced by a convenient trusted referrer (2.745084ms)
+✔ standalone remains silent even with a Workbook referrer (0.420375ms)
+✔ reinitializing from an embedded session cannot leave a stale standalone target (0.151916ms)
+✔ error and rejection reports are bounded and use the exact trusted envelope (0.219167ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1614.506709

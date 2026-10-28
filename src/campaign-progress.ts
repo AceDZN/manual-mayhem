@@ -8,6 +8,8 @@ export interface LevelResult {
 export interface CampaignProgress {
   version: 1;
   currentLevel: number;
+  /** Explicit lesson entry; opens levels without inventing completions. */
+  entryLevel?: number;
   highestUnlocked: number;
   completed: Record<number, LevelResult>;
 }
@@ -19,9 +21,9 @@ export function readProgress(raw: unknown): CampaignProgress {
   if (p?.version === 1 && p.completed && typeof p.completed === "object") {
     for (let n = 1; n <= LEVEL_COUNT; n++) {
       const result = p.completed[n];
-      // Only a consecutive completed run can unlock the next level.
+      // Preserve earned lesson replays, including completions above a campaign gap.
       if (!result || !Number.isFinite(result.strikes) ||
-          !Number.isFinite(result.retries) || typeof result.assisted !== "boolean") break;
+          !Number.isFinite(result.retries) || typeof result.assisted !== "boolean") continue;
       completed[n] = {
         strikes: Math.max(0, Math.floor(result.strikes)),
         retries: Math.max(0, Math.floor(result.retries)),
@@ -29,10 +31,17 @@ export function readProgress(raw: unknown): CampaignProgress {
       };
     }
   }
-  const highestUnlocked = Math.min(LEVEL_COUNT, Object.keys(completed).length + 1);
+  const entryLevel = p?.version === 1 && levelNumber(p.entryLevel) ? p.entryLevel! : 1;
+  let highestUnlocked = entryLevel;
+  while (highestUnlocked < LEVEL_COUNT && completed[highestUnlocked]) highestUnlocked++;
   const currentLevel = levelNumber(p?.currentLevel) && p!.currentLevel! <= highestUnlocked
     ? p!.currentLevel! : highestUnlocked;
-  return { version: 1, currentLevel, highestUnlocked, completed };
+  return { version: 1, currentLevel, highestUnlocked, completed, ...(entryLevel > 1 ? { entryLevel } : {}) };
+}
+/** The Workbook lesson URL is the explicit permission to enter a later level. */
+export function enterLessonLevel(p: CampaignProgress, level: number): CampaignProgress {
+  if (!levelNumber(level)) return p;
+  return readProgress({ ...p, entryLevel: Math.max(p.entryLevel || 1, level), currentLevel: level });
 }
 export function selectLevel(p: CampaignProgress, level: number): CampaignProgress {
   return levelNumber(level) && level <= p.highestUnlocked
@@ -44,5 +53,5 @@ export function completeLevel(p: CampaignProgress, level: number, result: LevelR
   const score = (r: LevelResult) => r.strikes * 1000 + r.retries * 10 + Number(r.assisted);
   const completed = { ...p.completed,
     [level]: !previous || score(result) < score(previous) ? { ...result } : previous };
-  return readProgress({ version: 1, completed, currentLevel: Math.min(LEVEL_COUNT, level + 1) });
+  return readProgress({ version: 1, entryLevel: p.entryLevel, completed, currentLevel: Math.min(LEVEL_COUNT, level + 1) });
 }

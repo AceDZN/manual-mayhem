@@ -1,9 +1,10 @@
 import "./style.css";
 import { CAMPAIGN, type CampaignLevel } from "./campaign";
-import { CAMPAIGN_SAVE_KEY, readProgress, selectLevel, completeLevel } from "./campaign-progress";
+import { CAMPAIGN_SAVE_KEY, readProgress, selectLevel, completeLevel, enterLessonLevel } from "./campaign-progress";
 import { createState, act, choose, resetModule, type GameState } from "./rules";
 import { EngineScene } from "./scene";
 import { AudioEngine } from "./audio";
+import { initHost, postToHost, parseLevelParam, WorkbookSession } from "./host";
 const app = document.querySelector<HTMLDivElement>("#app")!;
 const partner =
   new URLSearchParams(location.search).has("manual") ||
@@ -14,6 +15,8 @@ try { campaign = readProgress(JSON.parse(localStorage.getItem(CAMPAIGN_SAVE_KEY)
 function saveCampaign() {
   try { localStorage.setItem(CAMPAIGN_SAVE_KEY, JSON.stringify(campaign)); } catch {}
 }
+const lessonLevel = parseLevelParam(location.search, CAMPAIGN.length);
+if (!partner && lessonLevel !== null) { campaign = enterLessonLevel(campaign, lessonLevel); saveCampaign(); }
 let mission: CampaignLevel = CAMPAIGN[campaign.currentLevel - 1],
   state: GameState = createState(mission),
   started = false,
@@ -73,7 +76,15 @@ if (partner) {
 <main id="workspace"><section id="stage"><canvas id="scene" tabindex="0" aria-label="מכונת הפסטיבל: לחצו על מודול כדי להתקרב ולהפעיל אותו"></canvas><div id="hud"></div><div id="mission-strip"></div><div id="welcome"></div><div id="feedback" role="status" aria-live="polite"></div><div id="inspect"></div><nav id="module-tabs" aria-label="מודולים במכונה"></nav><footer><button id="return">↩ כל המכונה</button><button id="manual-toggle" class="book-button">▤ המדריך</button><button id="controls-toggle">כפתורי הפעלה</button><button id="restart" aria-label="התחלה מחדש">↻</button></footer><div class="bench-caption">FESTIVAL ENGINE CO. <span>WORKBENCH 042</span></div></section><aside id="manual" aria-label="מדריך ההפעלה"></aside><div id="overlay"></div></main>`;
   const $ = (id: string) => document.getElementById(id)!;
   const canvas = $("scene") as HTMLCanvasElement;
+  initHost("manual-mayhem");
+  const hostSession = new WorkbookSession(postToHost, CAMPAIGN.length);
+  let operationMs = 0;
   const scene = new EngineScene(canvas);
+  scene.ready.then(() => hostSession.markReady()).catch((error: unknown) => {
+    state.feedback = "טעינת המכונה נכשלה. רעננו את העמוד כדי לנסות שוב.";
+    postToHost({ type: "error", message: error instanceof Error ? error.message : "Engine assets unavailable" });
+    update();
+  });
   scene.onSelect = (id) => {
     if (!started || paused || settings || campaignOpen) return;
     if (id && !state.modules.find((m) => m.id === id)?.active) return;
@@ -108,6 +119,7 @@ if (partner) {
       if (manualPage !== id) audio.cue("page");
       manualPage = id;
     }
+    if (id && started && !manual) hostSession.startLevel(mission.level);
     if (changed && id) audio.cue("latch");
     update();
   }
@@ -116,6 +128,7 @@ if (partner) {
     started = true;
     manual = false;
     audio.start();
+    hostSession.startLevel(mission.level);
     selected = manualPage === "operator" ? null : manualPage;
     scene.select(selected);
     update();
@@ -126,6 +139,7 @@ if (partner) {
       return;
     }
     manual = false;
+    hostSession.startLevel(mission.level);
     if (manualPage !== "operator") {
       selected = manualPage;
       scene.select(selected);
@@ -142,6 +156,8 @@ if (partner) {
     update();
   }
   function load(m: CampaignLevel) {
+    hostSession.resetLevel();
+    operationMs = 0;
     mission = m;
     campaign = selectLevel(campaign, m.level);
     saveCampaign();
@@ -215,6 +231,7 @@ if (partner) {
       return;
     const mod = state.modules.find((x) => x.id === id)!;
     if (!mod.active || mod.complete || mod.fault) return;
+    hostSession.startLevel(mission.level);
     manual = false;
     audio.duck(false);
     let action = c;
@@ -355,7 +372,7 @@ if (partner) {
         '<div class="modal" dir="rtl"><div class="eyebrow">ALL SYSTEMS STABLE</div><h2>מוכנים להתנעה.</h2><p>כל המודולים הפעילים יציבים. התניעו כדי להשלים את השלב.</p><button id="engine-start" class="primary">START ENGINE ←</button></div>';
     } else if (state.status === "won") {
       $("overlay").innerHTML =
-        `<div class="modal" dir="rtl"><div class="eyebrow">FESTIVAL ENGINE ONLINE</div><h2>${mission.level === 30 ? "כל 30 השלבים הושלמו!" : `שלב ${mission.level} הושלם!`}</h2><p>${state.strikes} פסילות · ${state.retries} ניסיונות חוזרים · ${state.assisted ? "עם תמיכה" : "ללא רמז או תרגום"}</p><p>${mission.stage === "transfer" && !state.assisted && !state.strikes && !state.retries ? "העברה בהקשר חדש בוצעה בניסיון ראשון." : "זהו תרגול של הבנת הוראות. אפשר לחזור לניסיון נוסף."}</p>${mission.level < 30 ? `<button id="next" class="primary">לשלב ${mission.level + 1} ←</button>` : `<button id="campaign-finished" class="primary">למפת השלבים ←</button>`}<button id="retry-win">שוב לשלב הזה</button></div>`;
+        `<div class="modal" dir="rtl"><div class="eyebrow">FESTIVAL ENGINE ONLINE</div><h2>${Object.keys(campaign.completed).length === CAMPAIGN.length ? "כל 30 השלבים הושלמו!" : `שלב ${mission.level} הושלם!`}</h2><p>${state.strikes} פסילות · ${state.retries} ניסיונות חוזרים · ${state.assisted ? "עם תמיכה" : "ללא רמז או תרגום"}</p><p>${mission.stage === "transfer" && !state.assisted && !state.strikes && !state.retries ? "העברה בהקשר חדש בוצעה בניסיון ראשון." : "זהו תרגול של הבנת הוראות. אפשר לחזור לניסיון נוסף."}</p>${mission.level < 30 ? `<button id="next" class="primary">לשלב ${mission.level + 1} ←</button>` : `<button id="campaign-finished" class="primary">למפת השלבים ←</button>`}<button id="retry-win">שוב לשלב הזה</button></div>`;
     } else if (state.status === "shutdown") {
       $("overlay").innerHTML =
         '<div class="modal" dir="rtl"><div class="eyebrow">HARMLESS SHUTDOWN</div><h2>המנוע נח להפסקה.</h2><p>שלוש פסילות עצרו את הבדיקה. אפשר לנסות שוב.</p><button id="retry-shutdown" class="primary">ניסיון מחדש</button></div>';
@@ -430,6 +447,7 @@ if (partner) {
     on("engine-start", () => {
       if (state.status !== "ready") return;
       state.status = "won";
+      hostSession.completeLevel(mission.level, operationMs);
       campaign = completeLevel(campaign, mission.level, state);
       saveCampaign();
       manual = false;
@@ -596,6 +614,7 @@ if (partner) {
     scene.settleTime = 2;
   });
   function step(ms: number, draw = true) {
+    if (started && state.status === "playing" && !manual && !paused && !settings && !campaignOpen && !translation && !document.hidden && !windowBlurred) operationMs += ms;
     if (
       started &&
       !paused &&

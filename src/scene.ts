@@ -42,6 +42,8 @@ export class EngineScene {
   freePlug?: T.Group;
   puffs: { sprite: T.Sprite; life: number }[] = [];
   controlGlow: T.Mesh[] = [];
+  ready: Promise<void>;
+  private assetLoads: Promise<void>[] = [];
   constructor(public canvas: HTMLCanvasElement) {
     this.renderer = new T.WebGLRenderer({
       canvas,
@@ -65,7 +67,7 @@ export class EngineScene {
     this.scene.environmentIntensity = 0.65;
     this.scene.backgroundIntensity = 0.58;
     this.scene.background = new T.Color("#302820");
-    new T.TextureLoader().load(
+    this.assetLoads.push(new Promise<void>((resolve, reject) => new T.TextureLoader().load(
       `${import.meta.env.BASE_URL}textures/workshop-backdrop.png`,
       (tex) => {
         tex.colorSpace = T.SRGBColorSpace;
@@ -81,8 +83,11 @@ export class EngineScene {
         this.scene.background = softened;
         tex.dispose();
         this.settleTime = 2;
+        resolve();
       },
-    );
+      undefined,
+      () => reject(new Error("Workshop backdrop unavailable")),
+    )));
     this.camera.position.set(-4, 6, 16);
     this.scene.add(this.root);
     this.scene.add(new T.HemisphereLight("#ead3ac", "#182125", 0.35));
@@ -107,6 +112,11 @@ export class EngineScene {
     this.build();
     this.bind();
     this.resize();
+    this.ready = Promise.all([this.surfaces.ready, ...this.assetLoads]).then(() => {
+      this.settleTime = 2;
+      this.renderer.shadowMap.needsUpdate = true;
+      this.renderer.render(this.scene, this.camera);
+    });
     const r = new ResizeObserver(() => this.resize());
     r.observe(canvas);
     window.addEventListener("resize", () => this.resize());
@@ -991,7 +1001,7 @@ export class EngineScene {
       ["pump.glb", 1.7, [-5.6, 0.32, -0.8], 0.6],
       ["service-arm.glb", 1.5, [5.6, 0.32, -2.3], -1.2],
     ] as [string, number, number[], number][]) {
-      loader.load(`${import.meta.env.BASE_URL}models/${path}`, (g) => {
+      this.assetLoads.push(new Promise<void>((resolve, reject) => loader.load(`${import.meta.env.BASE_URL}models/${path}`, (g) => {
         g.scene.scale.setScalar(scale);
         g.scene.position.set(...(pos as [number, number, number]));
         g.scene.rotation.y = rot;
@@ -1003,7 +1013,8 @@ export class EngineScene {
         this.scene.add(g.scene);
         this.settleTime = 2;
         this.renderer.shadowMap.needsUpdate = true;
-      });
+        resolve();
+      }, undefined, () => reject(new Error(`Engine model unavailable: ${path}`)))));
     }
     // Foreground spanners, washers and an oil can add the scale and context of the target.
     for (const [x, z, angle, len] of [

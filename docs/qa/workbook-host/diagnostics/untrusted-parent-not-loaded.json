@@ -1,0 +1,1678 @@
+{
+  "method": "Built dist under same-origin versioned prefix; actual UI actions and received postMessage events only. No solved state or progress injection.",
+  "origin": "http://127.0.0.1:63236",
+  "prefix": "/play/manual-mayhem/host-qa/",
+  "results": [
+    {
+      "check": "required model holds ready; asset-ready precedes genuine visible Start",
+      "status": "pass"
+    },
+    {
+      "check": "real L1 repair→engine-start completion once; versioned envelope and operating-only duration",
+      "status": "pass",
+      "durationMs": 7763,
+      "measuredWallMs": 5448,
+      "syntheticFocusOnly": true
+    },
+    {
+      "check": "retry and wrong-action recovery cannot fabricate completion; replay emits one start/completion; Next waits actual operation",
+      "status": "pass"
+    },
+    {
+      "check": "direct30 has fresh playable entry with zero fabricated completions; saved resume/invalid-link ignore/explicit1 override",
+      "status": "pass"
+    },
+    {
+      "check": "fresh invalid/out-of-range deep links retain normal sequential campaign1",
+      "status": "pass"
+    },
+    {
+      "check": "failure",
+      "status": "failure",
+      "error": "TimeoutError: frame.waitForFunction: Timeout 60000ms exceeded."
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:63236/host?game=level%3D1",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/index.html?level=1",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-dvb3pyDr.css",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-Ze26XFbU.js",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/NotoSansHebrew-CfbyzoKD.ttf",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/workshop-backdrop.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/service-arm.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/pump.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/workshop-harmony.mp3",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/workshop-ambient.mp3",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/workshop-groove.mp3",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/workshop-lift.mp3",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/workshop-glass.mp3",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/knob.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/switch.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/cable.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/latch.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/page.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/settle.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/error.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/strike.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/reset.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/activate.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/victory.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/host?game=level%3D30%26grade%3D7",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/index.html?level=30&grade=7",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-dvb3pyDr.css",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-Ze26XFbU.js",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/NotoSansHebrew-CfbyzoKD.ttf",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/pump.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/service-arm.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/a31a5a5a-4eae-41ee-90da-e65d307303d3",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/4950f417-9965-45b6-81aa-6a50df93c490",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/a7ffd739-61a0-4f64-b23e-6235c682c7c8",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/1c27f083-2632-47f8-b8d6-f25290b9692f",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/d223da8d-5f88-4460-a298-c9b6c0285167",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/b559132f-94ac-46a8-9af5-d93514e71be0",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/workshop-backdrop.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/workshop-ambient.mp3",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/knob.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/workshop-harmony.mp3",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/workshop-groove.mp3",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/workshop-glass.mp3",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/workshop-lift.mp3",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/switch.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/cable.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/latch.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/settle.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/page.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/error.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/strike.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/reset.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/activate.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/audio/victory.wav",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/host?game=",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/index.html",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-dvb3pyDr.css",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-Ze26XFbU.js",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/NotoSansHebrew-CfbyzoKD.ttf",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/pump.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/service-arm.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/02e52d37-e0c4-4032-aa1e-fc353415d967",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/cc8f287e-366a-4357-8664-ba37a83999bb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/ad8d5160-13e6-4cf7-8123-2c588519821a",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/1dcca120-0a2f-4dcf-9edd-61d9bfe75f14",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/7aa82b2b-fd5c-48ee-a92c-3397457bf556",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/f8b2d025-911d-4547-90f4-278c705bf7b6",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/workshop-backdrop.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/host?game=level%3D31",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/index.html?level=31",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-dvb3pyDr.css",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-Ze26XFbU.js",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/NotoSansHebrew-CfbyzoKD.ttf",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/pump.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/service-arm.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/edd50787-ab82-43e4-bd3b-3bc17f6787d5",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/c8eb8a62-10f2-40a9-bca3-46d543e8f7d8",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/feb97e38-058b-410d-a503-3d6cd0f42c08",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/workshop-backdrop.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/523b112e-2b79-48df-b422-4f78e7782738",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/a69c2b06-77a5-4e6e-ba39-686f458538ec",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/91d3a1e6-489d-487e-b148-7c3480209f4d",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/host?game=level%3D1",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/index.html?level=1",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-dvb3pyDr.css",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-Ze26XFbU.js",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/NotoSansHebrew-CfbyzoKD.ttf",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/pump.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/service-arm.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/workshop-backdrop.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/f41bf820-3114-417c-81cc-8e496a75452a",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/77c814d1-c14f-40fa-bb05-15fc2a4b4e1f",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/0f9d8ca6-af7a-4a6e-baaf-ad9a8f15dd70",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/ff28afcd-e1a6-45f0-babe-22a9322b5143",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/5c37f239-4d7b-4504-85dd-4e225d7fbc86",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/47bd47c3-34da-4632-894a-0f2d125b97d1",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/host?game=level%3D31",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/index.html?level=31",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-dvb3pyDr.css",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-Ze26XFbU.js",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/pump.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/service-arm.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/NotoSansHebrew-CfbyzoKD.ttf",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/workshop-backdrop.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/61deb1d4-3a95-4dd5-bf7f-89b708c4d2aa",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/e1a472f3-4b01-4e7a-a55a-ffcd2c3e1708",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/8966b378-2ec6-499e-a552-894172e83dea",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/94e1ce00-3589-4274-969c-a96b9a630f51",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/9721a7b1-3a16-410b-b4fc-a3029bbdb316",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/0b27068e-3dcc-4148-b2fb-b141cd209998",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/host?game=level%3D1.5",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/index.html?level=1.5",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-dvb3pyDr.css",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/index-Ze26XFbU.js",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/ivory-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/petrol-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/brass-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-metalness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/steel-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/pump.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/assets/NotoSansHebrew-CfbyzoKD.ttf",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/1c5812e6-8e41-4b6b-9edf-67702f7f2190",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/959130bf-f515-42e5-8a30-1b824b9f1764",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/0325a645-f5d0-410c-8cea-f138e262317f",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/rubber-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/models/service-arm.glb",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/7b816d3a-ba70-4c73-8cbe-3ec1aa374a47",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/d2d6b888-61e4-4158-a711-c46dc99be661",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "blob:http://127.0.0.1:63236/520e98fa-0e16-4b56-9c04-4fc3abd5ece0",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/wood-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/orange-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-color.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-roughness.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/paper-height.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.1:63236/play/manual-mayhem/host-qa/textures/workshop-backdrop.png",
+      "status": 200,
+      "expectedFailure": false
+    },
+    {
+      "url": "http://127.0.0.2:63236/host",
+      "status": 200,
+      "expectedFailure": false
+    }
+  ]
+}

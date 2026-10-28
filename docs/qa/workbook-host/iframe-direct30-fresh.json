@@ -1,0 +1,232 @@
+{
+  "state": {
+    "mode": "intro",
+    "mission": {
+      "id": "level-30",
+      "level": 30,
+      "chapter": "תחזית ותוכנית התנעה",
+      "skill": "mixed capstone: record + current check + zero rule + startup prediction + relay",
+      "title": "מנוע הפסטיבל — מסירה מלאה"
+    },
+    "campaign": {
+      "currentLevel": 30,
+      "highestUnlocked": 30,
+      "completed": []
+    },
+    "manual": {
+      "visible": true,
+      "reading": true,
+      "page": "valves",
+      "serial": "V-30",
+      "text": "Fixed rule: small open gives three; small closed gives one. Keep large closed. Calibration targets: three, one, three. TEST each setting. Do not press RESET."
+    },
+    "selected": null,
+    "controlsOpen": false,
+    "coordinateSystem": "Fixed front view: x right, y up; gauges left, valves center, patch right, relays lower. Left/right always facing module.",
+    "view": {
+      "rotation": 0,
+      "camera": [
+        -6.132538800651842,
+        6.259380861906167,
+        14.466501786153067
+      ]
+    },
+    "controls": [
+      {
+        "module": "valves",
+        "control": "small",
+        "x": 330,
+        "y": 471
+      },
+      {
+        "module": "valves",
+        "control": "large",
+        "x": 478,
+        "y": 456
+      },
+      {
+        "module": "valves",
+        "control": "test",
+        "x": 171,
+        "y": 601
+      },
+      {
+        "module": "cable",
+        "control": "connect-square",
+        "x": 600,
+        "y": 442
+      },
+      {
+        "module": "cable",
+        "control": "connect-round",
+        "x": 672,
+        "y": 435
+      },
+      {
+        "module": "cable",
+        "control": "clip-a",
+        "x": 583,
+        "y": 512
+      },
+      {
+        "module": "cable",
+        "control": "clip-b",
+        "x": 678,
+        "y": 500
+      },
+      {
+        "module": "cable",
+        "control": "test",
+        "x": 630,
+        "y": 505
+      },
+      {
+        "module": "cable",
+        "control": "source",
+        "x": 628,
+        "y": 572
+      },
+      {
+        "module": "cable",
+        "control": "source",
+        "x": 785,
+        "y": 628
+      },
+      {
+        "module": "switches",
+        "control": "left",
+        "x": 165,
+        "y": 638
+      },
+      {
+        "module": "switches",
+        "control": "tag-left",
+        "x": 160,
+        "y": 584
+      },
+      {
+        "module": "switches",
+        "control": "right",
+        "x": 257,
+        "y": 624
+      },
+      {
+        "module": "switches",
+        "control": "tag-right",
+        "x": 252,
+        "y": 571
+      },
+      {
+        "module": "switches",
+        "control": "fan",
+        "x": 359,
+        "y": 610
+      },
+      {
+        "module": "switches",
+        "control": "test",
+        "x": 421,
+        "y": 596
+      }
+    ],
+    "modules": [
+      {
+        "id": "valves",
+        "serial": "V-30",
+        "active": true,
+        "complete": false,
+        "fault": false,
+        "world": {
+          "small": false,
+          "large": false,
+          "pressure": 1
+        }
+      },
+      {
+        "id": "cable",
+        "serial": "C-30",
+        "active": true,
+        "complete": false,
+        "fault": false,
+        "world": {
+          "connected": "none",
+          "clipA": false,
+          "clipB": false,
+          "signal": "idle"
+        }
+      },
+      {
+        "id": "switches",
+        "serial": "S-30",
+        "active": true,
+        "complete": false,
+        "fault": false,
+        "world": {
+          "left": false,
+          "right": false,
+          "fan": true,
+          "pressure": 3,
+          "receiver": "none",
+          "signal": "idle",
+          "maintenanceTag": "none",
+          "tagLeft": true,
+          "tagRight": true
+        }
+      }
+    ],
+    "relay": false,
+    "prediction": false,
+    "strikes": 0,
+    "time": null,
+    "evidence": {
+      "assisted": false,
+      "retries": 0,
+      "events": []
+    },
+    "audio": {
+      "state": "not-started",
+      "loaded": 0,
+      "error": null,
+      "activeLoops": 0,
+      "moduleStems": 0,
+      "stemLevels": [],
+      "paused": true,
+      "background": false,
+      "ducked": true,
+      "gains": {
+        "master": 0.8,
+        "music": 0.75,
+        "sfx": 0.8,
+        "voice": 1
+      },
+      "mix": {
+        "master": 0,
+        "music": 0,
+        "musicTarget": 0.21000000000000002,
+        "sfx": 0,
+        "voice": 0
+      },
+      "activeShots": 0,
+      "cueCount": 0,
+      "cueCounts": {},
+      "lastCue": null,
+      "rms": 0,
+      "transportSeconds": 0,
+      "voiceAvailable": false
+    },
+    "feedback": ""
+  },
+  "messages": [
+    {
+      "data": {
+        "source": "workbook-game",
+        "version": 1,
+        "slug": "manual-mayhem",
+        "type": "ready"
+      },
+      "origin": "http://127.0.0.1:64057",
+      "fromFrame": true,
+      "at": 21793.90000000596
+    }
+  ]
+}

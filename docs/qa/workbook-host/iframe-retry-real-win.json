@@ -1,0 +1,233 @@
+{
+  "state": {
+    "mode": "won",
+    "mission": {
+      "id": "level-01",
+      "level": 1,
+      "chapter": "הוראות וסדר פעולות",
+      "skill": "imperative: action + object",
+      "title": "סגירה ראשונה"
+    },
+    "campaign": {
+      "currentLevel": 1,
+      "highestUnlocked": 2,
+      "completed": [
+        1
+      ]
+    },
+    "manual": {
+      "visible": true,
+      "reading": false,
+      "page": "valves",
+      "serial": "V-01",
+      "text": "Close the small valve. Leave the large valve closed. Do not press RESET."
+    },
+    "selected": null,
+    "controlsOpen": false,
+    "coordinateSystem": "Fixed front view: x right, y up; gauges left, valves center, patch right, relays lower. Left/right always facing module.",
+    "view": {
+      "rotation": 0,
+      "camera": [
+        -6.132538800643393,
+        6.259380861901509,
+        14.466501786147743
+      ]
+    },
+    "controls": [
+      {
+        "module": "valves",
+        "control": "small",
+        "x": 330,
+        "y": 471
+      },
+      {
+        "module": "valves",
+        "control": "large",
+        "x": 478,
+        "y": 456
+      },
+      {
+        "module": "valves",
+        "control": "test",
+        "x": 171,
+        "y": 601
+      }
+    ],
+    "modules": [
+      {
+        "id": "valves",
+        "serial": "V-01",
+        "active": true,
+        "complete": true,
+        "fault": false,
+        "world": {
+          "small": false,
+          "large": false,
+          "pressure": 1,
+          "signal": "stable"
+        }
+      },
+      {
+        "id": "cable",
+        "serial": "C-01",
+        "active": false,
+        "complete": false,
+        "fault": false,
+        "world": {
+          "connected": "none",
+          "clipA": false,
+          "clipB": false,
+          "signal": "idle"
+        }
+      },
+      {
+        "id": "switches",
+        "serial": "S-01",
+        "active": false,
+        "complete": false,
+        "fault": false,
+        "world": {
+          "left": false,
+          "right": false,
+          "fan": false,
+          "pressure": 4,
+          "receiver": "none",
+          "signal": "idle"
+        }
+      }
+    ],
+    "relay": true,
+    "prediction": true,
+    "strikes": 1,
+    "time": null,
+    "evidence": {
+      "assisted": true,
+      "retries": 2,
+      "events": [
+        {
+          "action": "large-open",
+          "module": "valves",
+          "correct": false,
+          "assisted": true,
+          "retry": 1
+        },
+        {
+          "action": "small-close",
+          "module": "valves",
+          "correct": true,
+          "assisted": true,
+          "retry": 2
+        }
+      ]
+    },
+    "audio": {
+      "state": "running",
+      "loaded": 16,
+      "error": null,
+      "activeLoops": 5,
+      "moduleStems": 1,
+      "stemLevels": [
+        0.9,
+        0.92,
+        0,
+        0,
+        0.65
+      ],
+      "paused": false,
+      "background": false,
+      "ducked": false,
+      "gains": {
+        "master": 0.8,
+        "music": 0.75,
+        "sfx": 0.8,
+        "voice": 1
+      },
+      "mix": {
+        "master": 0.800000011920929,
+        "music": 0.75,
+        "musicTarget": 0.75,
+        "sfx": 0.800000011920929,
+        "voice": 1
+      },
+      "activeShots": 0,
+      "cueCount": 11,
+      "cueCounts": {
+        "knob": 2,
+        "settle": 2,
+        "activate": 2,
+        "victory": 2,
+        "error": 1,
+        "strike": 1,
+        "reset": 1
+      },
+      "lastCue": "victory",
+      "rms": 0.021494,
+      "transportSeconds": 117.49,
+      "voiceAvailable": false
+    },
+    "feedback": "המודול יציב. ההוראה הפכה לפעולה מדויקת."
+  },
+  "messages": [
+    {
+      "data": {
+        "source": "workbook-game",
+        "version": 1,
+        "slug": "manual-mayhem",
+        "type": "ready"
+      },
+      "origin": "http://127.0.0.1:64057",
+      "fromFrame": true,
+      "at": 64464.5
+    },
+    {
+      "data": {
+        "source": "workbook-game",
+        "version": 1,
+        "slug": "manual-mayhem",
+        "type": "level-start",
+        "level": 1
+      },
+      "origin": "http://127.0.0.1:64057",
+      "fromFrame": true,
+      "at": 84531.90000000596
+    },
+    {
+      "data": {
+        "source": "workbook-game",
+        "version": 1,
+        "slug": "manual-mayhem",
+        "type": "level-complete",
+        "level": 1,
+        "durationMs": 40569
+      },
+      "origin": "http://127.0.0.1:64057",
+      "fromFrame": true,
+      "at": 129762.79999998212
+    },
+    {
+      "data": {
+        "source": "workbook-game",
+        "version": 1,
+        "slug": "manual-mayhem",
+        "type": "level-start",
+        "level": 1
+      },
+      "origin": "http://127.0.0.1:64057",
+      "fromFrame": true,
+      "at": 168102.29999998212
+    },
+    {
+      "data": {
+        "source": "workbook-game",
+        "version": 1,
+        "slug": "manual-mayhem",
+        "type": "level-complete",
+        "level": 1,
+        "durationMs": 14666
+      },
+      "origin": "http://127.0.0.1:64057",
+      "fromFrame": true,
+      "at": 185135
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+PASS: final render-only build reports ready after loaded draw and settles intro camera; no invented start
+PASS: standalone remains silent; actual1600x900 initial-view poster captured from build
+PASS: same-origin prefixed JS/CSS/models/textures/font/audio paths resolve without HTTP failures
+{
+  "results": [
+    {
+      "check": "final render-only build reports ready after loaded draw and settles intro camera; no invented start",
+      "status": "pass"
+    },
+    {
+      "check": "standalone remains silent; actual1600x900 initial-view poster captured from build",
+      "status": "pass"
+    },
+    {
+      "check": "same-origin prefixed JS/CSS/models/textures/font/audio paths resolve without HTTP failures",
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

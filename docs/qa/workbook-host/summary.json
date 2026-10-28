@@ -1,0 +1,36 @@
+{
+  "reviewedAt": "2026-10-28",
+  "scope": "Standalone built game bridge; same-origin versioned iframe fixture. Actual Workbook catalog/release/wrapper flow is lead-owned and not claimed here.",
+  "unitContractTests": {
+    "passed": 20,
+    "total": 20,
+    "evidence": "unit-tests.txt"
+  },
+  "fullBridgeBrowser": {
+    "passed": 8,
+    "total": 8,
+    "unexpectedErrors": [],
+    "expectedError": "One deliberately aborted pump.glb request; error posted, no ready.",
+    "evidence": "browser-results.json"
+  },
+  "finalRenderOnly": {
+    "passed": 3,
+    "total": 3,
+    "errors": [],
+    "evidence": "final-render-results.json"
+  },
+  "poster": {
+    "path": "workbook/poster.png",
+    "width": 1600,
+    "height": 900,
+    "kind": "Actual settled standalone initial view from final build",
+    "visuallyInspected": true
+  },
+  "sourceDefectFoundAndFixed": "initHost retained stale target on standalone reinitialization; lead reset target and independent test passes.",
+  "limits": [
+    "Negative-origin live fixture could not load its child; origin rejection is established by unit contract tests, not that browser attempt.",
+    "Blur/focus duration check uses synthetic events; native OS focus was not generated.",
+    "No full30 rerun was required for the host/render-only change; prior complete campaign evidence remains separate.",
+    "No learning gain, spontaneous speaking/listening assessment or subjective audio audition is inferred."
+  ]
+}

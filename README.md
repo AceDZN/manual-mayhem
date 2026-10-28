@@ -50,3 +50,9 @@ The image in `docs/visual-targets/gameplay-mockup.png` is an AI-generated **desi
 [Current30-level browser verification](docs/qa/campaign/campaign-results.json) records the complete sequential campaign. The [historical60-second manual → mistake → recovery → physical cable → startup sequence](docs/qa/source-sequence/README.md) demonstrates the original release’s source loop; current campaign captures are under docs/qa/campaign. The imagegen design target is labeled separately.
 
 The visual/manual revision requested by the human is documented with real desktop/mobile captures and regression evidence in [docs/qa/revision](docs/qa/revision/REVISION.md). The initial flat renderer and hidden-manual interface are superseded.
+
+## Workbook player integration
+
+Workbook's English Games host embeds the versioned static bundle. `?level=1..30` opens a lesson's requested stage and keeps the manual visible first. An explicit lesson entry opens access to that point; it never marks earlier stages complete. Ordinary visits keep the saved sequential campaign. Completing a direct-linked final stage is labeled as that stage's success, rather than claiming the whole campaign was completed.
+
+`src/host.ts` sends Workbook version1 `ready`, `level-start`, `level-complete` and bounded `error` messages to an exact trusted Workbook or loopback parent origin. Standalone play is silent. Ready follows all workshop textures, the backdrop, both models and a real render; a required-asset failure cannot report ready. Completion follows the actual engine-start win. Operation duration excludes manual reading, settings, pause, map and background time. The actual gameplay poster and host evidence are under `workbook/` and `docs/qa/workbook-host/`.

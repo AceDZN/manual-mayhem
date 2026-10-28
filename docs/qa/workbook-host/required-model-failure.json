@@ -1,0 +1,152 @@
+{
+  "state": {
+    "mode": "intro",
+    "mission": {
+      "id": "level-01",
+      "level": 1,
+      "chapter": "הוראות וסדר פעולות",
+      "skill": "imperative: action + object",
+      "title": "סגירה ראשונה"
+    },
+    "campaign": {
+      "currentLevel": 1,
+      "highestUnlocked": 1,
+      "completed": []
+    },
+    "manual": {
+      "visible": true,
+      "reading": true,
+      "page": "valves",
+      "serial": "V-01",
+      "text": "Close the small valve. Leave the large valve closed. Do not press RESET."
+    },
+    "selected": null,
+    "controlsOpen": false,
+    "coordinateSystem": "Fixed front view: x right, y up; gauges left, valves center, patch right, relays lower. Left/right always facing module.",
+    "view": {
+      "rotation": 0,
+      "camera": [
+        -6.548782446597724,
+        6.494184969875639,
+        15.448409874025405
+      ]
+    },
+    "controls": [
+      {
+        "module": "valves",
+        "control": "small",
+        "x": 255,
+        "y": 397
+      },
+      {
+        "module": "valves",
+        "control": "large",
+        "x": 368,
+        "y": 386
+      },
+      {
+        "module": "valves",
+        "control": "test",
+        "x": 134,
+        "y": 497
+      }
+    ],
+    "modules": [
+      {
+        "id": "valves",
+        "serial": "V-01",
+        "active": true,
+        "complete": false,
+        "fault": false,
+        "world": {
+          "small": true,
+          "large": false,
+          "pressure": 1
+        }
+      },
+      {
+        "id": "cable",
+        "serial": "C-01",
+        "active": false,
+        "complete": false,
+        "fault": false,
+        "world": {
+          "connected": "none",
+          "clipA": false,
+          "clipB": false,
+          "signal": "idle"
+        }
+      },
+      {
+        "id": "switches",
+        "serial": "S-01",
+        "active": false,
+        "complete": false,
+        "fault": false,
+        "world": {
+          "left": false,
+          "right": false,
+          "fan": false,
+          "pressure": 4,
+          "receiver": "none",
+          "signal": "idle"
+        }
+      }
+    ],
+    "relay": true,
+    "prediction": true,
+    "strikes": 0,
+    "time": null,
+    "evidence": {
+      "assisted": true,
+      "retries": 0,
+      "events": []
+    },
+    "audio": {
+      "state": "not-started",
+      "loaded": 0,
+      "error": null,
+      "activeLoops": 0,
+      "moduleStems": 0,
+      "stemLevels": [],
+      "paused": true,
+      "background": false,
+      "ducked": true,
+      "gains": {
+        "master": 0.8,
+        "music": 0.75,
+        "sfx": 0.8,
+        "voice": 1
+      },
+      "mix": {
+        "master": 0,
+        "music": 0,
+        "musicTarget": 0.21000000000000002,
+        "sfx": 0,
+        "voice": 0
+      },
+      "activeShots": 0,
+      "cueCount": 0,
+      "cueCounts": {},
+      "lastCue": null,
+      "rms": 0,
+      "transportSeconds": 0,
+      "voiceAvailable": false
+    },
+    "feedback": "טעינת המכונה נכשלה. רעננו את העמוד כדי לנסות שוב."
+  },
+  "messages": [
+    {
+      "data": {
+        "source": "workbook-game",
+        "version": 1,
+        "slug": "manual-mayhem",
+        "type": "error",
+        "message": "Engine model unavailable: pump.glb"
+      },
+      "origin": "http://127.0.0.1:64057",
+      "fromFrame": true,
+      "at": 5878.300000011921
+    }
+  ]
+}

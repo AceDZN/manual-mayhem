@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readProgress, selectLevel, completeLevel } from '../src/campaign-progress';
+import { readProgress, selectLevel, completeLevel, enterLessonLevel } from '../src/campaign-progress';
 const win = { strikes: 0, assisted: false, retries: 0 };
 test('fresh campaign starts at1 and rejects locked or invalid selections', () => {
   const p = readProgress(null);
@@ -39,5 +39,25 @@ test('corrupt or obsolete saves cannot unlock gaps or out-of-range levels', () =
   const gap = readProgress({ version: 1, currentLevel: 29, completed: { 1: win, 3: win } });
   assert.equal(gap.highestUnlocked, 2);
   assert.equal(gap.currentLevel, 2);
-  assert.deepEqual(Object.keys(gap.completed), ['1']);
+  assert.deepEqual(Object.keys(gap.completed), ['1', '3']);
+});
+
+test('explicit lesson entry opens later content without inventing earlier completion', () => {
+  let p = enterLessonLevel(readProgress(null), 24);
+  assert.equal(p.currentLevel, 24);
+  assert.equal(p.highestUnlocked, 24);
+  assert.deepEqual(p.completed, {});
+  assert.equal(selectLevel(p, 25), p);
+  p = completeLevel(p, 24, win);
+  assert.deepEqual(Object.keys(p.completed), ['24']);
+  assert.equal(p.highestUnlocked, 25);
+  assert.equal(readProgress(JSON.parse(JSON.stringify(p))).currentLevel, 25);
+  p = enterLessonLevel(p, 12);
+  assert.equal(p.highestUnlocked, 25);
+  p = completeLevel(p, 12, win);
+  assert.deepEqual(Object.keys(p.completed), ['12', '24']);
+});
+test('invalid lesson entry cannot change progression', () => {
+  const p = readProgress(null);
+  for (const n of [0,31,NaN,2.5]) assert.equal(enterLessonLevel(p,n), p);
 });
